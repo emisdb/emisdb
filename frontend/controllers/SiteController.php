@@ -7,11 +7,15 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\NewForm;
+use frontend\models\Languages;
+//use app\Languages;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\data\Pagination;
 
 /**
  * Site controller
@@ -167,5 +171,21 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+    public function actionLanguages()
+    {
+        $lang= Languages::find();
+        $pg=new Pagination(['defaultPageSize'=>3,'totalCount'=>$lang->count()]);
+        $lang=$lang->offset($pg->offset)->limit($pg->limit)->all();
+        return $this->render('langs', ['langs'=>$lang,'pg'=>$pg, 'name'=>'Languages']);
+        
+    }
+   public function actionForm()
+    {
+        $form=new NewForm();
+         if ($form->load(Yii::$app->request->post()) && $form->validate() ) {
+            return $this->render('form', ['form'=>$form,'name'=>$form->name,'age'=>$form->age,'act'=>$form->active,'mail'=>$form->email]);           
+         }
+        return $this->render('form', ['form'=>$form]);
     }
 }

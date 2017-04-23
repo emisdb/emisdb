@@ -20,15 +20,18 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
 </head>
 <body>
     <?php $this->beginBody() ?>
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+ //               'brandLabel' =>  "EMIS.DB",
+                'brandLabel' =>  $this->render('header'),
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
+//                    'class' => 'navbar-fixed-top',
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
@@ -36,6 +39,7 @@ AppAsset::register($this);
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'Languges', 'url' => ['/site/languages']],
             ];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -54,6 +58,7 @@ AppAsset::register($this);
             NavBar::end();
         ?>
 
+
         <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -65,7 +70,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; EMIS.DB <?= date('Y') ?></p>
         <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
@@ -73,4 +78,6 @@ AppAsset::register($this);
     <?php $this->endBody() ?>
 </body>
 </html>
+<?php    $this->registerJsFile(Yii::$app->homeUrl.'js/myjs.js',  ['position' => yii\web\View::POS_END]);	?>
+    <?php    $this->registerCssFile(Yii::$app->homeUrl.'css/mysite.css');	?>
 <?php $this->endPage() ?>

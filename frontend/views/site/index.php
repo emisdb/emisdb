@@ -1,49 +1,83 @@
 <?php
+use yii\widgets\Menu;
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'EMIS.DB en';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Business goes digital!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p class="lead">EMIS.DB business application development.</p>
+        <div class="lists-no-disc">
+        <?php
+      echo Menu::widget([
+    'items' => [
+        ['label' => 'The Forth Revolution', 'url' => ['site/index']],
+        ['label' => 'Earnings and Investments', 'url' => ['site/login']],
+        ['label' => 'Studio as investment', 'url' => ['site/login'], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'Digital business instruments', 'url' => ['site/index']],
+        ['label' => 'Technology: Open Source/Low code', 'url' => ['site/index']],
+        ['label' => 'Project development style: Agile/Waterfall', 'url' => ['site/index']],
+        ['label' => 'What we offer', 'url' => ['site/index']],
+       ],
+]);
+?>
+        </div>
     </div>
 
     <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>The Forth Revolution</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
+                    and relate to one another. The First Industrial Revolution used water and steam power...</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+           <div class="col-lg-4">
+                <h2>Earnings and Investments</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
+                    and relate to one another. The First Industrial Revolution used water and steam power...</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
             </div>
+           <div class="col-lg-4">
+                <h2>Digital business instruments</h2>
+
+                <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
+                    and relate to one another. The First Industrial Revolution used water and steam power...</p>
+
+                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Technology: Open Source/Low code</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
+                    and relate to one another. The First Industrial Revolution used water and steam power...</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
+            </div>
+           <div class="col-lg-4">
+                <h2>Project development style: Agile/Waterfall</h2>
+
+                <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
+                    and relate to one another. The First Industrial Revolution used water and steam power...</p>
+
+                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
+            </div>
+           <div class="col-lg-4">
+                <h2>What we offer</h2>
+
+                <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
+                    and relate to one another. The First Industrial Revolution used water and steam power...</p>
+
+                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
             </div>
         </div>
 

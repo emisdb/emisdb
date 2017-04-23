@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23-Apr-2017, 13:12:29
+    Author     : DenisT
+*/
+
+ul#head {
+    float: left;
+    margin-bottom: 0;
+}
+ul#head li {
+    list-style-type: none;
+    width: 45px;
+    height: 50px;
+    margin-right: 0px;
+    float: left;
+    overflow: hidden;
+}
+div.lists-no-disc ul li
+{
+        list-style-type: none;
+}

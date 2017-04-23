@@ -6,6 +6,11 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'U3_H9Ue1ja5h3gw-WcJLIXf7asuICn4D',
         ],
+        'urlManager'=>[
+          'enablePrettyUrl'=>false,
+            'showScriptName'=>false,
+            'rules'=>['about'=>'site/about'],
+        ],
     ],
 ];
 
