@@ -175,7 +175,7 @@ class SiteController extends Controller
     public function actionLanguages()
     {
         $lang= Languages::find();
-        $pg=new Pagination(['defaultPageSize'=>3,'totalCount'=>$lang->count()]);
+        $pg=new Pagination(['defaultPageSize'=>5,'totalCount'=>$lang->count()]);
         $lang=$lang->offset($pg->offset)->limit($pg->limit)->all();
         return $this->render('langs', ['langs'=>$lang,'pg'=>$pg, 'name'=>'Languages']);
         

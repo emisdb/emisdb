@@ -29,9 +29,10 @@ class Languages extends ActiveRecord
     public function rules()
     {
         return [
-            [['flagpic'], 'required'],
+//            [['flagpic'], 'required'],
             [['shortname'], 'string', 'max' => 3],
-            [['germanname', 'englishname', 'flagpic'], 'string', 'max' => 45]
+            [['germanname', 'englishname', 'flagpic'], 'string', 'max' => 45],
+            [['flagpic'],'file']
         ];
     }
 
@@ -42,10 +43,10 @@ class Languages extends ActiveRecord
     {
         return [
             'id_languages' => 'Id Languages',
-            'shortname' => 'Shortname',
-            'germanname' => 'Germanname',
-            'englishname' => 'Englishname',
-            'flagpic' => 'Flagpic',
+            'shortname' => 'Short name',
+            'germanname' => 'German name',
+            'englishname' => 'English name',
+            'flagpic' => 'Flag',
         ];
     }
 }

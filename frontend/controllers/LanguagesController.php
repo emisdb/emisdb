@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * LanguagesController implements the CRUD actions for Languages model.
@@ -81,7 +82,14 @@ class LanguagesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+             $model->flagpic= UploadedFile::getInstance($model, 'flagpic');
+             if($model->flagpic)
+             {
+                $name=$model->flagpic->baseName.".".$model->flagpic->extension;
+                $model->flagpic->saveAs('images/langs/'.$name);
+             }
+             $model->flagpic=$name; $model->save(); 
             return $this->redirect(['view', 'id' => $model->id_languages]);
         } else {
             return $this->render('update', [

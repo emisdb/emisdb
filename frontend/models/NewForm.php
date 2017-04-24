@@ -20,5 +20,15 @@ class NewForm extends Model
             [['active'],'boolean']
            ];
     }
+        public function attributeLabels()
+    {
+        return [
+            'name' => 'Shortname',
+            'age' => 'Age',
+            'email' => 'E-mail',
+            'active' => 'Act',
+        ];
+    }
+
 }
 
