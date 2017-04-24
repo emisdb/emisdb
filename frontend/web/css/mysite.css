@@ -24,3 +24,6 @@ div.lists-no-disc ul li
 {
         list-style-type: none;
 }
+.langs li{
+    margin-bottom: 3px;
+}

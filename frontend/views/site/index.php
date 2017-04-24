@@ -13,9 +13,9 @@ $this->title = 'EMIS.DB en';
         <?php
       echo Menu::widget([
     'items' => [
-        ['label' => 'The Forth Revolution', 'url' => ['site/index']],
-        ['label' => 'Earnings and Investments', 'url' => ['site/login']],
-        ['label' => 'Studio as investment', 'url' => ['site/login'], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'The Forth Revolution', 'url' => ['site/index','chap'=>1]],
+         ['label' => 'Earnings and Investments', 'url' => ['site/index']],
+        ['label' => 'Studio as investment', 'url' => ['site/index'], 'visible' => !Yii::$app->user->isGuest],
         ['label' => 'Digital business instruments', 'url' => ['site/index']],
         ['label' => 'Technology: Open Source/Low code', 'url' => ['site/index']],
         ['label' => 'Project development style: Agile/Waterfall', 'url' => ['site/index']],

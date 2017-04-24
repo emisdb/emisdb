@@ -12,7 +12,7 @@ $this->title = $name;
 <div class="site-error">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <ol>
+    <ol class="langs">
 <?php 
         foreach ($langs as $lang) {
             echo '<li><b>'.$lang->shortname.'</b> : '.
