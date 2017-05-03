@@ -11,6 +11,7 @@ and open the template in the editor.
 ul#head {
     float: left;
     margin-bottom: 0;
+ 
 }
 ul#head li {
     list-style-type: none;
@@ -23,6 +24,11 @@ ul#head li {
 div.lists-no-disc ul li
 {
         list-style-type: none;
+}
+div.lists-no-disc ul
+{
+   padding-left: 0; 
+  
 }
 .langs li{
     margin-bottom: 3px;

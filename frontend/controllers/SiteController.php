@@ -9,6 +9,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\NewForm;
 use frontend\models\Languages;
+use  \frontend\models\SiteData;
 //use app\Languages;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -16,6 +17,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\data\Pagination;
+use yii\web\Cookie;
+
 
 /**
  * Site controller
@@ -69,8 +72,23 @@ class SiteController extends Controller
         ];
     }
 
+
+        public function actionData()
+    {
+            $form= new SiteData();
+            $val=Yii::$app->request->get();
+              $cookies=Yii::$app->response->cookies;
+          if($form->load(Yii::$app->request->post()) && $form->validate())
+            {
+              $cookies->add(new Cookie(['name'=>'sitedata','value'=>$form->data]));
+            }
+           $vali=Yii::$app->request->cookies->getValue('sitedata');
+         return $this->render('cook',['form'=>$form,'res'=>$val,'resi'=>$cookies, 'resid'=>$vali]);
+    }
+    
     public function actionIndex($chap=0)
     {
+//        $req=Yii::$app->request->get();
         if($chap==0)
         {
             return $this->render('index');

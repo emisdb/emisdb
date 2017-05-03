@@ -14,12 +14,12 @@ $this->title = 'EMIS.DB en';
       echo Menu::widget([
     'items' => [
         ['label' => 'The Forth Revolution', 'url' => ['site/index','chap'=>1]],
-         ['label' => 'Earnings and Investments', 'url' => ['site/index']],
-        ['label' => 'Studio as investment', 'url' => ['site/index'], 'visible' => !Yii::$app->user->isGuest],
-        ['label' => 'Digital business instruments', 'url' => ['site/index']],
-        ['label' => 'Technology: Open Source/Low code', 'url' => ['site/index']],
-        ['label' => 'Project development style: Agile/Waterfall', 'url' => ['site/index']],
-        ['label' => 'What we offer', 'url' => ['site/index']],
+        ['label' => 'Earnings and Investments', 'url' => ['site/index','chap'=>2]],
+        ['label' => 'Studio as investment', 'url' => ['site/index','chap'=>3], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'Digital business instruments', 'url' => ['site/index','chap'=>4]],
+        ['label' => 'Technology: Open Source/Low code', 'url' => ['site/index','chap'=>5]],
+        ['label' => 'Project development style: Agile/Waterfall', 'url' => ['site/index','chap'=>6]],
+        ['label' => 'What we offer', 'url' => ['site/index','chap'=>7]],
        ],
 ]);
 ?>
@@ -35,7 +35,7 @@ $this->title = 'EMIS.DB en';
                 <p>We stand on the brink of a technological revolution that will fundamentally alter the way we live, work,
                     and relate to one another. The First Industrial Revolution used water and steam power...</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Revolution &raquo;</a></p>
+                <p><a class="btn btn-default" href="<?=Yii::$app->urlManager->createUrl(['site/index','chap'=>1])  ?>">Revolution &raquo;</a></p>
             </div>
            <div class="col-lg-4">
                 <h2>Earnings and Investments</h2>

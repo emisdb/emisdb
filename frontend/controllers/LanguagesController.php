@@ -63,7 +63,15 @@ class LanguagesController extends Controller
     {
         $model = new Languages();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+             $model->flagpic= UploadedFile::getInstance($model, 'flagpic');
+             if($model->flagpic)
+             {
+                $name=$model->flagpic->baseName.".".$model->flagpic->extension;
+                $model->flagpic->saveAs('images/langs/'.$name);
+             }
+             $model->flagpic=$name;
+             $model->save(); 
             return $this->redirect(['view', 'id' => $model->id_languages]);
         } else {
             return $this->render('create', [
@@ -89,7 +97,8 @@ class LanguagesController extends Controller
                 $name=$model->flagpic->baseName.".".$model->flagpic->extension;
                 $model->flagpic->saveAs('images/langs/'.$name);
              }
-             $model->flagpic=$name; $model->save(); 
+             $model->flagpic=$name;
+             $model->save(); 
             return $this->redirect(['view', 'id' => $model->id_languages]);
         } else {
             return $this->render('update', [
