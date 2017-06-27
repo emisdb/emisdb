@@ -199,9 +199,10 @@ class SiteController extends Controller
     }
     public function actionLanguages()
     {
-        $lang= Languages::find();
+        $lang= Languages::find()->orderBy('shortname');
         $pg=new Pagination(['defaultPageSize'=>8,'totalCount'=>$lang->count()]);
         $lang=$lang->offset($pg->offset)->limit($pg->limit)->all();
+        Languages::SetNumbers($lang);
         return $this->render('langs', ['langs'=>$lang,'pg'=>$pg, 'name'=>'Languages']);
         
     }
