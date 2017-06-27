@@ -78,6 +78,8 @@ AppAsset::register($this);
     <?php $this->endBody() ?>
 </body>
 </html>
-<?php    $this->registerJsFile(Yii::$app->homeUrl.'js/myjs.js',  ['position' => yii\web\View::POS_END]);	?>
-    <?php    $this->registerCssFile(Yii::$app->homeUrl.'css/mysite.css');	?>
+<?php 
+    //  $this->registerJsFile(Yii::$app->homeUrl.'js/myjs.js',  ['position' => yii\web\View::POS_END]);
+        //    $this->registerCssFile(Yii::$app->homeUrl.'css/mysite.css'); //set on AppAsset
+?>
 <?php $this->endPage() ?>

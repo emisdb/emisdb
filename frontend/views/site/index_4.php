@@ -48,8 +48,12 @@ $this->title = 'EMIS.DB en';
  
            </div>
            <div class="col-lg-6">
-
-               
+               <p> Digital technologies have fundamentally altered human behavior and consumers that have been presented 
+                   with the opportunity have been quick to integrate digital tools into their daily lives. 
+                   Shopping is one example: e-commerce in the UK has been projected to reach almost 17% of total retail sales in 2016. 
+                   The internet influences more than half of all retail purchases in Brazil.
+                   In India, BCG estimates that digital technologies will influence up to 45% of all retail sales by 2025.  
+                </p>
  
              </div>
                </div>

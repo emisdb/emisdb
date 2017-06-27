@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\helpers\Html;
 use yii\db\ActiveRecord;
 /**
  * This is the model class for table "languages".
@@ -15,6 +16,12 @@ use yii\db\ActiveRecord;
  */
 class Languages extends ActiveRecord
 {
+    public $img_local;
+    public function afterFind() {
+        $this->img_local= Html::img(Yii::$app->homeUrl.'images/langs/'.$this->flagpic,['width'=>'40px','style'=>'border:1px double rgb(124,124,64);']);
+        
+    }
+
     /**
      * @inheritdoc
      */

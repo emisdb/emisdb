@@ -18,8 +18,7 @@ $this->title = $name;
             echo '<li><b>'.$lang->shortname.'</b> : '.
                     Html::a($lang->englishname, ['languages/view','id'=>$lang->id_languages]).
                     ' : '.$lang->germanname.
-                    ' : '.Html::img(Yii::$app->homeUrl.'images/langs/'.$lang->flagpic,['width'=>'30px','style'=>'border:1px dotted black;']).
-                    '</li>';
+                    ' : '.$lang->img_local.'</li>';
          }
 ?>
         </ol>

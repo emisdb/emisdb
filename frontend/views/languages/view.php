@@ -33,7 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'shortname',
             'germanname',
             'englishname',
-            'flagpic',
+            ['value'=>$model->img_local,
+              'label'=>'flag',
+                'format'=>'raw'],
         ],
     ]) ?>
 

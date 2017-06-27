@@ -26,7 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'shortname',
             'germanname',
             'englishname',
-            'flagpic',
+            ['value'=>'img_local',
+              'label'=>'flag',
+                'format'=>'raw'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
