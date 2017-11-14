@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Go digital</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/animate.css">
+ <style>
+  body {
+      position: relative;
+  }
+  </style>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<body>
+<body  data-spy="scroll" data-target="#comNavbar">
 
 <!-- Navbar (sit on top) -->
-<div class="w3-top w3-card w3-blue">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+<nav class="w3-top w3-card w3-blue" id="comNavbar">
+  <div class="w3-bar" id="myNavbar"> 
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
-    <a href="#home" class="w3-bar-item w3-button">GO DIGITAL</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-line-chart"></i> GROWTH</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-      <i class="fa fa-search"></i>
-    </a>
-  </div>
+      <ul class="nav navbar-nav">
+          <li class="active"><a href="#home" class="w3-bar-item w3-button">GO DIGITAL</a></li>
+          <li><a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-line-chart"></i>GROWTH</a></li>
+          <li><a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-money"></i>EARNINGS</a></li>
+          <li><a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a></li>
+        </ul>
+ 
+ </div>
 
   <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+  <nav id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">GROWTH</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">EARNINGS</a>
     <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
+  </nav>
+</nav>
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle">
-   <div class="w3-display w3-center">
-   <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Digital transformation</span>
-  </div>
-  <div class="w3-panel w3-black w3-center">
-	    <span class="w3-center w3-black w3-xsmall w3-animate-opacity">
-		Digital technologies have had widespread and positive economic effects on the global economy.
-		It is the single most critical issue facing
-		organizations today. It’s disrupting industries, transforming businesses, and creating new competitive differentiation that will last for years.	
-</span>	
-
-  </div> 
+    <div class="w3-display w3-center">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Digital transformation</span>
+    </div>
+    <div class="w3-panel w3-black w3-center">
+        <span class="w3-center w3-black w3-xsmall w3-animate-opacity">
+            Digital technologies have had widespread and positive economic effects on the global economy.
+            It is the single most critical issue organizations facing today.
+            It’s disrupting industries, transforming businesses, and creating new competitive differentiation that will last for years.	
+        </span>
+    </div> 
   </div>
 </div>
 
@@ -60,29 +65,32 @@
 <div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center">Company growth</h3>
   <p class="w3-center"><em>Digitalisation drives company growth</em></p>
-   <div class="w3-row">
- 		<div class="w3-container w3-padding-small">
-		<p>Digital and mobile
-			technology advances have delivered far-reaching
-			economic and social benefits for countries,
-			companies and citizens. Social and business values change worlwide.
-                        <button 
-                            onclick="document.getElementById('values').style.display='block'" 
-                            class="w3-button w3-white w3-hover-blue w3-border w3-border-blue w3-round-large w3-padding-small">
-                            <i>Digitalisation drives values</i></button></p>
+    <div class="w3-row">
+        <div class="w3-container w3-padding-small">
+            <p>Digital and mobile
+		technology advances have delivered far-reaching
+		economic and social benefits for countries,
+		companies and citizens. Social and business values change worlwide.
+                <button  onclick="document.getElementById('values').style.display='block'" 
+                        class="w3-button w3-white w3-hover-blue w3-border w3-border-blue w3-round-large w3-padding-small  wow wobble">
+                    <i>Digitalisation drives values</i>
+                </button>
+            </p>
+            <p>Technology only moves forward, each advance building on the last until an inevitable breakthrough changes everything.
+                New technologies coming up entirely change the habitual economic landscape.
+                   <button onclick="document.getElementById('technologies').style.display='block'" 
+                   class="w3-button w3-white w3-hover-green w3-border w3-border-green w3-round-large w3-padding-small  wow wobble">
+                   <i>Digital technologies are reshaping industries and societies</i>
+                </button>
+           </p>
+            <p>It changes the way companies are run, how customers are acquired and how enterprises do business.
+                And the pace of change is fast—those that are slow to react are likely to find themselves at a disadvantage 
+                to fleeterfooted competitors.
+            </p>
 
-                <p>To realise the benefits of new technologies while navigating economic transitions, management should pursue policies
-                    that incentivise investment and promote development of digital economies.  They will encourage network investment
-                    that improves connectivity. </p>
-                <p> Technology only moves forward, each advance building on the last until an inevitable breakthrough changes everything.
-                    It changes the way companies are run, how customers are acquired and how enterprises do business.
-                    And the pace of change is fast—those that are slow to react are likely to find themselves at a disadvantage
-                    to fleeterfooted competitors.
-                </p>
-				</div>
-				</div>
-
-	<div class="w3-row">
+        </div>
+    </div>
+  <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
       <img src="/w3images/avatar_hat.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
@@ -90,6 +98,12 @@
 
     <!-- Hide this text on small devices -->
     <div class="w3-col m6 w3-hide-small w3-padding-large">
+        
+        <p>To realise the benefits of new technologies while navigating economic transitions, management should pursue policies 
+         that incentivise investment and promote development of digital economies.  They will encourage network investment
+         that improves connectivity.
+        </p>
+                
       <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -109,6 +123,8 @@
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
   </div>
 </div>
+
+
 <div id="values" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-blue w3-display-container">
@@ -140,6 +156,120 @@
              </div>   
   </div>
 </div>
+</div>
+<div id="technologies" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+        <div class="w3-container w3-green w3-display-container w3-small w3-padding-small">
+            <span onclick="document.getElementById('technologies').style.display='none'" class="w3-button w3-display-topright w3-large">x
+            </span>
+            <div class="w3-container w3-green">
+                <h4 class="w3-center" style="margin: 4px;">Digital technologies are reshaping industries and societies</h4>
+               <div class="w3-row">
+                     <div class="w3-card-4 w3-quarter w3-padding-small">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-wifi w3-large" style="padding-right: 2px;"></i>UBIQUITOUS CONNECTIVITY
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Always-on, high-speed broadband and mobile connectivity across all devices
+                        </div>
+                    </div>
+                    <div class="w3-card-4 w3-quarter w3-padding-small">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-bar-chart w3-large" style="padding-right: 2px;"></i>BIG DATA / ADVANCED ANALYTICS
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Gain customer insights for personalised recommendations
+                        </div>
+                    </div>
+                   <div class="w3-card-4 w3-quarter">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-space-shuttle w3-large" style="padding-right: 2px;"></i>NEW DEVICE FORM FACTORS
+                        </header>
+                        <div class="w3-container w3-padding-16">
+                            Wearable, flexible, embedded, or implanted digital devices
+                        </div>
+                    </div>
+                   <div class="w3-card-4 w3-quarter">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-eye w3-large" style="padding-right: 2px;"></i>AUGMENTED REALITY
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            View of the real-world augmented with context relevant information
+                        </div>
+                    </div>
+                 </div>
+               <div class="w3-row">
+                     <div class="w3-card-4 w3-quarter w3-padding-small">
+                        <header class="w3-container w3-padding-large">
+                            <i class="fa fa-print w3-large" style="padding-right: 2px;"></i>3D PRINTING
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Manufacture tailored products in smaller quantities, closer to the point-of-sale/use
+                        </div>
+                    </div>
+                    <div class="w3-card-4 w3-quarter w3-padding-small">
+                        <header class="w3-container" style="padding: 2px;">
+                            <i class="fa fa-dot-circle-o w3-large" style="padding-right: 2px;"></i>INTERNET OF THINGS & SENSORS
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Intelligent products with sensors and IP addresses to control the environment
+                        </div>
+                    </div>
+                   <div class="w3-card-4 w3-quarter">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-wrench w3-large" style="padding-right: 2px;"></i>ADVANCED ROBOTICS
+                        </header>
+                        <div class="w3-container w3-padding-24">
+                            Smart robots with the ability to react autonomously to unknown situations
+                        </div>
+                    </div>
+                   <div class="w3-card-4 w3-quarter">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-microchip w3-large" style="padding-right: 2px;"></i>COGNITIVE COMPUTING
+                        </header>
+                        <div class="w3-container w3-padding-16">
+                            System equipped with artificial intelligence to sense, predict, and infer independently
+                        </div>
+                    </div>
+                 </div>
+               <div class="w3-row">
+                     <div class="w3-card-4 w3-quarter w3-padding-small">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa fa-grav w3-large" style="padding-right: 2px;"></i>SIMULATION
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Powerful (3D) simulation software for education, product testing, and R&amp;D
+                        </div>
+                    </div>
+                    <div class="w3-card-4 w3-quarter w3-padding-small">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-address-book w3-large" style="padding-right: 2px;"></i>SOCIAL, LOCAL, MOBILE
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Engage with customers in a relevant and continuous way
+                        </div>
+                    </div>
+                   <div class="w3-card-4 w3-quarter">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-cloud-upload w3-large" style="padding-right: 2px;"></i>CLOUD COMPUTING
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Scalable processing power combined with shared cloud storage to build SaaS solutions
+                        </div>
+                    </div>
+                   <div class="w3-card-4 w3-quarter">
+                        <header class="w3-container w3-padding-small">
+                            <i class="fa fa-cubes w3-large" style="padding-right: 2px;"></i>SYSTEM INTEGRATION
+                        </header>
+                        <div class="w3-container w3-padding-small">
+                            Linking together individual computing systems and software applications
+                        </div>
+                    </div>
+                 </div>
+
+            </div>   
+        </div>
+    </div>
 </div>
 
 <div class="w3-row w3-center w3-dark-grey w3-padding-16">
@@ -326,7 +456,9 @@ function toggleFunction() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <script src="js/wow.min.js"></script>
-
+              <script>
+              new WOW().init();
+              </script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
