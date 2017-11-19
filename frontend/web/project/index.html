@@ -281,14 +281,23 @@
                     <div class="w3-content">
                         <div class="w3-row w3-center w3-border w3-border-dark-grey">
                              <a href="javascript:void(0)" onclick="openMenu(event, 'tech');" id="myLink">
-                                <div class="w3-col s4 tablink w3-padding-large w3-hover-lime">Technological impact</div>
-                             </a>
+                                 <div class="w3-col s4 tablink w3-padding-large w3-hover-cyan">
+                                     <div class="w3-hide-medium w3-hide-large" >Technological <br> impact</div>    
+                                     <div class="w3-hide-small" >Technological impact</div>    
+                                 </div>
+                              </a>
                              <a href="javascript:void(0)" onclick="openMenu(event, 'busy');">
-                                 <div class="w3-col s4 tablink w3-padding-large w3-hover-lime">Business practices</div>
+                                   <div class="w3-col s4 tablink w3-padding-large w3-hover-cyan">
+                                       <div class="w3-hide-medium w3-hide-large" >Business <br> practices</div>    
+                                     <div class="w3-hide-small" >Business practices</div>    
+                                   </div>
                                </a>
                              <a href="javascript:void(0)" onclick="openMenu(event, 'cust');">
-                                <div class="w3-col s4 tablink w3-padding-large w3-hover-lime">Customer services</div>
-                              </a>
+                                  <div class="w3-col s4 tablink w3-padding-large w3-hover-cyan">
+                                      <div class="w3-hide-medium w3-hide-large" >Customer<br> services</div>    
+                                     <div class="w3-hide-small" >Customer services</div>
+                                  </div>
+                               </a>
                         </div>
 
                          <div id="tech" class="w3-container menu w3-padding-16 w3-teal w3-small">
@@ -629,10 +638,10 @@ function openMenu(evt, menuName) {
   }
   tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < x.length; i++) {
-     tablinks[i].className = tablinks[i].className.replace(" w3-lime", "");
+     tablinks[i].className = tablinks[i].className.replace(" w3-cyan", "");
   }
   document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-lime";
+  evt.currentTarget.firstElementChild.className += " w3-cyan";
 }
 document.getElementById("myLink").click();
 </script>
