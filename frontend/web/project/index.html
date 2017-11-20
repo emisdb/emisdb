@@ -457,18 +457,93 @@
     <div class="w3-row">
         <div class="w3-container w3-padding-small">
             <p>In recent times demand for business processes management software is exploding.
-                3200 software developers surwayed in 2016 reported how many applications of different types
+                3200 software developers survayed in 2016 reported how many applications of different types
                 they plan to put into production in 2017:
                 <button  onclick="document.getElementById('types').style.display='block'" 
                         class="w3-button w3-white w3-hover-lime w3-border w3-border-lime w3-round-large w3-padding-small  wow wobble">
                     <i>Software typology for 2017</i>
                 </button>
             </p>
-            <p>Digital technology   
+            <button onclick="accFunction('earn1')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align wow wobble">
+               <i class="fa fa-cogs w3-xlarge" style="padding-right: 5px;"></i>
+                  Tools for business and technological flow control
+           </button>
+            <div id="earn1" class="w3-hide w3-animate-zoom accordion">
+             <p>Huge variety of applications originate from he fact that almost every process, each concept or business procedure
+                at the contemporary enterprise may be described as an algorithm with the unlimited number of components.
+                This immediately brings us to the idea of developing programmatic solution for those activities that always were 
+                under human control. Such solution allows to release  manpower for more creative tasks and make process more error-proof.
+            </p>
+            <p>     Moreover now  these solutions are offered at affordable rates.
+                They are often simple enough by control
+                that businesses don’t need to hire dedicated employees or sign long-term service contracts in order to make use of them.
+                
+              </p>  
+              </div>
+             <button onclick="accFunction('earn2')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align wow wobble">
+               <i class="fa fa-internet-explorer w3-xlarge" style="padding-right: 5px;"></i>
+                  Web implementation of the system gives rise to the growing efficiency
+           </button>
+            <div id="earn2" class="w3-hide w3-animate-zoom accordion">
+                When we choose web implementation for our corporate application we obtain additional advantages:
+             <ul>
+                <li>
+                 This tool may be hardware independent using cloud technology .
+                </li>
+                <li>
+                 The system may work 24 hours a day - 7 days a week.
+                </li>
+                <li>
+                 It's world wide access makes control geographically independent (human control turns from the in-place regime to the on-need mode).
+                </li>
+                <li>
+                    Organisation is enabled to involve into control process their clients and contractors as well as any other parties
+                    allowing them restricted access to the system.
+                </li>
+                <li>
+                    This systems gets opportunity to use huge variety of the world wide informational resources as well as customer services (on-line payments, search engines, partner programs). 
+                </li>
+                <li>
+                   It creates great opportunities for integration with the other organisation's systems, partner systems and even third party applications.
+                  </li>
+               <li>
+                   Friendly interface and easy training process as the user deals with the regular browser interface with familiar controls and components.
+                  </li>
+           </ul>
+             </div>
+            <button onclick="accFunction('earn3')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align wow wobble">
+              <i class="fa fa-money w3-xlarge" style="padding-right: 5px;"></i>
+                  The development cost decrease
+
+            </button>
+            <div id="earn3" class="w3-hide w3-animate-zoom accordion">
+
+             <ul>
+                 <li>
+                   The hardware and software necessary to create these software solutions has become increasingly easy to use and afford.  
+                 </li>
+               <li>
+                  The number of tech savvy and entrepreneurial minds who can exploit such crumbling barriers has multiplied exponentially.
+                 </li>
+               <li>
+                    The world of programming established a set of sustainable standards which lead to the quick result by the easiest way.  
+                 </li>
+              <li>
+              This society offers a huge variety of tools and ready-made components for software development. This reduces work time to the unprecedented rates.
+                 </li>
+             </ul>
+                 
+  
+             <p>          
+             A back end inventory system that once took a multi-million-dollar company a year to create in the not-too-distant past 
+             takes a couple of weeks for a few specialists to put together.     
            </p>
-            <p>It changes the way companies are run  
-          </p>
+           <p>
+               The reduction of the aoftware development cost brings us to the situation that less significant or even temporary processes or projects
+               may be equipped with the software product for its control. This works on growing efficiency of the entire organisation.
+           </p>
         </div>
+         </div>
     </div>
  
 
@@ -788,7 +863,18 @@ function myFunction() {
         navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
     }
 }
-
+function accFunction(id) {
+    var y = document.getElementsByClassName("accordion");
+    var x = document.getElementById(id);
+    for (i = 0; i < y.length; i++) {
+        if(y[i]!=x){  y[i].className = y[i].className.replace(" w3-show", "");}
+  }
+     if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
 // Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
     var x = document.getElementById("navDemo");
