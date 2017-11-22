@@ -96,7 +96,9 @@
     </div>
   <div class="w3-row">
     <div class="w3-col m4 w3-center w3-padding-large w3-animate-left wow slideInLeft">
-       <img src="images/soft.png" class="w3-opacity-min w3-hover-opacity-off" alt=""/>
+        <a href="javascript:void(0)" onclick="document.getElementById('ems').style.display='block'">
+            <img src="images/soft.png" class="w3-opacity-min w3-hover-opacity-off" alt=""/>
+        </a>
     </div>
 
     <div class="w3-col m4 w3-padding-large">
@@ -106,7 +108,9 @@
         </p>
     </div>
     <div class="w3-col m4 w3-center w3-padding-large wow slideInRight ">
-       <img src="images/team.png" class="w3-image w3-opacity-min w3-hover-opacity-off" alt=""/>
+        <a href="javascript:void(0)" onclick="document.getElementById('erp').style.display='block'">
+           <img src="images/team.png" class="w3-image w3-opacity-min w3-hover-opacity-off" alt=""/>
+        </a>
     </div>
   </div>
      <!-- Modals for the growth --> 
@@ -434,6 +438,92 @@
         </div>
     </div>
 </div>
+<div id="ems" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-amber w3-display-container">
+      <span onclick="document.getElementById('ems').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+   <div class="w3-row">
+        <h4 class="w3-center">Enterprise Management System (EMS) types</h4>
+          <ul class="w3-ul  w3-card-4 w3-margin-bottom">
+            <li>
+                Enterprise Resource Planning. (ERP)
+            </li>
+           <li>
+                Supply Chain Management(SCM)
+            </li>
+           <li>
+                Customer Relationship Management (CRM)
+            </li>
+         </ul>
+       <h4 class="w3-center">Used for</h4>
+          <ul class="w3-ul  w3-card-4 w3-margin-bottom">
+            <li>
+                Business forecasting, planning and control
+             </li>
+           <li>
+               Sales, distribution, invoicing
+            </li>
+           <li>
+               Production planning and control
+            </li>
+          <li>
+               Material management
+            </li>
+          <li>
+               Finance and accounting
+            </li>
+         <li>
+               Personnel management
+            </li>
+         </ul>
+ 
+   </div>   
+  </div>
+</div>
+</div>
+<div id="erp" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-orange w3-display-container">
+      <span onclick="document.getElementById('erp').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+   <div class="w3-row">
+        <h4 class="w3-center">the ERP controls the support systems:</h4>
+          <ul class="w3-ul  w3-card-4 w3-margin-bottom">
+            <li>
+                EDI:-Electronic Data Interchange
+                <p>
+                <i>is used to transfer electronic documents or business data from one computer system to another</i>
+                </p>
+            </li>
+           <li>
+                AMS:-Attendance Management System
+                <p>
+                 <i>is the system of managing attendance or presence of work</i>
+                 </p>
+            </li>
+           <li>
+                DMS:-Document Management System
+                <p>
+                  <i>is designed to keep important data into database and making them available</i>
+                  </p>
+            </li>
+           <li>
+                CMS:-Communication Management System
+                <p>
+                  <i>is the proper planning, implementing, supervising, and revision of all channels of communication</i>
+                  </p>
+            </li>
+           <li>
+               SMS:-Security Management System
+                  <p>
+                  <i> is broad field of management related to asset physical security and human resource safety function</i>
+                  </p>
+            </li>
+         </ul>
+ 
+   </div>   
+  </div>
+</div>
+</div>    
  </div>
     <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min" id="portfolio">
@@ -452,41 +542,89 @@
 </div>
 
 <div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">Earnings</h3>
-  <p class="w3-center"><em>Your software raises business efficiency</em></p>
+<div class="w3-container w3-center">
+   <span class="w3-tag w3-xlarge">E</span>
+  <span class="w3-tag w3-xlarge">A</span>
+  <span class="w3-tag w3-xlarge">R</span>
+  <span class="w3-tag w3-xlarge">N</span>
+  <span class="w3-tag w3-xlarge">I</span>
+  <span class="w3-tag w3-xlarge">N</span>
+  <span class="w3-tag w3-xlarge">G</span>
+  <span class="w3-tag w3-xlarge">S</span>
+</div> 
+    <p class="w3-center"><em>Your software raises business efficiency</em></p>
     <div class="w3-row">
         <div class="w3-container w3-padding-small">
             <p>In recent times demand for business processes management software is exploding.
                 3200 software developers survayed in 2016 reported how many applications of different types
                 they plan to put into production in 2017:
-                <button  onclick="document.getElementById('types').style.display='block'" 
+                <button  onclick="document.getElementById('types').style.display='block'" style="margin-bottom:2px;"
                         class="w3-button w3-white w3-hover-lime w3-border w3-border-lime w3-round-large w3-padding-small  wow wobble">
                     <i>Software typology for 2017</i>
                 </button>
             </p>
-            <button onclick="accFunction('earn1')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align wow wobble">
-               <i class="fa fa-cogs w3-xlarge" style="padding-right: 5px;"></i>
-                  Tools for business and technological flow control
+            <button onclick="accFunction('earn1')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align w3-bottombar wow wobble">
+               <i class="fa fa-cogs w3-xlarge"></i>
+                  Tools for business <span class="w3-hide-small">and technological flow</span> control
            </button>
-            <div id="earn1" class="w3-hide w3-animate-zoom accordion">
-             <p>Huge variety of applications originate from he fact that almost every process, each concept or business procedure
+            <div id="earn1" class="w3-hide w3-animate-left accordion">
+             <p>The huge variety of applications was built because of the fact that almost every process, each concept or business procedure
                 at the contemporary enterprise may be described as an algorithm with the unlimited number of components.
                 This immediately brings us to the idea of developing programmatic solution for those activities that always were 
-                under human control. Such solution allows to release  manpower for more creative tasks and make process more error-proof.
-            </p>
-            <p>     Moreover now  these solutions are offered at affordable rates.
-                They are often simple enough by control
-                that businesses don’t need to hire dedicated employees or sign long-term service contracts in order to make use of them.
-                
-              </p>  
-              </div>
-             <button onclick="accFunction('earn2')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align wow wobble">
-               <i class="fa fa-internet-explorer w3-xlarge" style="padding-right: 5px;"></i>
-                  Web implementation of the system gives rise to the growing efficiency
+                under human control.
+             </p>
+             <p>
+                 Usually this step leads to the raise in the operational performance of the enterprise. As it properly arranges company's
+                 information and streamlines business procedures. But sometimes this step becomes a sheer breakthrough and brings
+                 the organisation's functioning on the new level.
+             </p>
+            </div>
+             <button onclick="accFunction('earn4')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align w3-bottombar wow wobble">
+               <i class="fa fa-thumbs-o-up w3-xlarge"></i>
+                  The benefits of the information system 
            </button>
-            <div id="earn2" class="w3-hide w3-animate-zoom accordion">
-                When we choose web implementation for our corporate application we obtain additional advantages:
-             <ul>
+            <div id="earn4" class="w3-hide w3-animate-right accordion">
+           <p>
+                The organisation often may dramatically improve its operation when it is based on the especially designed software.
+                They reap the benefits of their informational system:
+              </p>  
+             <ul class="w3-ul  w3-card-4 w3-margin-bottom">
+                <li>
+                     The application becomes a tool for everyday operations, a single and unified knowledge resource,
+                     data repository for all personnel.
+                     It allows for tracking and storing information about ongoing activity, planning future work, reporting the efforts made.               
+                 </li>
+                   <li>
+                     Company's information is rearranged in the appropriate order and priorities become properly set.
+                     It provides benchmarks for staff performance.                    
+                 </li>
+                 <li>
+                   The automatisation of the most processes saves time on the regular paperwork and everyday reporting.
+                   The personnel may concentrate on the more productive actions.
+                 </li>
+                 <li>
+                     It ensures proper utilisation of the company's resources, leads to the maximum productivity.
+                 </li>
+                 <li>
+                    It provides opportunity to release  manpower for more creative tasks. 
+                 </li>
+                <li>
+                    Reducing human involvement in the data arrangement, it makes process more error-proof.     
+                 </li>
+                <li>
+                    Creates target-oriented and personally set data analitics allows for controlling organisation's performance,
+                     developing effective strategy for business procedures, provides the opportunity to notice  and promptly react on  all unexpected situations at the market.
+                  </li>
+           </ul>
+ 
+               </div>
+             <button onclick="accFunction('earn2')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align w3-bottombar wow wobble">
+               <i class="fa fa-internet-explorer w3-xlarge" style="padding-right: 5px;"></i>
+                  Web implementation advantages
+           </button>
+            <div id="earn2" class="w3-hide w3-animate-left accordion">
+                When we choose web implementation for our corporate application we obtain even more opportunities:
+             <ul class="w3-ul  w3-card-4 w3-margin-bottom">
                 <li>
                  This tool may be hardware independent using cloud technology .
                 </li>
@@ -494,31 +632,38 @@
                  The system may work 24 hours a day - 7 days a week.
                 </li>
                 <li>
-                 It's world wide access makes control geographically independent (human control turns from the in-place regime to the on-need mode).
+                 The world wide access to the system makes control geographically independent (human control turns from the in-place regime to the on-need mode).
                 </li>
                 <li>
                     Organisation is enabled to involve into control process their clients and contractors as well as any other parties
                     allowing them restricted access to the system.
                 </li>
                 <li>
+                    With the good front end design you may address directly to the customer, providing him/her timely with updated information
+                    and receiving feedback immediately.
+                </li>
+                <li>
                     This systems gets opportunity to use huge variety of the world wide informational resources as well as customer services (on-line payments, search engines, partner programs). 
                 </li>
                 <li>
                    It creates great opportunities for integration with the other organisation's systems, partner systems and even third party applications.
-                  </li>
+                   In the end all your applications may comprise a smart and thriving business networking. 
+                 </li>
                <li>
                    Friendly interface and easy training process as the user deals with the regular browser interface with familiar controls and components.
                   </li>
            </ul>
              </div>
-            <button onclick="accFunction('earn3')" class="w3-button w3-large w3-block w3-dark-grey w3-left-align wow wobble">
+            <button onclick="accFunction('earn3')"class="w3-button w3-large w3-block w3-dark-grey w3-left-align w3-bottombar wow wobble">
               <i class="fa fa-money w3-xlarge" style="padding-right: 5px;"></i>
                   The development cost decrease
 
             </button>
-            <div id="earn3" class="w3-hide w3-animate-zoom accordion">
+            <div id="earn3" class="w3-hide w3-animate-right accordion">
+           <p>  In our days software solutions are offered at affordable rates and they became significantly easier in operation:
+               </p>  
 
-             <ul>
+             <ul class="w3-ul  w3-card-4 w3-margin-bottom">
                  <li>
                    The hardware and software necessary to create these software solutions has become increasingly easy to use and afford.  
                  </li>
@@ -531,6 +676,11 @@
               <li>
               This society offers a huge variety of tools and ready-made components for software development. This reduces work time to the unprecedented rates.
                  </li>
+                 <li>
+                  The software is simple enough by control.
+                The businesses don’t need to hire dedicated employees or sign long-term service contracts in order to make use of them.
+  
+                 </li>
              </ul>
                  
   
@@ -539,13 +689,39 @@
              takes a couple of weeks for a few specialists to put together.     
            </p>
            <p>
-               The reduction of the aoftware development cost brings us to the situation that less significant or even temporary processes or projects
+               The reduction of the software development cost brings us to the situation that less significant or even temporary processes or projects
                may be equipped with the software product for its control. This works on growing efficiency of the entire organisation.
            </p>
         </div>
          </div>
     </div>
- 
+<div class="w3-container w3-center w3-margin-top">
+   <span class="w3-tag w3-xlarge">I</span>
+  <span class="w3-tag w3-xlarge">N</span>
+  <span class="w3-tag w3-xlarge">V</span>
+  <span class="w3-tag w3-xlarge">E</span>
+  <span class="w3-tag w3-xlarge">S</span>
+  <span class="w3-tag w3-xlarge">T</span>
+  <span class="w3-tag w3-xlarge">M</span>
+  <span class="w3-tag w3-xlarge">E</span>
+  <span class="w3-tag w3-xlarge">N</span>
+  <span class="w3-tag w3-xlarge">T</span>
+  <span class="w3-tag w3-xlarge">S</span>
+</div> 
+  <p class="w3-center"><em>Why invest into software development?</em></p>
+    <div class="w3-row">
+        <div class="w3-container w3-padding-small">
+            <p>
+                The digital boost of the last 30 years now led to the 
+                 <button  onclick="document.getElementById('chart').style.display='block'" style="margin-bottom:2px;"
+                        class="w3-button w3-white w3-hover-blue-gray w3-border w3-border-blue-gray w3-round-large w3-padding-small  wow wobble">
+                    <i>Number of applications.</i>
+                </button>
+           </p>
+
+           
+        </div> 
+    </div> 
 
        <!-- Modals for the growth --> 
 <div id="types" class="w3-modal">
@@ -689,6 +865,20 @@
     </div>
     </div>
 </div>
+ <div id="chart" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-blue-gray w3-display-container">
+      <span onclick="document.getElementById('chart').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+         <div class="w3-row">
+        <h4 class="w3-center">How many applications does your organisation plan to build in 2017? - Companies with 5,000+ employees</h4>
+        <div class="w3-center"><i>% of organisations for number of applications</i></div>
+            <div class="w3-container w3-white" style="width:100%">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>    </div>
+  </div>
+ </div>
+
 </div>
 
 
@@ -828,6 +1018,8 @@
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <script src="js/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
 <script>
 function myMap()
 {
@@ -844,6 +1036,7 @@ function myMap()
   });
   marker.setMap(map);
 }
+
 
 // Modal Image Gallery
 function onClick(element) {
@@ -900,6 +1093,43 @@ function openMenu(evt, menuName) {
 }
 document.getElementById("myLink").click();
               new WOW().init();
+var config = {
+    type: 'pie',
+    data: {
+    datasets: [{
+        data: [33, 33, 11, 7, 16],
+                        backgroundColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
+             ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+             ],
+            borderWidth: 1
+
+    }],
+        labels: [
+        '<10',
+        '10-24',
+        '25-49',
+        '50-99',
+        '>100'
+        
+    ]},
+
+
+};
+    window.onload = function() {
+        var ctx = document.getElementById("myChart").getContext("2d");
+        window.myPie = new Chart(ctx, config);
+    };
 </script>
 
 
