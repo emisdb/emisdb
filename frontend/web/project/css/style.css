@@ -34,3 +34,11 @@ body, html {
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
 
+.w3-ul li {
+    padding: 4px 16px;
+    border-bottom: 1px solid #ddd;
+}
+.w3-ul li p.w3-small{
+    line-height: 1.5;
+    margin-bottom: 5px;
+}
