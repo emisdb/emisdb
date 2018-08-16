@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>MOTU</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style_1.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+<body  data-spy="scroll" data-target="#comNavbar">
+<div class="w3-container w3-row-padding"  id="team">
+    <h1 class="my3-title w3-center" >
+          Команда и эдвайзеры
+       </h1>
+
+    <div class="w3-content w3-display-container" style="max-width: 350px;">
+
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/victor.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                VICTOR
+            </div>
+        </div>
+         <div class="w3-display-container myTeam">
+             <img src="images/ver2/team/maria.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/marina.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/ekaterina.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/pavel.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/irina.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/stephen.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/svetlana.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/denis.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+            </div>
+        </div>
+
+   <div class="w3-center w3-container w3-section w3-large w3-text-grey w3-white  w3-display-bottommiddle" style="width:100%;    margin-bottom: 0!important;">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivst(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivst(1)">&#10095;</div>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(1)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(2)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(3)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(4)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(5)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(6)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(7)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(8)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(9)"> </span>
+  </div>
+</div>
+    </div>
+<!-- Add Google Maps -->
+<script>
+    var slideIndex = 1;  
+    var slideIndext = 1;
+    var sp=0;
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+function plusDivst(n) {
+  showDivst(slideIndext += n);
+}
+
+function currentDivt(n) {
+  showDivst(slideIndext = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+ x[slideIndex-1].style.display = "block";  
+
+}
+function showDivst(n) {
+  var i;
+  var x = document.getElementsByClassName("myTeam");
+  var dots = document.getElementsByClassName("demon");
+  if (n > x.length) {slideIndext = 1}    
+  if (n < 1) {slideIndext = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndext-1].style.display = "block";  
+  dots[slideIndext-1].className += " w3-white";
+}
+function accFunction(id) {
+    var y = document.getElementsByClassName("accordion");
+    var x = document.getElementById(id);
+    for (i = 0; i < y.length; i++) {
+        if(y[i]!=x){  y[i].className = y[i].className.replace(" w3-show", "");}
+  }
+     if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+$(document).ready(function(){
+	sp = 0;
+    showDivst(slideIndext);
+ 
+});
+
+
+
+</script>
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
+
+

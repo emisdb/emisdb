@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>MOTU</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style_2.css">
+<link rel="stylesheet" href="css/animate.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+<body  data-spy="scroll" data-target="#comNavbar">
+
+<!-- Navbar (sit on top) -->
+<nav class="w3-top w3-card w3-transparent" id="comNavbar">
+  <div class="w3-bar w3-transparent w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-mobile">
+        <img src="images/ver2/logo.png" alt="" width="68" />
+    </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+       <a href="#about" class="w3-bar-item w3-button">о проекте</a>
+       <a href="#business_model" class="w3-bar-item w3-button">преимущества</a>
+    <a href="#team" class="w3-bar-item w3-button">команда</a>
+      <a href="#partners" class="w3-bar-item w3-button">партнеры</a>
+     <a href="#faq" class="w3-bar-item w3-button">faq</a>
+
+   </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">о проекте</a>
+  <a href="#business_model" onclick="w3_close()" class="w3-bar-item w3-button">преимущества</a> 
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">команда</a>
+  <a href="#partners" onclick="w3_close()" class="w3-bar-item w3-button">партнеры</a>
+  <a href="#faq" onclick="w3_close()" class="w3-bar-item w3-button">faq</a>
+</nav>
+</nav>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home">
+ <div class="w3-row">
+  <div class="w3-half w3-container w3-text-white wow slideInLeft" >
+     <div class="semi-huge">
+         smart travelers
+     </div>
+
+     <div class="huge">
+         блокчейн платформа для умного туризма
+     </div>
+         <div class="w3-container">
+             <span class=" w3-round-xxlarge w3-light-blue w3-text-white my3-title" style="padding: 20px;">
+                 подробнее
+                </span>
+
+       </div> 
+  </div>
+  <div class="w3-half w3-container wow slideInRight">
+      <div class="w3-display-container" style="width:100%;padding: 60px 20px 10px 60px;">
+             <img class="responsive-image" src="images/ver2/motu_header.png" alt=""/>                
+       </div>
+   </div>
+</div>   
+</header>
+<div class="main-container">
+
+<!-- About Section -  -->
+<div class="w3-container w3-row-padding"   id="about">
+  <div class="w3-row-padding w3-center w3-cell-row" style="margin-top:64px">
+    <div class="w3-half w3-padding-large">
+     <div class="super-huge w3-hide-small">
+         #my open tour
+     </div>    </div>
+      <div class="w3-half w3-padding-large">
+          <div class="w3-container w3-left-align w3-cell-middle">  
+             <div class="w3-container w3-cell w3-cell-middle" >  
+                <div class="w3-row w3-padding-large">
+                     <div class="w3-container w3-quarter ">  
+                         <img src="images/ver2/dis_coin_computer.png" alt=""/> 
+                     </div>
+                      <div class="w3-container w3-threequarter">
+                        #МОТU (DIS-coin) -  международная блокчейн платформа для умных туристов (smart travelers), планирующих поездку в другой город.
+                     </div>
+                 </div>
+                <div class="w3-row w3-padding-large">
+                    <div class="w3-container w3-quarter">  
+                        <img src="images/ver2/dis_coin_pocket.png" alt=""/>
+                    </div>
+                     <div class="w3-container w3-threequarter">
+                         Открой для себя DIS-coin, присоединяйся к сообществу, расти скидку на туристические услуги, получай доход!
+                    </div>
+                 </div>
+                <div class="w3-row w3-padding-large">
+                    <div class="w3-container w3-quarter">  
+                      <img src="images/ver2/man_thinking_icon.png" alt=""/>
+                    </div>
+                     <div class="w3-container w3-threequarter">
+                         Подписывайся на новости – узнай, над чем сейчас работает команда. 
+                    </div>
+                 </div>
+                 <div class="w3-row w3-padding-large">
+                    <div class="w3-display-container" style="margin-left:100px;height:150px;">  
+                        <div class="w3-display-topleft"><img src="images/ver2/photo.png" alt=""/></div>       
+                        <div class="w3-display-bottommiddle"><img src="images/ver2/D-coin.png" alt=""/></div>       
+                        <div class="w3-display-topright"><img src="images/ver2/trip_design.png" alt=""/></div>       
+                  </div>                   
+                
+                 </div>
+         </div>
+         </div>
+      </div>
+    </div>
+   
+    <h1 class="my3-title w3-center" style="padding-top: 168px;">
+          О проекте
+       </h1>
+  </div>
+<div class="w3-container w3-row-padding">
+  <div class="w3-row-padding w3-center w3-row" style="margin-top:24px">
+    <div class="w3-half w3-padding-large">
+        <img src="images/ver2/kartinka_monitor.png" class="w3-image" style="margin:24px" alt=""/>
+    </div>
+     <div class="w3-half w3-padding-large w3-left-align">
+       <p>Каждый из нас становился туристом, посещающим другой город внутри страны и за ее пределами. (И иногда по нескольку раз в год!). </p>
+        <p>#МОТU ставит себе цель - сделать городское путешествие комфортным с насыщенной культурной программой на любой вкус и кошелек.</p>
+        <p>Чтобы не переплачивать, комиссия платформы берется исключительно с провайдера услуги, а турист получает лучшую цену.</p>
+        <p>Чтобы воплотить эту цель в реальность, #МОТU вводит в обращение DIS-coin – собственную криптовалюту,
+            - название проистекает от слова «дискаунт»,
+            - которая открывает возможность постепенно снижать величину комиссии посредника вплоть до нуля. </p>
+        <p>Это нововведение обеспечивает ценовое преимущество платформы перед существующими аналогами и
+            закладывает прочную основу для роста трафика.</p>
+    </div>
+  </div>
+        <div class="w3-center">
+                <button  onclick="document.getElementById('modal01').style.display='block'" 
+                        class="w3-button  w3-ripple w3-hover-orange w3-hover-text-white w3-border w3-round-xxlarge w3-small w3-padding-large my3-title w3-text-black">
+                    Презентация
+                </button>
+    </div>
+</div>
+
+<!-- Modal for business model-->
+<div id="modal01" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-blue w3-text-white w3-display-container">
+      <span onclick="document.getElementById('modal01').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+       <div class="w3-row">
+         <h4 class="w3-center">Model</h4>
+           <div class="w3-half m6">
+		<div class="w3-container w3-padding-small">
+                    <p>В качестве иллюстрации принципа работы платформы можно назвать комбинацию бизнес модели лидеров 
+                        рынка бронирования гостиничных услуг и такси. </p>
+                    <p>Ключевым ее моментом является гарантия низкой цены за счет умеренной наценки и гибкого ценообразования,
+                        дающего возможность провайдеру предложить свои услуги, когда у него появляется желание,
+                        а также в короткие сроки изменять цену для стимулирования спроса:
+                    <ul>
+                        <li>Booking.com</li>
+                        <li>airbandb.com</li>
+                        <li>expedia.com</li>
+                        <li>uber</li>
+                    </ul>
+                </div>
+              </div>
+          <div class="w3-half m6">
+              <div class="w3-container w3-padding-small">
+                  <p>По сравнению с существующими аналогами #МОТU обладает следующими преимуществами:</p>
+                  <ol>
+                      <li>распространение данной бизнес-модели на «пакет» туристических услуг</li>
+                      <li>использование DIS-coin, принципиально изменяющего систему вознаграждения внутри
+                          замкнутой экосистемы и создающего дополнительный источник для дальнейшего
+                          снижения стоимости поездки в логике «smart travel»</li>
+                   </ol>
+                  <p>#МОТU работает принципу «все в одном месте», лучшие рекомендации и свобода в выборе
+                      альтернатив. Причем система позволяет прийти на сайт, прицениться и потом пойти к провайдеру
+                      самостоятельно – нет проблем. Люди сами убедятся, что проще и дешевле через #МОТU.
+                  </p>
+          </div>
+        </div>
+       </div>   
+  </div>
+</div>
+</div>
+<!-- Modal for full size images on click-->
+<div id="modal02" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+<div class="w3-container w3-row-padding" >
+
+    <div class="w3-container" style="padding:28px 26px">
+         <h2 class="my3-title w3-center" style="padding: 6px 68px">
+          Блокчейн платформа бронирования и расчетов #MOTU позволяет туристу получить:
+       </h2>
+   <div class="w3-row-padding w3-center" style="margin-top:34px; font-size: 1.2em;">
+    <div class="w3-third w3-padding-large">
+        <img src="images/ver2/tour disigne.png" alt=""/>
+        <p class="w3-center">
+          возможность самостоятельно спланировать путешествие с помощью уникального конструктора-планировщика,
+          и изменять вид услуги или поставщика на свой вкус, в рамках заданного бюджета
+      </p>
+    </div>
+    <div class="w3-third w3-padding-large ">
+        <img src="images/ver2/economy.png" alt=""/>
+         <p class="w3-center">
+           услуги провайдера по прейскурантной цене «как в кассе» БЕЗ наценки посредника
+       </p>
+    </div>
+    <div class="w3-third w3-padding-large">
+        <img src="images/ver2/D-coinup.png" alt=""/>
+         <p class="w3-center">
+          дополнительный бонус в DIS-coin, который может вырасти в цене и компенсировать более или менее значительную часть поездки
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+<!-- how it works Section -->
+<div class="w3-container w3-row-padding " id="howitworks">
+    <div class="w3-center w3-margin-bottom">
+        <button  onclick="document.getElementById('modal02').style.display='block'" 
+                class="w3-button  w3-ripple w3-hover-text-white w3-hover-orange w3-border w3-round-xxlarge w3-small w3-padding-large my3-title w3-text-black">
+            Бизнес-модель
+        </button>
+    </div> 
+    <h2 class="w3-center " style="padding-bottom: 80px;">
+               Как это работает?
+           </h2>
+    <div class="w3-content w3-display-container w3-margin-bottom">
+
+<div class="w3-display-container mySlides">
+     <div class="w3-center">
+  <img src="images/ver2/how_search_for_provider.png" alt=""/>
+     </div>
+  <div class="w3-display-bottom w3-small w3-container" style="padding-left: 40px;">
+      <h3  class="w3-center">поиск провайдеров</h3>
+    Платформа позволяет дать ответ на базовые вопросы туриста, планирующего поездку в любой город с целью “city sightseeing”:
+    <ul>
+        <li>Как проехать? </li>
+        <li>Где остановиться?</li>
+        <li>Где поесть? </li>
+        <li>Что посмотреть? </li>
+        <li>Куда сходить за покупками?</li>
+        <li>Где и как весело провести время?  </li>
+    </ul>
+    Для ответа на каждый из поставленных вопросов платформа предоставляет на выбор перечень провайдеров услуг (см. FAQ),
+    которые готовы предложить качественную услугу со скидкой от их обычной (прейскурантной) цены.
+
+  </div>
+</div>
+ <div class="w3-display-container mySlides">
+     <div class="w3-center">
+        <img src="images/ver2/how_discount.png" alt=""/>
+ </div>
+   <div class="w3-display-bottom w3-small w3-container">
+     <h3  class="w3-center">скидки и бонусы</h3>
+      <p>    Скидка в этой ситуации представляет собой своеобразную плату за привлечение дополнительного туристического трафика.
+    Если провайдер не хочет давать скидку – он не участвует в платформе. Дело добровольное!  
+      </p>  
+      <p>
+          Скидка конвертируется в DIS-coin по текущему курсу и возвращается туристу в виде «кэшбэк».
+          При этом DIS-coin может быть обменян на национальную валюту туриста (фиат) в любой момент.
+      </p>
+  </div>
+</div>
+ <div class="w3-display-container mySlides">
+     <div class="w3-center">
+     <img src="images/ver2/how_design_trip.png" alt=""/>
+     </div>
+   <div class="w3-display-bottom w3-small w3-container">
+     <h3  class="w3-center">моделирование поездки</h3>
+      <p> Пользуясь платформой, турист получает возможность смоделировать (и забронировать)
+          «поездку своей мечты» с помощью приложения, разработанного в удобной и привлекательной манере
+          (UX и UI) для смартфона и компьютера, за несколько минут, комфортно сидя в кресле, складывая услуги провайдеров как кубики конструктора.
+          </p>  
+      <p>
+          Турист может изменять рекомендованное наполнение тура по своему желанию.
+          А также видеть, как изменяется цена пакета и размер «кэшбэк»,
+          в зависимости от добавления или удаления той или иной услуги или смене одного провайдера на другого.
+         </p>
+  </div>
+</div>
+        <button class="w3-display-left" style="background-color: transparent; border: none;" onclick="plusDivs(-1)">
+                <img src="images/ver2/Arrow_left.png" alt=""/>
+        </button>
+        <button class="w3-display-right" style="background-color: transparent; border: none;" onclick="plusDivs(1)">
+            <img src="images/ver2/Arrow_right.png"  alt=""/>
+        </button>
+
+</div>
+  <div class="w3-row-padding w3-center w3-row" >
+   Таким образом, платформа предоставляет полную свободу выбора, предлагая лучшую цену при любом выбранном варианте.
+
+  </div>    
+</div>
+<div class="w3-container w3-row-padding"  id="business_model">
+    <h1 class="my3-title w3-center" >
+          Конкурентные преимущества #MOTU
+       </h1>
+    <div class="w3-container w3-row-padding" >
+   <div class="w3-row-padding w3-center" >
+    <div class="w3-third w3-padding-large">
+        <img src="images/ver2/bm_invest.png" alt=""/>
+             <h3  class="w3-center">
+                 Инвестиционный доход 
+                 <img src="images/ver2/Arrow_down.png" alt=""/>
+             </h3>
+        <p class="w3-center">
+          Казалось бы, зачем нужен этот промежуточный обмен на DIS-coin? 
+          Выглядит как лишнее звено в цепи: «фиат-DIS-coin-фиат»? 
+          Все просто: поскольку DIS-coin выпускается ограниченное количество, 
+          а количество туристов (в поиске «кэшбэка») и провайдеров (в поиске трафика) будет увеличиваться, то, 
+          согласно закону спроса и предложения, курс DIS-coin будет расти, увеличивая эквивалент в фиате накопленных туристом DIS-coin. 
+          Таким образом, DIS-coin выступает как инструмент дополнительного инвестиционного дохода! 
+          Это одно из ключевых преимуществ платформы #МОТU перед аналогами.
+      </p>
+    </div>
+    <div class="w3-third w3-padding-large ">
+        <img src="images/ver2/bm_trip.png" alt=""/>
+            <h3  class="w3-center">
+                 Полный пакет туристических услуг 
+                 <img src="images/ver2/Arrow_up.png" alt=""/>
+             </h3>
+          <p class="w3-center">
+            Другое важное отличие платформы: в пакет услуг для выбора включаются ВСЕ разнообразие услуг, 
+            в которых может нуждаться турист - даже те, на которых «кэшбэк» минимален, или его вообще нет. 
+            Например, билет в Третьяковскую галерею, Мариинский театр или Гранд Опера де Пари передаются туристу ровно по себестоимости, 
+            как если бы он сам пришел и купил его в кассе. Отличие только в том, что с #МОТU ему не придется тратить время в очередях, 
+            а также быть уверенным, что он попадет на тот спектакль, (или алмазный фонд или оружейную палату – нужное подчеркнуть ) 
+            куда и хотел попасть, а не на что-нибудь другое, на что билеты были!   
+          </p>
+    </div>
+    <div class="w3-third w3-padding-large">
+        <img src="images/ver2/bm_business.png" alt=""/>
+             <h3  class="w3-center">
+                 Бизнес-модель нового поколения
+                 <img src="images/ver2/Arrow_up.png" alt=""/>
+             </h3>
+         <p class="w3-center">
+            В отличие от конкурентов, #МОТU зарабатывает не на комиссии, а на удорожании DIS-coin. 
+            Поэтому цель платформы – не максимизировать комиссию, а увеличить трафик. 
+            Этот факт удивительным образом сочетает интересы всех участников платформы: потому что самый лучший способ увеличить трафик,
+            это наиболее полно удовлетворить потребности туриста (в том числе потребность получить лучшую услугу и при этом сэкономить), 
+            чтобы он захотел вновь воспользоваться платформой. Если турист доволен, то растет трафик,
+            если растет трафик – растет курс DIS-coin, если растет курс DIS-coin, зарабатывают инвесторы и платформа. Все довольны! 
+         </p>
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="w3-container w3-row-padding" >
+
+    <div class="w3-container w3-center"  id="provide">
+        <div class="w3-container w3-center" style="max-width: 600px; margin:auto;" >
+            <h2 class="w3-center" style="padding: 6px;">
+               Таким образом, пользуясь #МОТU, турист обеспечивает себе 
+          </h2>
+        <div class="w3-row-padding w3-left-align" style="margin-top:34px; font-size: 1.2em;">
+          <ul>
+            <li>возможность выполнить ту культурную программу, какую он хочет,</li>
+            <li>гарантировать лучшую цену «как в кассе» БЕЗ наценки посредника, </li>
+            <li> дополнительно получить «кэшбэк» в DIS-coin, которые при реализации по выгодному курсу позволят как минимум «отбить» часть поездки.</li>
+          </ul>
+       </div>
+        <div class="w3-row-padding w3-left-align" style="margin-top:34px; font-size: 1.2em; font-style: italic; font-weight: bold;">
+            Благодаря этим преимуществам, популярность платформы будет расти, 
+            повышая трафик и запуская цепочку создания ценности:           
+        </div>
+        </div>  
+    </div>
+
+</div>
+<div class="w3-container w3-row-padding" >
+    <div class="w3-container w3-center">
+        <img src="images/ver2/kartinka.png" class="w3-image"  alt=""/>
+    </div>
+</div>
+<div class="w3-container w3-row-padding"  id="team">
+    <h1 class="my3-title w3-center" style="margin: 80px;" >
+          Команда и эдвайзеры
+       </h1>
+
+    <div class="w3-content w3-display-container" style="width: 300px;">
+
+        <div class=" myTeam">
+            <img src="images/ver2/team/victor.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                ВИКТОР
+            </div>
+        </div>
+         <div class="w3-display-container myTeam">
+             <img src="images/ver2/team/maria.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                МАРИЯ
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/marina.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                МАРИНА
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/irina.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                ИРИНА
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/ekaterina.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                ЕКАТЕРИНА
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/pavel.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                ПАВЕЛ
+            </div>
+        </div>
+
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/stephen.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                СТИВЕН
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/svetlana.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                СВЕТЛАНА
+            </div>
+        </div>
+        <div class="w3-display-container myTeam">
+            <img src="images/ver2/team/denis.png" alt="" style="width:100%"/>
+            <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+                ДЕНИС
+            </div>
+        </div>
+
+   <div class="w3-center w3-container w3-section w3-large w3-text-grey w3-display-bottommiddle" style="width:100%;    margin-bottom: 0!important;">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivst(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivst(1)">&#10095;</div>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(1)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(2)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(3)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(4)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(5)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(6)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(7)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(8)"> </span>
+    <span class="w3-badge demon w3-border w3-transparent w3-hover-white" onclick="currentDivt(9)"> </span>
+  </div>
+</div>
+    </div>
+<div class="w3-container w3-padding"  id="partners">
+    <h1 class="my3-title w3-center" style="margin: 60px;" >
+    Партнеры:
+    </h1>
+
+<div class="w3-row-padding w3-center">
+  <div class="w3-quarter">
+      <img src="images/ver2/partners/ALEXANDROVSKIY_THEATRE.png" alt=""/>
+  </div>
+  <div class="w3-quarter">
+      <img src="images/ver2/partners/GRAND HOTEL EUROPE.png" alt=""/>
+  </div>
+  <div class="w3-quarter">
+      <img src="images/ver2/partners/MAININGER.png" alt=""/>
+  </div>
+      <div class="w3-quarter">
+          <img src="images/ver2/partners/OPEN RUSSIA.png" alt=""/>
+  </div>
+</div>
+<div class="w3-row-padding  w3-center">
+  <div class="w3-quarter">
+      <img src="images/ver2/partners/BLOCKCHAIN.png" alt=""/>
+  </div>
+  <div class="w3-quarter">
+      <img src="images/ver2/partners/INGRIYA.png" alt=""/>
+  </div>
+  <div class="w3-quarter">
+      <img src="images/ver2/partners/MAXIMILIAN.png" alt=""/>
+  </div>
+      <div class="w3-quarter">
+          <img src="images/ver2/partners/RUSSIAN BALLET.png" alt=""/>
+  </div>
+</div>
+    </div>
+
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 clear-class">
+ <div class="w3-container"  id="faq">
+ <div class="w3-row-padding  w3-center">
+  <div class="w3-quarter"> 
+  <a href="#home" class="w3-button "><img src="images/ver2/logo_white.png" alt=""/></a>
+      
+  </div>
+     <div class="w3-quarter w3-left-align">
+         <ul>
+             <li>
+               <a href="#about" class="w3-bar-item w3-button">о проекте</a>
+             </li>
+              <li>
+               <a href="#business_model" class="w3-bar-item w3-button">преимущества</a>
+             </li>
+             <li>
+               <a href="#team" class="w3-bar-item w3-button">команда</a>
+             </li>
+              <li>
+               <a href="#partners" class="w3-bar-item w3-button">партнеры</a>
+             </li>
+             <li>
+               <a href="#faq" class="w3-bar-item w3-button">faq</a>
+             </li>
+       </ul>
+  </div>
+  <div class="w3-quarter w3-left-align">   
+      <ul>
+             <li>
+               <a href="#business_model" class="w3-bar-item w3-button">бизнес-модель</a>
+             </li>
+              <li>
+               <a href="#business_model" class="w3-bar-item w3-button">презентация</a>
+             </li>
+             <li>
+               <a href="#team" class="w3-bar-item w3-button">дорожная карта</a>
+             </li>
+       </ul>
+
+  </div>
+      <div class="w3-quarter">
+          <div class="w3-container w3-left-align my3-title w3-margin-top" >
+              подписаться на рассылку
+          </div>
+          <div class="w3-container w3-margin-top">
+              <span class=" w3-round-xxlarge w3-border" style="padding: 15px 0 15px 15px;">
+                  <span  style="padding:0  50px;"> E-mail </span>
+       <button  onclick="document.getElementById('modal03').style.display='block'" 
+                class="w3-button w3-hover-text-white w3-hover-orange w3-border w3-round-xxlarge w3-large" style="padding: 8px 25px;">
+            <i class="fa fa-envelope-o w3-hover-opacity"></i>
+        </button></span>
+           
+          </div>
+
+  </div>
+</div>
+ <div class="w3-row-padding  w3-center">
+         <div class="w3-container">
+             <span class=" w3-round-xxlarge w3-border  my3-title" style="padding: 20px;">
+                 обратная связь
+                </span>
+         <div class="w3-container w3-margin-top">
+         email: info@motu.world
+        </div>
+       </div>
+
+      <div class="w3-container">
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>        
+     </div>
+          <div class="w3-container" style="max-width: 600px; margin: auto;">
+              Данный сайт не является офертой или призывом покупать что-либо, 
+              данные приводятся только для информации. 
+              Не распространяется на граждан США.          
+     </div>
+          <div class="w3-container">
+         &copy;2018 MOTU. All rights reserved.
+     </div>
+ </div>   
+    
+ 
+         </div> 
+  </footer>
+
+<!-- Add Google Maps -->
+<script src="js/wow.min.js"></script>
+<script src="js/myjs.js"></script>
+<script>
+    var slideIndex = 1;  
+    var slideIndext = 1;
+    var sp=0;
+
+$(document).ready(function(){
+	sp = 0;
+    showDivs(slideIndex);
+    showDivst(slideIndext);
+    window.onscroll = function() {myFunction()};
+        new WOW().init();
+ 
+});
+
+
+
+</script>
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
+
+

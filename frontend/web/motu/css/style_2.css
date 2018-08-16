@@ -1,0 +1,121 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-Jul-2018, 10:27:40
+    Author     : DenisT
+*/
+
+body,h1,h2,h3,h4,h5,h6 {font-family: /*"Raleway",*/ sans-serif;}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+    font-size: 12pt;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("images/main_page_2_mask.png");
+    min-height: 100%;
+    max-width: 1440px;
+       margin: auto;
+     padding-top: 60px;   
+}
+
+div#about{
+    background-image: url("images/bg_about.png");
+  /*  background-attachment: fixed;  Фиксируем фон веб-страницы */
+   background-position:bottom;
+     background-repeat: no-repeat; /* Отменяем повторение фона */
+     background-size: contain;
+}
+div#howitworks, div#provide{
+    background-image: url("images/bg_how.png");
+  /*  background-attachment: fixed;  Фиксируем фон веб-страницы */
+   background-position:bottom;
+     background-repeat: no-repeat; /* Отменяем повторение фона */
+     background-size: contain;
+}
+div#business_model, div#team{
+    background-image: url("images/bg_bm.png");
+  /*  background-attachment: fixed;  Фиксируем фон веб-страницы */
+   background-position:bottom;
+     background-repeat: no-repeat; /* Отменяем повторение фона */
+     background-size: contain;
+     margin-top: 60px;
+}
+.main-container{
+    max-width: 1440px;
+    margin: auto;
+}
+a.w3-bar-item{ 
+    text-transform: uppercase; /* Заглавные буквы */
+   }
+.my3-title{ 
+    text-transform: uppercase; /* Заглавные буквы */
+    font-size: 16px;
+    color: #C8C8C8;
+   }
+   h1.my3-title{ 
+    text-transform: uppercase; /* Заглавные буквы */
+    font-weight: bold;
+    font-size: 40px;
+    color: #3d3a3d;
+   }
+button.my3-title { 
+    text-transform: uppercase; /* Заглавные буквы */
+    font-weight: normal;
+    letter-spacing: 2px;
+   }
+   button.w3-button{
+       background-color: #FEC330;
+        }
+.responsive-image {
+    width: 100%;
+    max-width: 514px;
+    height: auto;
+}
+h2{
+    font-style: italic;
+    font-weight: bolder;
+}
+.w3-badge {height:13px;width:13px;padding:0}
+.huge{
+    padding:20px 40px; 
+    font-size: 52px; 
+    font-weight: bold;
+    text-transform: uppercase; /* Заглавные буквы */
+    line-height: 1.8;
+}
+.semi-huge{
+    padding:10px 40px ; 
+    font-size: 24px; 
+   text-transform: uppercase; /* Заглавные буквы */
+    line-height: 1.8;
+}
+.super-huge{
+    padding:20px 40px; 
+    font-size: 150px; 
+    font-weight: bold;
+    text-transform: uppercase; /* Заглавные буквы */
+    line-height: 1.0;
+    color: #c8c7cc;
+}
+footer ul{
+    list-style-type: none;
+    
+}
+footer div i { 
+    padding: 20px;
+    
+}
+footer button i { 
+    padding: 0px;
+    
+}
+button:visited {
+  border-style: outset;
+}

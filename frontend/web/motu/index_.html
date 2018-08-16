@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>MOTU</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-mobile">
+        <img src="images/logo_main.svg" alt="" width="68" />
+    </a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+       <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-home"></i> ABOUT</a>
+       <a href="#business_model" class="w3-bar-item w3-button"><i class="fa fa-th"></i> MODEL</a>
+    <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PLATFORM</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-users"></i> TEAM</a>
+
+   </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#business_model" onclick="w3_close()" class="w3-bar-item w3-button">MODEL</a> 
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">PLATFORM</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-topleft w3-text-black" style="padding:135px 68px; max-width: 380px;">
+       <img src="images/logo_main.svg" alt=""/>
+    <div class="w3-large w3-padding-16 w3-smalll" >блокчейн платформа для умного туризма (smart travelers)</div>
+   </div> 
+  <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:48px 16px">
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-third w3-padding-large">
+        <img src="images/1.jpg" alt=""/>
+        <p class="w3-left-align">
+          #МОТU (DIS-coin) - блокчейн платформа для самостоятельных людей,
+         планирующих поездку "своей мечты" в другой город без переплат
+      </p>
+    </div>
+    <div class="w3-third w3-padding-large">
+        <img src="images/2.jpg" alt=""/>
+        <p class="w3-left-align">
+           Инвестируй в DIS-coin, присоединяйся  к сообществу "smart travelers",
+           увеличивай скидку на туристические услуги 
+       </p>
+    </div>
+    <div class="w3-third w3-padding-large">
+        <img src="images/3.jpg" alt=""/>
+        <p class="w3-left-align">
+           Подписывайся на новости – узнай,  над чем сейчас работает команда. 
+      </p>
+    </div>
+  </div>
+</div>
+<!-- blue section -->
+<div class="w3-container grad-blue" style="padding:20px;">
+  <div class="w3-row-padding w3-center w3-text-white">
+    <div class="w3-quarter ">
+        <a href="#about"><img src="images/sm_1.svg" alt="" class="w3-padding-small"/>Презентация</a>
+    </div>
+    <div class="w3-quarter">
+        <a href="#about"><img src="images/sm_2.svg" alt=""  class="w3-padding-small"/>Видео</a>
+    </div>
+    <div class="w3-quarter">
+        <a href="#about"><img src="images/sm_3.svg" alt=""  class="w3-padding-small"/>Дорожная карта</a>
+    </div>
+    <div class="w3-quarter">
+        <a href="#about"><img src="images/sm_4.svg" alt=""  class="w3-padding-small"/>Финансовая модель</a>
+    </div>
+
+  </div>
+</div>
+<!-- About Section -  -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px"  id="about">
+    
+      <h2 class="w3-center">
+          О проекте
+       </h2>
+      <div class="w3-row-padding">
+    <div class="w3-twothird  w3-padding-large">
+        <p>Каждый из нас становился туристом, посещающим другой город внутри страны и за ее пределами. (И иногда по нескольку раз в год!). </p>
+        <p>#МОТU ставит себе цель - сделать городское путешествие комфортным с насыщенной культурной программой на любой вкус и кошелек.</p>
+        <p>Чтобы не переплачивать, комиссия платформы берется исключительно с провайдера услуги, а турист получает лучшую цену.</p>
+        <p>Чтобы воплотить эту цель в реальность, #МОТU вводит в обращение DIS-coin – собственную криптовалюту,
+            - название проистекает от слова «дискаунт»,
+            - которая открывает возможность постепенно снижать величину комиссии посредника вплоть до нуля. </p>
+        <p>Это нововведение обеспечивает ценовое преимущество платформы перед существующими аналогами и
+            закладывает прочную основу для роста трафика.</p>
+    </div>
+    <div class="w3-third w3-center">
+        <img src="images/logo_str3.png" alt=""/>
+     </div>
+  </div>
+</div>
+<!-- business_model Section -->
+<div class="w3-container" style="padding:48px 16px"  id="business_model">
+      <h2 class="w3-center">
+          Что дает блокчейн платформа бронирования #MOTU
+       </h2>
+ <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-third  w3-padding-large">
+        <img src="images/4.jpg" alt=""/>
+        <p class="w3-left-align">
+         услуги провайдера по прейскурантной цене «как в кассе» без наценки посредника
+    </p>
+    </div>
+    <div class="w3-third  w3-padding-large">
+        <img src="images/5.jpg" alt=""/>
+         <p class="w3-left-align">
+             дополнительный бонус в DIS-коин, который при определенных обстоятельствах может вырасти в цене 
+             и компенсировать более или менее значительную часть поездки   
+         </p>
+    </div>
+    <div class="w3-third  w3-padding-large">
+        <img src="images/6.jpg" alt=""/>
+         <p class="w3-left-align">
+             возможность самостоятельно спланировать путешествие с помощью уникального конструктора-планировщика, и изменять вид услуги или поставщика на свой вкус, в рамках заданного бюджета.
+      </p>
+    </div>
+  </div>
+  
+    <div class="w3-center">
+                <button  onclick="document.getElementById('modal01').style.display='block'" 
+                        class="w3-button  w3-ripple w3-hover-blue w3-border w3-border-blue w3-round-large w3-large w3-padding-large grad-blue w3-text-white">
+                    Бизнес-модель
+                </button>
+
+    </div>
+</div>
+<!-- Modal for business model-->
+<div id="modal01" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container grad-blue w3-text-white w3-display-container">
+      <span onclick="document.getElementById('modal01').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+   <div class="w3-row">
+   <h4 class="w3-center">Model</h4>
+        <div class="w3-half m6">
+		<div class="w3-container w3-padding-small">
+                    <p>В качестве иллюстрации принципа работы платформы можно назвать комбинацию бизнес модели лидеров 
+                        рынка бронирования гостиничных услуг и такси. </p>
+                    <p>Ключевым ее моментом является гарантия низкой цены за счет умеренной наценки и гибкого ценообразования,
+                        дающего возможность провайдеру предложить свои услуги, когда у него появляется желание,
+                        а также в короткие сроки изменять цену для стимулирования спроса:
+                    <ul>
+                        <li>Booking.com</li>
+                        <li>airbandb.com</li>
+                        <li>expedia.com</li>
+                        <li>uber</li>
+                    </ul>
+                </div>
+              </div>
+              <div class="w3-half m6">
+                    <div class="w3-container w3-padding-small">
+                        <p>По сравнению с существующими аналогами #МОТU обладает следующими преимуществами:</p>
+                        <ol>
+                            <li>распространение данной бизнес-модели на «пакет» туристических услуг</li>
+                            <li>использование DIS-coin, принципиально изменяющего систему вознаграждения внутри
+                                замкнутой экосистемы и создающего дополнительный источник для дальнейшего
+                                снижения стоимости поездки в логике «smart travel»</li>
+                         </ol>
+                        <p>#МОТU работает принципу «все в одном месте», лучшие рекомендации и свобода в выборе
+                            альтернатив. Причем система позволяет прийти на сайт, прицениться и потом пойти к провайдеру
+                            самостоятельно – нет проблем. Люди сами убедятся, что проще и дешевле через #МОТU.
+                        </p>
+                </div>
+              </div>
+             </div>   
+  </div>
+</div>
+</div>
+<!-- Modal for full size images on click-->
+<div id="modal02" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+<!-- Skills Section -->
+<div class="w3-container w3-light-grey w3-padding-64" id="work">
+  <div class="w3-row-padding">
+           <h2 class="w3-center ">
+               Как это работает?
+           </h2>
+
+            <button onclick="accFunction('earn4')" class="w3-button w3-large w3-block grad-blue1 w3-left-align w3-bottombar  w3-text-white">
+               <i class="fa fa-search w3-xlarge"></i>
+                  Поиск провайдеров
+           </button>
+            <div id="earn4" class="w3-hide w3-animate-right accordion">
+                <p>Платформа позволяет дать ответ на базовые вопросы туриста, планирующего поездку в любой город с целью “city sightseeing”:</p>
+                <p>Где остановиться? Где поесть? Что посмотреть? Куда сходить за покупками? Где и как весело провести время?</p>
+                <p>Для ответа на каждый вопрос платформа делит провайдеров туристических услуг на 5 категорий 
+                    и подбирает ограниченное количество участников в каждой из них на основе разработанной системы скоринга 
+                    для четырех ценовых групп клиентов: «эконом», «комфорт», «престиж» и «VIP».</p>
+                <p>За исключением явных «трафик-мейкеров» (таких как, например, Эрмитаж или Гранд Опера де Пари), 
+                    провайдер может присоединиться к платформе только при условии предоставления скидки от прейскурантной цены, 
+                    что представляет собой своеобразную плату за дополнительный туристический трафик.</p>
+            </div>
+             <button onclick="accFunction('earn2')" class="w3-button w3-large w3-block grad-blue2 w3-left-align w3-bottombar  w3-text-white">
+               <i class="fa fa-th w3-xlarge" style="padding-right: 5px;"></i>
+                  Моделирование поездки мечты
+           </button>
+            <div id="earn2" class="w3-hide w3-animate-left accordion">
+                <p>После регистрации турист получает возможность смоделировать (и забронировать) «поездку своей мечты» с помощью приложения, 
+                    разработанного в удобной и привлекательной манере (UX и UI) для смартфона и компьютера, за несколько минут, 
+                    комфортно сидя в кресле, складывая услуги провайдеров как кубики конструктора.</p>
+                <p>Турист может изменять рекомендованное наполнение тура по своему желанию. 
+                    А также видеть, как изменяется цена пакета, в зависимости от добавления или удаления той или иной услуги или 
+                    смене одного провайдера на другого.</p>
+                <p>Таким образом, платформа предоставляет полную свободу выбора, предлагая лучшую цену при любом выбранном варианте.</p>
+            </div>
+            <button onclick="accFunction('earn3')" class="w3-button w3-large w3-block grad-blue3 w3-left-align w3-bottombar  w3-text-white">
+              <i class="fa fa-money w3-xlarge" style="padding-right: 5px;"></i>
+                  Скидки и бонусы
+
+            </button>
+            <div id="earn3" class="w3-hide w3-animate-right accordion">
+                <p>В дополнение к этому - после совершения оплаты – турист получает часть скидки на свой криптокошелек в виде бесплатного бонуса
+                    в DIS-коин, который призван расти в цене и в любое время может быть обменен на фиат.</p>
+
+        </div>
+
+  </div>
+  <div class="w3-row-padding w3-margin-top">
+      <p>Таким образом, пользуясь МОТУ, турист обеспечивает себе:
+      <ol>
+          <li>возможность выполнить ту культурную программу, какую он хочет</li>
+          <li>гарантировать лучшую цену «как в кассе» без (!) наценки посредника</li>
+         <li>дополнительно получить скидку в токенах, которые при реализации по выгодному курсу позволят как минимум «отбить» часть поездки.</li>
+      </ol>
+      Благодаря этим преимуществам, популярность платформы будет расти, повышая трафик и запуская цепочку создания ценности:
+ 
+  <div class="w3-container w3-padding-24">
+       <img src="images/shema.svg" alt="" style="padding-top: 10px;" class="w3-image" /> 
+  </div>
+ 
+</div>
+<div class="w3-container" style="padding:48px 16px" id="team">
+           <h2 class="w3-center">
+          Команда
+       </h2>
+  <div class="w3-row-padding w3-left" style="margin-top:64px">
+    <div class="w3-twothird  w3-padding-large">
+      <p>Команда насчитывает 15 человек, включая индустриальных экспертов, юриста, программистов, маркетолога, финансистов, 
+          ответственного за безопасность, блокчейн архитектора и представителей иностранных туристических компаний. </p>
+      <p>Есть команды специалистов «на аутсорсе»,включая продвижение и программирование. Совокупный опыт в сфере международного туризма > 75 лет.
+          </p>
+    </div>
+   <!-- <div class="w3-display-container mySlides">
+    <img  src="images/team/marina.png" style="width:100%">
+    <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+       Marina Defey –  СОО проекта c 20-тилетним стажем работы в туриндустрии. 
+       Ответственный за развитие проекта в России и Западной Европе
+
+
+    </div>
+</div>--> 
+   <div class="w3-third w3-center">
+ <div class="w3-content w3-display-container" style="max-width:300px">
+
+<div class="w3-display-container mySlides">
+    <img  src="images/team/marina.png" style="width:100%">
+    <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black"  style="line-height: 14px;">
+       Marina Defey –  СОО проекта c 20-летним стажем работы в туриндустрии. 
+       Ответственный за развитие проекта в России и Западной Европе
+
+
+    </div>
+</div>
+   <div class="w3-display-container mySlides">
+    <img  src="images/team/victor.png" style="width:100%">
+    <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black" style="line-height: 14px;">
+        Виктор Моисеев – СЕО проекта c 20-летним опытом работы в инвестбанкинге и стратегическом консалтинге 
+        и управлении предприятиями среднего бизнеса.
+
+    </div>
+</div> <div class="w3-display-container mySlides">
+    <img  src="images/team/denis.png" style="width:100%">
+    <div class="w3-display-topright w3-small w3-container w3-padding-8 w3-black " style="line-height: 14px;">
+        Денис Цибуля –  СТО проекта. Программист с 20-летним опытом. 
+        Участник и реализатор ряда международных проектов, включая Финляндию, США, Германию
+
+    </div>
+</div>
+   <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+    </div>
+  </div>
+
+
+
+  </div>
+</div>
+<div class="w3-container w3-light-grey w3-center"  id="partners">
+    
+      <h2 class="w3-center">
+          Партнеры
+       </h2>
+<div id="partners-line">
+	<div id="partners-container">
+            <img src="images/partners/evrobank.png" alt=""/>
+            <img src="images/partners/technosila.png" alt=""/>
+            <img src="images/partners/gazprom.png" alt=""/>
+            <img src="images/partners/evroteck.jpg" alt=""/>
+            <img src="images/partners/mdm.jpg" alt=""/>
+            <img src="images/partners/gazpromneft.png" alt=""/>
+            <img src="images/partners/raiffeisen.png" alt=""/>
+           <img src="images/partners/openrussia.png" alt=""/>
+        </div>
+</div>
+
+</div>
+<div class="clear-class"></div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 clear-class">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  </footer>
+ 
+<!-- Add Google Maps -->
+<script>
+    var slideIndex = 1;
+    var sp=0;
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+    function accFunction(id) {
+    var y = document.getElementsByClassName("accordion");
+    var x = document.getElementById(id);
+    for (i = 0; i < y.length; i++) {
+        if(y[i]!=x){  y[i].className = y[i].className.replace(" w3-show", "");}
+  }
+     if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+$(document).ready(function(){
+	sp = 0;
+    showDivs(slideIndex);
+    $('#partners-container img').each(function(){
+		sp++;
+		$(this).wrap('<span class="with-img" style="float:left; height:90px; line-height:90px; width:185px; text-align:center;" id="sp-'+sp+'"></span>');
+		});
+	slidePartners = function() {
+		$('#partners-container').animate({left:'-185px'},5000, function(){
+			getSrc = $('#partners-container img:first').attr('src');
+			getId = $('#partners-container span.with-img:first').attr('id');
+			$('#'+getId).remove();
+			$('#partners-container').css({left:'0'}).append('<span class="with-img" style="float:left; height:90px; line-height:90px; width:185px; text-align:center;" id="'+getId+'"><img src="'+getSrc+'"></span>');
+			});
+		tm = setTimeout('slidePartners()', 100);
+		}
+	slidePartners();
+});
+
+
+
+</script>
+
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
+
+

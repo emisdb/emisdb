@@ -7,9 +7,83 @@ body, html {
 .bgimg-1 {
     background-position: center;
     background-size: cover;
-    background-image: url("images/happy-tourists.jpg");
+    background-image: url("images/main_page.jpg");
     min-height: 100%;
 }
 .w3-bar .w3-button {
     padding: 16px;
 }
+.grad-blue {
+    background: linear-gradient(#0202FF, #4A4FFF);
+}
+
+.grad-blue1 {
+    background: linear-gradient(#3638E8, #464AE9);
+}
+.grad-blue2 {
+    background: linear-gradient(#494CEA, #595DEC);
+}
+.grad-blue3 {
+    background: linear-gradient(#5B60EC, #595DEC);
+}
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+#partners {
+	/*float:left;*/
+	/*width:800px;*/
+	margin:auto;
+	color:#4B9FD9;
+	padding-bottom:20px;
+	overflow:visible;
+	position:relative;
+	}
+#partners h2 {
+	font-size:14pt;
+	font-weight:bold;
+	padding:0; margin:0;
+	padding-bottom:10px;
+	}
+#partners-line {
+	/*width:780px;*/
+	height:120px;
+	overflow:hidden;
+	position:relative;
+	left:2px;
+	border-right:1px solid #eee;
+	border-left:1px solid #eee;
+	}
+#partners-container {
+	width:5000px;
+	height:120px;
+	line-height:90px;
+	position:absolute;
+	left:0;
+	top:0;
+	}
+#partners img {
+	vertical-align:middle;
+	max-height:120px;
+	max-width:120px;
+	margin-right:10px;
+	}
+        .clear-class{
+           float:none; 
+        }
+        table.scheme td.havingdata {
+            max-width:100%;
+            white-space: nowrap;
+            text-align: center;
+        }
+ table.scheme td.nodata {
+            width:150px;
+         }
+.w3-bar a.w3-bar-item {
+             padding:6px 12px;
+         }
+ header{
+             margin-top: 40px;
+         }
+.w3-bottombar:hover{
+             color: lightcyan !important;
+         }

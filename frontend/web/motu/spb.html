@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Saint Pete</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script type="text/javascript" >
+    window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var x = "" + urlParams.get('tourcity') + "<br>" + urlParams.getAll('tourdate') + "<br>" ;
+        for ( p of urlParams) {
+            x = x + "<br>" + p;
+        }
+          document.getElementById("demo").innerHTML = x;
+    };
+        </script>
+    </head>
+    <body>
+        <a href="city.html">Back</a>
+        <div id="demo">TODO write content</div>
+     </body>
+</html>
