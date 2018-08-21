@@ -33,7 +33,7 @@ and open the template in the editor.
           <a class="active" href="index.html"><i class="fa fa-home"></i></a> 
           <a href="index_.html"><i class="fa fa-battery-1"></i></a> 
           <a href="index_2.html"><i class="fa fa-battery-2"></i></a> 
-          <a href="#" onclick="document.getElementById('login-popup').style.display='block'"><i class="fa fa-cogs"></i></a>
+          <a href="http://en.emisdb.ru/project/index.html"><i class="fa fa-cogs"></i></a>
           <a href="#"><i class="fa fa-trash"></i></a> 
         </div>
         <!-- Slideshow container -->
@@ -77,14 +77,14 @@ and open the template in the editor.
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 <!-- The Modal -->
-<div id="login-popup" class="modal">
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" 
+class="close" title="Close Modal">&times;</span>
 
   <!-- Modal Content -->
-  <form class="modal-content animate" action="login.html">
+  <form class="modal-content animate" action="/action_page.php">
     <div class="imgcontainer">
-   <span onclick="document.getElementById('login-popup').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
-     <img src="images/ver2/team/denis.png" alt="Avatar" class="avatar">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -101,28 +101,35 @@ class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('login-popup').style.display='none'" class="cancelbtn">
-          Cancel</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
+        <form action="spb.html" target="_blank" method="GET">
+            City to go:<br>
+            <input list="cities" name="tourcity">
+           <datalist id="cities">
+             <option value="SaintPetersburg">
+             <option value="Moscow">
+             <option value="Kiev">
+             <option value="Odessa">
+             <option value="Tallinn">
+           </datalist>  
+            <br>
+           Date:<br>
+              <input type="date" name="tourdate" id="tourdate" >
+            <br>
+             <br>
+            <input type="submit" value="Submit">
+        </form>
      <script>
         var slideIndex = 1;  
         var sp=0;
 
     $(document).ready(function(){
             sp = 0;
-        var modal = document.getElementById('login-popup');
-
-// When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-          modal.style.display = "none";
-    }
-}
-    showSlides(slideIndex);
-
+        showSlides(slideIndex);
      });
 
 
