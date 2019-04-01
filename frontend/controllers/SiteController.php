@@ -71,6 +71,47 @@ class SiteController extends Controller
             ],
         ];
     }
+        public function actionAcadem()
+	{
+ 		$modelff=new FileForm;
+		if(isset($_POST['TmpXml']))
+                {
+                     $model=$_POST['TmpXml'];
+ //                    $res=$this->writesimple($model);
+                      $this->render('result',array(
+                            'model'=>$res,
+                    ));
+                }
+                else
+                {
+                    if(isset($_POST['FileForm']))
+                    {
+                        $modelff->attributes=$_POST['FileForm'];
+                        $modelff->image = CUploadedFile::getInstance($modelff, 'image');
+                        if (is_object($modelff->image)) {          
+ //                             $path=Yii::app()->params['load_xml'];
+                               $path='docs/go.xml';
+                               $modelff->image->saveAs($path);
+                        }  
+                      $thefile=Yii::app()->params['load_xml'];
+                          
+                        $ii=$this->readsimple($thefile);
+                        $model=new TmpXml('search');
+                        $doc=new TmpDoc('search');
+                        $this->render('admin',array(
+                                'model'=>$model,'doc'=>$doc,'rr'=>$ii
+                        ));
+                     }
+                   else
+                   {
+                         $this->render('fform',array(
+                                'ff'=>$modelff,
+                        ));
+                    
+                   }
+                  
+                }
+  	}
 
 
         public function actionData()
