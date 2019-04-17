@@ -3,7 +3,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=genadb2',
+            'dsn' => 'mysql:host=localhost;dbname=emisdb',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
