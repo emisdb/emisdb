@@ -18,7 +18,7 @@ class Client extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'client';
+        return 'client';  
     }
 
     /**

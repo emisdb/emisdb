@@ -7,19 +7,17 @@ use Yii;
 /**
  * This is the model class for table "academ_product".
  *
- * @property integer $id
- * @property integer $base
+ * @property int $id
  * @property string $id_out
  * @property string $name
- * @property double $number
- * @property double $sum
  *
- * @property AcademBases $base0
+ * @property AcademNumber[] $academNumbers
+ * @property AcademBases[] $bases
  */
 class AcademProduct extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -27,38 +25,41 @@ class AcademProduct extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['base', 'id_out', 'name', 'number', 'sum'], 'required'],
-            [['base'], 'integer'],
+            [['id_out', 'name'], 'required'],
             [['id_out', 'name'], 'string'],
-            [['number', 'sum'], 'number']
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
-            'base' => 'Base',
             'id_out' => 'Id Out',
             'name' => 'Name',
-            'number' => 'Number',
-            'sum' => 'Sum',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBase0()
+    public function getAcademNumbers()
     {
-        return $this->hasOne(AcademBases::className(), ['id' => 'base']);
+        return $this->hasMany(AcademNumber::className(), ['product' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBases()
+    {
+        return $this->hasMany(AcademBases::className(), ['id' => 'base'])->viaTable('academ_number', ['product' => 'id']);
     }
 }

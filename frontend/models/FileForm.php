@@ -3,6 +3,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use yii\web\UploadedFile;
 
 class FileForm extends Model
 {
@@ -14,7 +15,7 @@ class FileForm extends Model
     public function rules()
     {
 		return [
-			['image', 'file', 'types'=>'xml','maxSize'=>10*1024*1024]
+			['image', 'file', 'extensions'=>'xml','maxSize'=>10*1024*1024]
 		];
     }
 
@@ -24,5 +25,15 @@ class FileForm extends Model
             'image'=>'Файл загрузки (xml)'
 			];
     }
-
+    public function upload()
+    {
+         $path=Yii::$app->params['load_xml_dir'];
+        $filename=$path . $this->image->baseName . '.' . $this->image->extension;
+        if ($this->validate()) {
+            $this->image->saveAs($filename);
+            return $filename;
+        } else {
+            return false;
+        }
+    }
 }

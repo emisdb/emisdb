@@ -1,22 +1,23 @@
 <?php
 
 namespace frontend\models;
-
 use Yii;
 
 /**
  * This is the model class for table "academ_bases".
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $base_id
  *
- * @property AcademProduct[] $academProducts
+ * @property AcademNumber[] $academNumbers
+ * @property AcademProduct[] $products
+ * @property AcademProductName[] $academProductNames
  */
 class AcademBases extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -24,7 +25,7 @@ class AcademBases extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -33,12 +34,13 @@ class AcademBases extends \yii\db\ActiveRecord
             [['id'], 'integer'],
             [['name'], 'string', 'max' => 20],
             [['base_id'], 'string', 'max' => 10],
-            [['base_id'], 'unique']
+            [['base_id'], 'unique'],
+            [['id'], 'unique'],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -52,8 +54,31 @@ class AcademBases extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAcademProducts()
+    public function getAcademNumbers()
     {
-        return $this->hasMany(AcademProduct::className(), ['base' => 'id']);
+        return $this->hasMany(AcademNumber::className(), ['base' => 'id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProducts()
+    {
+        return $this->hasMany(AcademProduct::className(), ['id' => 'product'])->viaTable('academ_number', ['base' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAcademProductNames()
+    {
+        return $this->hasMany(AcademProductName::className(), ['base' => 'id']);
+    }
+    
+    public function getProductsnum()
+    {
+        // Customer has_many Order via Order.customer_id -> id
+        return $this->hasMany(AcademNumber::className(), ['base' => 'id'])->count();
+    }
+
 }
