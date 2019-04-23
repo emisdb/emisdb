@@ -165,21 +165,26 @@ class SiteController extends Controller
         foreach ($bases->queryAll() as $base)
                {
                     if($base['bCount']>0){
-                        $select.=", `nu".$base['id']."`.number as num".$base['id'];
-                        $join.=" LEFT JOIN `academ_number` `nu".$base['id']."`"
-            . " ON `pa`.id=`nu".$base['id']."`.product and `nu".$base['id']."`.base=:bas_".$base['id'];
-                       $params[':bas_'.$base['id']]=$base['id']; 
-                       $columns[]=[ 'attribute' => 'num'.$base['id'],
-                                    'header' => $base['name']                          
+						$bid=$base['id'];
+                        $select.=", `nu".$bid."`.number as num".$bid.
+								", `nu".$bid."`.sum as sum".$bid;
+                        $join.=" LEFT JOIN `academ_number` `nu".$bid."`"
+            . " ON `pa`.id=`nu".$bid."`.product and `nu".$bid."`.base=:bas_".$bid;
+                       $params[':bas_'.$bid]=$bid; 
+                       $columns[]=[ 'attribute' => 'num'.$bid,
+                                    'header' => $base['name']  ,
+									'format' =>'raw',
+//									'content' =>'function($model,$key){return "yop"}',
+ 									'value' =>function($model,$key) use ($bid)
+						   {
+						   $ret='<div class="container-fluid">  <div class="row">'
+								   .'<div class="col-sm-6" style="background-color:lavender;text-align:right;">'.$model['num'.$bid].'</div>'
+								   .'<div class="col-sm-6" style="background-color:lightgreen;text-align:right;">'.(($model['sum'.$bid]>0) ?  Yii::$app->formatter->asDecimal($model['sum'.$bid],2) : "").'</div>'
+								   . '</div></div>';
+						   
+						   return $ret;}
                            ];
                     }
- //         [
-//            'attribute' => 'number_2',
-//            'label' => 'Num',
-//            'value' => function($model, $index, $dataColumn) {
-//               return $model->products->number;
-//            }
-              
                
                }
         $sql= 'SELECT `pa`.id,`pa`.id_out AS paid,`pa`.name AS paname '.$select

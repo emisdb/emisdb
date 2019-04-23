@@ -46,10 +46,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'paid',
-            'paname',
+            'paname:ntext',
         ];
            
-           foreach($columns as $col) $cols[]=$col;
+           foreach($columns as $col){
+			   $cols[]=$col;
+		   
+		   }
            ?>
                      </div>
         <div class="col-lg-12">
@@ -57,6 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dp,
         'columns' => $cols,
+		
     ]); ?>
          </div>
     </div>
