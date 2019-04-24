@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $model \frontend\models\ContactForm */
 
 $this->title = 'Товары академии';
-$this->params['breadcrumbs'][] =['label'=>'Базы', 'url'=>['academ']];
+$this->params['breadcrumbs'][] =['label'=>'Базы', 'url'=>['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">

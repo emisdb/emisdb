@@ -88,7 +88,7 @@ class AcademBasesController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 //            return $this->redirect(['view', 'id' => $model->id]);
-           return $this->redirect(['site/academ']);
+           return $this->redirect(['academ/index']);
         }
 
         return $this->render('update', [
@@ -107,7 +107,7 @@ class AcademBasesController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['site/academ']);
+        return $this->redirect(['academ/index']);
     }
 
     /**
