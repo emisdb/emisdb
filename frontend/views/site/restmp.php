@@ -5,7 +5,8 @@ use yii\grid\GridView;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\ContactForm */
 
-$this->title = 'Academ';
+$this->title = 'Товары академии';
+$this->params['breadcrumbs'][] =['label'=>'Базы', 'url'=>['academ']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -15,23 +16,18 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
    <div class="row">
         <div class="col-lg-12">
-    <?= 
-        "Q:"
-//        .$query->createCommand()->sql.
-//        '<br/>'.$query->createCommand()->getRawSql();
-    ?>
+
              </div>
     </div>
 
     <div class="row">
         <div class="col-lg-12">
-            <?= "<br>"
-        .$query->sql; 
-//       .$dp->sql; 
-?>
+
            <?php
 /*
-           $command= Yii::$app->db->createCommand($dp->sql)
+  //        .$query->createCommand()->sql.
+//        '<br/>'.$query->createCommand()->getRawSql();
+         $command= Yii::$app->db->createCommand($dp->sql)
                    ->bindValue(':bas_lead', 3)
                    ->bindValue(':bas_follow', 4)
                    ->bindValue(':bas_cut', 3)
@@ -45,8 +41,8 @@ $this->params['breadcrumbs'][] = $this->title;
            $cols=[
             ['class' => 'yii\grid\SerialColumn'],
 
-            'paid',
-            'paname:ntext',
+            'paid:ntext:ID',
+            'paname:ntext:Товар',
         ];
            
            foreach($columns as $col){

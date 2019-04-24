@@ -8,7 +8,7 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Academ Bases';
+$this->title = 'Базы Академии';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="academ-bases-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Academ Bases', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Report', ['sql'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
  
             ['class' => 'yii\grid\ActionColumn',
+             'template'=>'{update}  {delete}',
              'urlCreator' => function ($action, $model, $key, $index) {
             if ($action === 'update') {
                 $url =Url::toRoute(['academ-bases/update', 'id' => $model->id]);
