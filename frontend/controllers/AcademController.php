@@ -4,12 +4,6 @@ namespace frontend\controllers;
 use Yii;
 use common\models\LoginForm;
 use frontend\models\FileForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
-use frontend\models\NewForm;
-use frontend\models\Languages;
 use frontend\models\SiteData;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -157,7 +151,41 @@ class AcademController extends Controller
         $totalCount = Yii::$app->db
             ->createCommand('SELECT COUNT(*) FROM academ_product')
             ->queryScalar();
-        $bases=Yii::$app->db
+         $ress=$this->getSQL();   
+        $dataProvider = new SqlDataProvider([
+           'sql' => $ress['sql'],
+             'params' => $ress['params'],
+    'totalCount' => $totalCount,
+
+    'pagination' => [
+        'pageSize' => 30,
+    ],
+]);
+                    return     $this->render('restmp',
+                                ['dp'=>$dataProvider, 'columns'=>$ress['columns']]
+                        );
+ 
+    }
+      private function csv() {
+          $encode = "\xEF\xBB\xBF";
+        $data = $encode."Название товара;Код;Фирмы\r\n";
+        $model = AcademProduct::find()->all();
+        foreach ($model as $value) {
+            $data .= $value->name.
+                    ';' . $value->id_out .
+                      "\r\n";
+        }
+        return $data;
+    }
+ public function actionExport() {
+    $csv = $this->csv(); // this should return a csv string
+    return \Yii::$app->response->sendContentAsFile($csv, 'sample.csv', [
+           'mimeType' => 'application/csv', 
+           'inline'   => false
+    ]);
+}  
+    private function getSQL(){
+                $bases=Yii::$app->db
             ->createCommand('SELECT academ_bases.id as id, academ_bases.name as name, COUNT(academ_number.base) AS bCount '
                     . 'FROM academ_bases INNER JOIN academ_number ON academ_bases.id=academ_number.base '
                     . 'GROUP BY academ_bases.id');
@@ -173,6 +201,7 @@ class AcademController extends Controller
                        $params[':bas_'.$bid]=$bid; 
                        $columns[]=[ 'attribute' => 'num'.$bid,
                                     'header' => $base['name']  ,
+
 									'format' =>'raw',
 //									'content' =>'function($model,$key){return "yop"}',
  									'value' =>function($model,$key) use ($bid)
@@ -189,41 +218,7 @@ class AcademController extends Controller
                }
         $sql= 'SELECT `pa`.id,`pa`.id_out AS paid,`pa`.name AS paname '.$select
              . ' FROM `academ_product` `pa` '.$join;
-//        echo $sql."<hr>";
-//        print_r($columns);
-//      exit();
-                
-        $dataProvider = new SqlDataProvider([
-           'sql' => $sql,
-             'params' => $params,
-    'totalCount' => $totalCount,
+        return ['sql'=>$sql, 'columns'=>$columns, 'params'=>$params];
 
-    'pagination' => [
-        'pageSize' => 30,
-    ],
-]);
-                    return     $this->render('restmp',
-                                ['dp'=>$dataProvider, 'columns'=>$columns]
-                        );
- 
     }
-      public function actionExportCSV() {
-        $data = "Название товара;Артикль;Цена;Описание;Количество;Производитель\r\n";
-        $model = Goods::model()->findAll();
-        foreach ($model as $value) {
-            $data .= $value->name.
-                    ';' . $value->article .
-                    ';' . $value->cost .
-                    ';' . $value->description .
-                    ';' . $value->count .
-                    ';' . $value->producer .
-                    "\r\n";
-        }
-        header('Content-type: text/csv');
-        header('Content-Disposition: attachment; filename="export_' . date('d.m.Y') . '.csv"');
-        //echo iconv('utf-8', 'windows-1251', $data); //Если вдруг в Windows будут кракозябры
-        Yii::app()->end();
-    }
-   
-
 }
