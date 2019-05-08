@@ -168,14 +168,15 @@ protected function saveProduct(){
 protected function saveBase($attr){
          $bid=$attr['TYPE'].".".$attr['CODE'];
      $base=AcademBases::findOne(['base_id'=>$bid]);
+
       if(empty($base)){
         $base= new AcademBases();
-         $id=$base->find()->max('id');
+        $id=$base->find()->max('id');
          $base->id=$id+1;
-         $base->name=$attr['NAME'];
+         $base->name=mb_substr($attr['NAME'],0,20);
          $base->base_id=$bid;
          $base->save();
-     }
+ 		  }
      else{
             Yii::$app->db->createCommand("DELETE FROM academ_number WHERE base=".$base->id)->execute();
  
