@@ -19,6 +19,7 @@ use yii\data\SqlDataProvider;
 use frontend\models\AcademBases;
 use frontend\models\AcademProduct;
 use frontend\models\XmlRead;
+use yii\web\Response;
 
 
 /**
@@ -107,6 +108,29 @@ class AcademController extends Controller
 
                   
         }
+        
+               public function actionCount()
+	{
+            if (Yii::$app->request->isAjax) {
+              Yii::$app->response->format = Response::FORMAT_JSON;
+
+
+                 $res = array(
+                     'body'    => date('Y-m-d H:i:s'),
+                     'success' => true,
+                 );
+
+             } 
+             else {
+ 
+                 $res = array(
+                     'body'    => 'shit',
+                     'success' => false,
+                 );
+            }
+                 echo json_encode($res);
+               }
+
         public function actionReport()
     { 
             $model=AcademProduct::find()
@@ -158,7 +182,7 @@ class AcademController extends Controller
     'totalCount' => $totalCount,
 
     'pagination' => [
-        'pageSize' => 30,
+        'pageSize' => 100,
     ],
 ]);
                     return     $this->render('restmp',
@@ -168,11 +192,11 @@ class AcademController extends Controller
     }
       private function csv() {
           $encode = "\xEF\xBB\xBF";
-        $data = $encode."Название товара;Код;Фирмы\r\n";
+        $data = $encode."Название товара,Код,Фирмы\r\n";
         $model = AcademProduct::find()->all();
         foreach ($model as $value) {
             $data .= $value->name.
-                    ';' . $value->id_out .
+                    ',' . $value->id_out .
                       "\r\n";
         }
         return $data;
