@@ -76,9 +76,6 @@ class AcademController extends Controller
   
        public function actionIndex()
 	{
-            $dataProvider = new ActiveDataProvider([
-               'query' => AcademBases::find(),
-           ]);
 
              $modelff=new FileForm();
             if($modelff->load(Yii::$app->request->post()) && $modelff->validate())
@@ -91,22 +88,15 @@ class AcademController extends Controller
                             $xml->filename=$file;
                             $xml->parse();
                            $res=$xml->getlist();
-                             return     $this->render('academ',
-                                ['ff'=>$modelff,'dataProvider' => $dataProvider]);
-//                              return     $this->render('result',
-//                                ['model'=> $res]);
+
                     }
                    }
-                   else
-                   {
+            $dataProvider = new ActiveDataProvider([
+               'query' => AcademBases::find(),
+           ]);
                     return     $this->render('academ',
                                 ['ff'=>$modelff,'dataProvider' => $dataProvider]
-                        );
-                    
-                   }
-                   
-
-                  
+                        );                  
         }
         
                public function actionCount()
