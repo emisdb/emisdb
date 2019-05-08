@@ -173,7 +173,7 @@ protected function saveBase($attr){
         $base= new AcademBases();
         $id=$base->find()->max('id');
          $base->id=$id+1;
-         $base->name=mb_substr($attr['NAME'],0,20);
+         $base->name=mb_substr($attr['NAME'],0,20,'UTF-8');
          $base->base_id=$bid;
          $base->save();
  		  }
