@@ -119,7 +119,10 @@ class XmlRead extends Model
            $this->sum="";
            if(count($this->output)==20) {
                $res=$this->saveProduct ();
-               if($res) $this->output=[];
+//               if($res) $this->output=[];
+//                unset($this->output);
+                      $this->codearray=[];
+                      $this->output=[];
            }
   
       }
@@ -134,8 +137,7 @@ protected function saveProduct(){
                   $rows= Yii::$app->db->createCommand
                           ("SELECT  academ_product.id, academ_product.id_out "
                          . "FROM academ_product WHERE id_out IN (".$where.")")->queryAll();
-                      $this->codearray=[];
-      
+     
                   $id_out=array_column($rows ,'id_out');
 //                  print_r($id_out);exit();
 
