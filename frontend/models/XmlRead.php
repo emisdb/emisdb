@@ -14,7 +14,7 @@ class XmlRead extends Model
         private $parser;
         private $fp;
         private $data;
-        private $output;
+//        private $output;
         private $goc=false;
        private $gona=false;
        private $gonu=false;
@@ -41,8 +41,10 @@ class XmlRead extends Model
                 die("could not open XML input");
 
 
-    while ($this->data = fread($this->fp, 4096)) {
-    if (!xml_parse($this->parser, $this->data, feof($this->fp))) {
+//    while ($this->data = fread($this->fp, 4096)) {
+    while ($data = fread($this->fp, 4096)) {
+//    if (!xml_parse($this->parser, $this->data, feof($this->fp))) {
+    if (!xml_parse($this->parser, $data, feof($this->fp))) {
         die(sprintf("XML error: %s at line %d",
                     xml_error_string(xml_get_error_code($this->parser)),
                     xml_get_current_line_number($this->parser)));
@@ -66,8 +68,10 @@ class XmlRead extends Model
                 die("could not open XML input");
 
 
-    while ($this->data = fread($this->fp, 4096)) {
-    if (!xml_parse($this->parser, $this->data, feof($this->fp))) {
+//    while ($this->data = fread($this->fp, 4096)) {
+//    if (!xml_parse($this->parser, $this->data, feof($this->fp))) {
+   while ($data = fread($this->fp, 4096)) {
+    if (!xml_parse($this->parser, $data, feof($this->fp))) {
         die(sprintf("XML error: %s at line %d",
                     xml_error_string(xml_get_error_code($this->parser)),
                     xml_get_current_line_number($this->parser)));
