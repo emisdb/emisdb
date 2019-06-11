@@ -6,15 +6,15 @@ use Yii;
 use yii\base\Model;
 use frontend\models\AcademBases;
 use frontend\models\AcademProduct;
-use frontend\models\AcademNumber;
+//use frontend\models\AcademNumber;
 
 class XmlRead extends Model
 {
         public $filename;
-        private $parser;
+//        private $parser;
         private $fp;
-        private $data;
-//        private $output;
+//        private $data;
+        private $output;
         private $goc=false;
        private $gona=false;
        private $gonu=false;
@@ -27,16 +27,21 @@ class XmlRead extends Model
        private $sum;
        private $bid;
        private $count=0;
-        
+       private $numb;
+         
     public function parse()	{
 
 //         $this->parser = xml_parser_create('windows-1251');
-         $this->parser = xml_parser_create();
+//         $this->parser = xml_parser_create();
+         $parser = xml_parser_create();
 
 
-        xml_set_object($this->parser, $this);
-        xml_set_element_handler($this->parser, "start", "stop");
-       xml_set_character_data_handler($this->parser, "content"); 
+//        xml_set_object($this->parser, $this);
+//        xml_set_element_handler($this->parser, "start", "stop");
+//       xml_set_character_data_handler($this->parser, "content"); 
+        xml_set_object($parser, $this);
+        xml_set_element_handler($parser, "start", "stop");
+       xml_set_character_data_handler($parser, "content"); 
         if (!($this->fp = fopen($this->filename, "r")))
                 die("could not open XML input");
 
@@ -44,14 +49,17 @@ class XmlRead extends Model
 //    while ($this->data = fread($this->fp, 4096)) {
     while ($data = fread($this->fp, 4096)) {
 //    if (!xml_parse($this->parser, $this->data, feof($this->fp))) {
-    if (!xml_parse($this->parser, $data, feof($this->fp))) {
+    if (!xml_parse($parser, $data, feof($this->fp))) {
         die(sprintf("XML error: %s at line %d",
-                    xml_error_string(xml_get_error_code($this->parser)),
-                    xml_get_current_line_number($this->parser)));
+                    xml_error_string(xml_get_error_code($parser)),
+                    xml_get_current_line_number($parser)));
+//                   xml_error_string(xml_get_error_code($this->parser)),
+//                    xml_get_current_line_number($this->parser)));
     }
 }
 
-        xml_parser_free($this->parser);
+        xml_parser_free($parser);
+//        xml_parser_free($this->parser);
              return true;
  	}
         
@@ -149,25 +157,46 @@ protected function saveProduct(){
                $id=0;
                $key = array_search($line['code'], $id_out);
                if($key===false){
+                   
+//          Yii::$app->db->createCommand()->insert('academ_product', 
+//                  [
+//                      'id_out' => $line['code'],
+//                      'name' => $line['name'],
+//                       ])->execute();                  
+                   
                  $prod= new AcademProduct();
                  $prod->id_out=$line['code'];
                  $prod->name=$line['name'];
                  $prod->save();
                  $id=$prod->id;
+                 unset($prod);
                }
                else{
                    $id=$rows[$key]['id'];
                }
-               $numb=new AcademNumber();
-              $numb->product=$id;
-              $numb->base=$this->bid;
-              $numb->number=(double)$line['number'];
-              $numb->sum=(double)$line['sum'];
-              $numb->save();
-
+ // INSERT INTO `academ_number` (`product`, `base`, `number`, `sum`) VALUES (1294, 9, -12, -385.56)
+           Yii::$app->db->createCommand()->insert('academ_number', 
+                  [
+                      'product' => $id,
+                      'base' => $this->bid,
+                      'number' => (double)$line['number'],
+                      'sum' => (double)$line['sum'],
+                      ])->execute();
+   /* 
+              $this->numb=new AcademNumber();
+              $this->numb->product=$id;
+              $this->numb->base=$this->bid;
+              $this->numb->number=(double)$line['number'];
+              $this->numb->sum=(double)$line['sum'];
+             $this->numb->save();
+              unset($numb);
+  */  
+               }
  
-            }
-    }
+  
+
+     }
+ 
 
     return true;
 }
