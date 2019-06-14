@@ -177,12 +177,12 @@ class AcademController extends Controller
             ->queryScalar();
          $ress=$this->getSQL();   
         $dataProvider = new SqlDataProvider([
-           'sql' => $ress['sql'],
+             'sql' => $ress['sql'],
              'params' => $ress['params'],
-    'totalCount' => $totalCount,
+             'totalCount' => $totalCount,
 
-    'pagination' => [
-        'pageSize' => 100,
+             'pagination' => [
+                 'pageSize' => 100,
     ],
 ]);
                     return     $this->render('restmp',
