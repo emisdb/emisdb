@@ -123,7 +123,10 @@ class XmlRead extends Model
        if($name=="NUMBER") $this->gonu=false;
        if($name=="SUM") $this->gosu=false;
        if($name=="PRODUCT"){
-           $this->output[]=['code'=>(string)$this->code,'name'=>$this->name,'number'=>$this->number,'sum'=>$this->sum];
+           $this->output[]=['code'=>(string)$this->code,
+                            'name'=>$this->name,
+                            'number'=>preg_replace( '/[^.0-9]/', '', $this->number ),
+                            'sum'=>preg_replace( '/[^.0-9]/', '', $this->sum )];
            $this->codearray[]=(string)$this->code;
           $this->code="";
            $this->name="";
