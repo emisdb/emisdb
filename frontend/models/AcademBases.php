@@ -32,8 +32,8 @@ class AcademBases extends \yii\db\ActiveRecord
         return [
             [['id', 'name', 'base_id'], 'required'],
             [['id'], 'integer'],
-            [['name'], 'string', 'max' => 20],
-            [['base_id'], 'string', 'max' => 10],
+            [['name'], 'string', 'max' => 50],
+            [['base_id'], 'string', 'max' => 16],
             [['base_id'], 'unique'],
             [['id'], 'unique'],
         ];

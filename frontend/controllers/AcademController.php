@@ -139,6 +139,16 @@ class AcademController extends Controller
                         );
  
     }
+           public function actionTest(){
+                    $rows= Yii::$app->db->createCommand
+                          ("SELECT  academ_product.id, academ_product.id_out FROM academ_product WHERE id_out IN "
+                            . "('003388','369258','0256','581757','581757.','581757..','400120','226033'"
+                            . ",'7695','7693','747455','380500','66643','473330','С41','830381','0219'"
+                            . ",'2250000','0000696','1125708')")->queryAll();
+     
+                  $id_out=array_column($rows ,'id_out');
+            
+           }
        public function actionRelreport()
     { 
             $model=AcademProduct::find()

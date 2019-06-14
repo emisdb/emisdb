@@ -123,7 +123,7 @@ class XmlRead extends Model
        if($name=="NUMBER") $this->gonu=false;
        if($name=="SUM") $this->gosu=false;
        if($name=="PRODUCT"){
-           $this->output[]=['code'=>$this->code,'name'=>$this->name,'number'=>$this->number,'sum'=>$this->sum];
+           $this->output[]=['code'=>(string)$this->code,'name'=>$this->name,'number'=>$this->number,'sum'=>$this->sum];
            $this->codearray[]=(string)$this->code;
           $this->code="";
            $this->name="";
@@ -151,13 +151,27 @@ protected function saveProduct(){
                          . "FROM academ_product WHERE id_out IN (".$where.")")->queryAll();
      
                   $id_out=array_column($rows ,'id_out');
-//                  print_r($id_out);exit();
+ /*                      
+               if($this->codearray[0]=='003388'){
+                   print_r($rows);
+                   echo "<hr>";
+                   print_r($id_out);
+                   echo "<hr>";
+                   print_r($this->output);
+                   
 
-           foreach ($this->output as $line){ 
+               }
+
+*/
+            foreach ($this->output as $line){ 
+      
                $id=0;
-               $key = array_search($line['code'], $id_out);
+               $key = array_search($line['code'], $id_out, true);
+ 
                if($key===false){
                    
+               
+                  
 //          Yii::$app->db->createCommand()->insert('academ_product', 
 //                  [
 //                      'id_out' => $line['code'],
@@ -174,15 +188,14 @@ protected function saveProduct(){
                else{
                    $id=$rows[$key]['id'];
                }
- // INSERT INTO `academ_number` (`product`, `base`, `number`, `sum`) VALUES (1294, 9, -12, -385.56)
-           Yii::$app->db->createCommand()->insert('academ_number', 
+         Yii::$app->db->createCommand()->insert('academ_number', 
                   [
                       'product' => $id,
                       'base' => $this->bid,
                       'number' => (double)$line['number'],
                       'sum' => (double)$line['sum'],
                       ])->execute();
-   /* 
+   /*   
               $this->numb=new AcademNumber();
               $this->numb->product=$id;
               $this->numb->base=$this->bid;
@@ -190,11 +203,10 @@ protected function saveProduct(){
               $this->numb->sum=(double)$line['sum'];
              $this->numb->save();
               unset($numb);
-  */  
+   */
                }
+             
  
-  
-
      }
  
 
@@ -202,16 +214,20 @@ protected function saveProduct(){
 }
 protected function saveBase($attr){
          $bid=$attr['TYPE'].".".$attr['CODE'];
-     $base=AcademBases::findOne(['base_id'=>$bid]);
+         $bid=mb_substr($bid,0,16,'UTF-8');
+
+        $base=AcademBases::findOne(['base_id'=>$bid]);
 
       if(empty($base)){
         $base= new AcademBases();
         $id=$base->find()->max('id');
          $base->id=$id+1;
-         $base->name=mb_substr($attr['NAME'],0,20,'UTF-8');
+         $base->name=mb_substr($attr['NAME'],0,50,'UTF-8');
          $base->base_id=$bid;
+   
          $base->save();
- 		  }
+//                     print_r($base);exit(); 	
+                     	  }
      else{
             Yii::$app->db->createCommand("DELETE FROM academ_number WHERE base=".$base->id)->execute();
  
