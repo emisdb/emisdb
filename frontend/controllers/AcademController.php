@@ -139,16 +139,7 @@ class AcademController extends Controller
                         );
  
     }
-           public function actionTest(){
-                    $rows= Yii::$app->db->createCommand
-                          ("SELECT  academ_product.id, academ_product.id_out FROM academ_product WHERE id_out IN "
-                            . "('003388','369258','0256','581757','581757.','581757..','400120','226033'"
-                            . ",'7695','7693','747455','380500','66643','473330','С41','830381','0219'"
-                            . ",'2250000','0000696','1125708')")->queryAll();
-     
-                  $id_out=array_column($rows ,'id_out');
-            
-           }
+
        public function actionRelreport()
     { 
             $model=AcademProduct::find()
@@ -182,7 +173,7 @@ class AcademController extends Controller
              'totalCount' => $totalCount,
 
              'pagination' => [
-                 'pageSize' => 100,
+                 'pageSize' => 500,
     ],
 ]);
                     return     $this->render('restmp',
@@ -201,8 +192,49 @@ class AcademController extends Controller
         }
         return $data;
     }
- public function actionExport() {
-    $csv = $this->csv(); // this should return a csv string
+               private function getCSV($page){
+          $totalCount = Yii::$app->db
+            ->createCommand('SELECT COUNT(*) FROM academ_product')
+            ->queryScalar();
+         $ress=$this->getSQL();   
+        $dataProvider = new SqlDataProvider([
+             'sql' => $ress['sql'],
+             'params' => $ress['params'],
+             'totalCount' => $totalCount,
+
+             'pagination' => [
+                 'pageSize' => 500,
+    ],
+]);
+
+       $dataProvider->pagination->page = $page; //Set page 
+       $model = $dataProvider->refresh(); //Refresh models
+       $model = $dataProvider->getModels(); //Models in page 
+            $encode = "\xEF\xBB\xBF";
+        $data = $encode."Название товара,Код,Фирмы\r\n";
+//        print_r($ress['columns']);                exit();
+        $fh = fopen('php://temp', 'rw');
+        fputs($fh, $encode);
+        $last_names = array_column($ress['columns'], 'header');
+        $headers=["Номер","Код","Товар"];
+        foreach ($last_names as $value) {
+            $headers[]=$value;            
+            $headers[]=" S ";            
+        }
+        fputcsv($fh, $headers);
+
+            foreach ($model as $value) {
+                   fputcsv($fh, $value);
+       }
+         rewind($fh);
+        $csv = stream_get_contents($fh);
+        fclose($fh);
+
+        return $csv;
+         
+           }
+ public function actionExport($page) {
+    $csv = $this->getCSV($page-1); // this should return a csv string
     return \Yii::$app->response->sendContentAsFile($csv, 'sample.csv', [
            'mimeType' => 'application/csv', 
            'inline'   => false
@@ -225,8 +257,7 @@ class AcademController extends Controller
                        $params[':bas_'.$bid]=$bid; 
                        $columns[]=[ 'attribute' => 'num'.$bid,
                                     'header' => $base['name']  ,
-
-									'format' =>'raw',
+        				'format' =>'raw',
 //									'content' =>'function($model,$key){return "yop"}',
  									'value' =>function($model,$key) use ($bid)
 						   {

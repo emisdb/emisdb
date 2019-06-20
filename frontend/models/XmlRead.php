@@ -154,18 +154,7 @@ protected function saveProduct(){
                          . "FROM academ_product WHERE id_out IN (".$where.")")->queryAll();
      
                   $id_out=array_column($rows ,'id_out');
- /*                      
-               if($this->codearray[0]=='003388'){
-                   print_r($rows);
-                   echo "<hr>";
-                   print_r($id_out);
-                   echo "<hr>";
-                   print_r($this->output);
-                   
 
-               }
-
-*/
             foreach ($this->output as $line){ 
       
                $id=0;

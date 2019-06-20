@@ -13,7 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
    <p>
-        <?= Html::a('Excel', ['export'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Excel', ['export','page'=>Yii::$app->request->get('page')], ['class' => 'btn btn-success']) ?>
+ 
     </p>
    <div class="row">
         <div class="col-lg-12">
