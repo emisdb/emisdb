@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
    <p>
-        <?= Html::a('Excel', ['export','page'=>Yii::$app->request->get('page')], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Excel', ['export','page'=>(null !== Yii::$app->request->get('page')? Yii::$app->request->get('page') : 1)], ['class' => 'btn btn-success']) ?>
  
     </p>
    <div class="row">
