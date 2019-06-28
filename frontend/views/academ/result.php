@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="academ-product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['method'=>'post']); ?>
         <div class="form-group">
     <div class="row">
         <div class="col-lg-8">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-4">
  
         <?= Html::submitButton('Выбрать', ['class' => 'btn btn-success', 'style'=>'margin-top:25px;']) ?>
-       <?= Html::a('Очистить',['test','clear'=>1], ['class' => 'btn btn-primary', 'style'=>'margin-top:25px;']) ?>
+       <?= Html::a('Очистить',['test'], ['class' => 'btn btn-primary', 'style'=>'margin-top:25px;']) ?>
     </div>
     </div>
     </div>

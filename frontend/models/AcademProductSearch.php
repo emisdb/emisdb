@@ -42,23 +42,18 @@ class AcademProductSearch extends AcademProduct
     {
             $this->load($params);
             $strwhere="";
-            if(strlen($this->name)>0) $strwhere="WHERE name like \"%".$this->name."%\"";
+            if(strlen($this->name)>0) $strwhere=" WHERE `pa`.name like \"%".$this->name."%\"";
 
 
         $totalCount = Yii::$app->db
-            ->createCommand('SELECT COUNT(*) FROM academ_product '.$strwhere)
+            ->createCommand('SELECT COUNT(*) FROM `academ_product` `pa` '.$strwhere)
             ->queryScalar();
-        return [$totalCount,$this->name];
         
-         $ress=$this->getSQL($this->name);   
-        $dataProvider = new SqlDataProvider([
-             'sql' => $ress['sql'],
-             'params' => $ress['params'],
-             'totalCount' => $totalCount,
-             'pagination' => [
-             'pageSize' => 500,
-                 ],
-            ]);
+         $ress=$this->getSQL($this->name); 
+         $ress['sql'].=$strwhere;
+         $ress['total']=$totalCount;
+         return $ress;
+
         }
         private function getSQL(){
                 $bases=Yii::$app->db

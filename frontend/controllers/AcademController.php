@@ -141,39 +141,20 @@ class AcademController extends Controller
  
     }
 
-       public function actionRelreport()
-    { 
-            $model=AcademProduct::find()
-                    ->alias('pa')
-                     ->joinWith(['products ap' ],true,'LEFT JOIN')
-//                    ->onCondition(['pa.base'=>3])
-//                    ->where('((pa.base=3 or pa.base IS NULL) and (ap.base=4 or ap.base IS NULL) )')
-                    ->select('`ap`.*,`pa`.*')
-                   ;	
-                      $dataProvider = new ActiveDataProvider([
-               'query' =>  $model,
-//                'pagination' => [
-//                     'pageSize' => 30,
-//                         ],
-           ]);
 
-                    return     $this->render('restmp',
-                                ['dp'=>$dataProvider, 'query'=>$model]
-                        );
- 
-    }
-        public function actionTest($clear=0){
-        $searchModel = new AcademProductSearch();
-        if($clear==0)  
-            $value = $searchModel->report(Yii::$app->request->post());
-         else 
-           $value = $searchModel->report([]);
-        return     $this->render('result',
-                                ['val'=>$value,
-                                    'model'=>$searchModel,
-                                    'params'=>Yii::$app->request->post()
-                               
-                               ]
+        public function actionTest(){
+             $searchModel = new AcademProductSearch();
+             $value = $searchModel->report(Yii::$app->request->post());
+              $dataProvider = new SqlDataProvider([
+             'sql' => $value['sql'],
+             'params' => $value['params'],
+             'totalCount' => $value['total'],
+             'pagination' => [
+             'pageSize' => 500,
+                 ],
+            ]);
+               return     $this->render('report',
+                               ['dp'=>$dataProvider,'model'=>$searchModel, 'columns'=>$value['columns']]
                         );
          
         }
@@ -222,7 +203,7 @@ class AcademController extends Controller
              'pagination' => [
                  'pageSize' => 500,  
                  ],]);
-        if($ver=0)
+        if($ver==0)
                 $delim=",";
         else 
             $delim=";";
