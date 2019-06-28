@@ -38,7 +38,66 @@ class AcademProductSearch extends AcademProduct
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function report($params)
+    {
+            $this->load($params);
+            $strwhere="";
+            if(strlen($this->name)>0) $strwhere="WHERE name like '".$this->name."'";
+
+
+        $totalCount = Yii::$app->db
+            ->createCommand('SELECT COUNT(*) FROM academ_product '.$strwhere)
+            ->queryScalar();
+        return $totalCount;
+        
+         $ress=$this->getSQL($this->name);   
+        $dataProvider = new SqlDataProvider([
+             'sql' => $ress['sql'],
+             'params' => $ress['params'],
+             'totalCount' => $totalCount,
+             'pagination' => [
+             'pageSize' => 500,
+                 ],
+            ]);
+        }
+        private function getSQL(){
+                $bases=Yii::$app->db
+            ->createCommand('SELECT academ_bases.id as id, academ_bases.name as name, COUNT(academ_number.base) AS bCount '
+                    . 'FROM academ_bases INNER JOIN academ_number ON academ_bases.id=academ_number.base '
+                    . 'GROUP BY academ_bases.id');
+        $select="";$params=[];$join="";$columns=[];
+        foreach ($bases->queryAll() as $base)
+               {
+                    if($base['bCount']>0){
+			$bid=$base['id'];
+                        $select.=", `nu".$bid."`.number as num".$bid.
+				", `nu".$bid."`.sum as sum".$bid;
+                        $join.=" LEFT JOIN `academ_number` `nu".$bid."`"
+            . " ON `pa`.id=`nu".$bid."`.product and `nu".$bid."`.base=:bas_".$bid;
+                       $params[':bas_'.$bid]=$bid; 
+                       $columns[]=[ 'attribute' => 'num'.$bid,
+                                    'header' => $base['name']  ,
+                                    'format' =>'raw',
+//                                  'content' =>'function($model,$key){return "yop"}',
+                                    'value' =>function($model,$key) use ($bid)
+				{
+				   $ret='<div class="container-fluid">  <div class="row">'
+                                       .'<div class="col-sm-6" style="background-color:lavender;text-align:right;">'.$model['num'.$bid].'</div>'
+                                       .'<div class="col-sm-6" style="background-color:lightgreen;text-align:right;">'.(($model['sum'.$bid]>0) ?  Yii::$app->formatter->asDecimal($model['sum'.$bid],2) : "").'</div>'
+                                       . '</div></div>';
+                                        return $ret;
+                                }
+                           ];
+                    }
+               
+               }
+        $sql= 'SELECT `pa`.id,`pa`.id_out AS paid,`pa`.name AS paname '.$select
+             . ' FROM `academ_product` `pa` '.$join;
+        return ['sql'=>$sql, 'columns'=>$columns, 'params'=>$params];
+
+    }
+
+   public function search($params)
     {
         $query = AcademProduct::find();
 

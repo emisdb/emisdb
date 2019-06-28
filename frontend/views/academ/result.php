@@ -16,13 +16,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-5">
-            <ol>
-           <?php
-           foreach ($model as $line){
-               echo "<li>".print_r($line)."</li>";
-           }
+            <h1>
+<!--            <ol>
+           <?php  
+                echo $val;
+//           foreach ($model as $line){
+//               echo "<li>".print_r($line)."</li>";
+//           }
            ?>
-                </ol>
+                </ol>-->
+            </h1>
          </div>
     </div>
 

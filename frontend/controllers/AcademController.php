@@ -18,6 +18,7 @@ use yii\filters\VerbFilter;
 use yii\data\SqlDataProvider;
 use frontend\models\AcademBases;
 use frontend\models\AcademProduct;
+use frontend\models\AcademProductSearch;
 use frontend\models\XmlRead;
 use yii\web\Response;
 
@@ -161,6 +162,14 @@ class AcademController extends Controller
                         );
  
     }
+        public function actionTest(){
+            $value=  AcademProductSearch::report();
+                       return     $this->render('result',
+                                ['val'=>$value]
+                        );
+         
+        }
+
     public function actionSql()
     { 
         $totalCount = Yii::$app->db
@@ -192,7 +201,7 @@ class AcademController extends Controller
         }
         return $data;
     }
-               private function getCSV($page){
+               private function getCSV($page,$ver){
           $totalCount = Yii::$app->db
             ->createCommand('SELECT COUNT(*) FROM academ_product')
             ->queryScalar();
@@ -203,9 +212,12 @@ class AcademController extends Controller
              'totalCount' => $totalCount,
 
              'pagination' => [
-                 'pageSize' => 500,
-    ],
-]);
+                 'pageSize' => 500,  
+                 ],]);
+        if($ver=0)
+                $delim=",";
+        else 
+            $delim=";";
 
        $dataProvider->pagination->page = $page; //Set page 
        $model = $dataProvider->refresh(); //Refresh models
@@ -221,10 +233,10 @@ class AcademController extends Controller
             $headers[]=$value;            
             $headers[]=" S ";            
         }
-        fputcsv($fh, $headers);
+        fputcsv($fh, $headers,$delim);
 
             foreach ($model as $value) {
-                   fputcsv($fh, $value);
+                   fputcsv($fh, $value,$delim);
        }
          rewind($fh);
         $csv = stream_get_contents($fh);
@@ -233,8 +245,8 @@ class AcademController extends Controller
         return $csv;
          
            }
- public function actionExport($page) {
-    $csv = $this->getCSV($page-1); // this should return a csv string
+ public function actionExport($page,$ver) {
+    $csv = $this->getCSV($page-1,$ver); // this should return a csv string
     return \Yii::$app->response->sendContentAsFile($csv, 'sample.csv', [
            'mimeType' => 'application/csv', 
            'inline'   => false
