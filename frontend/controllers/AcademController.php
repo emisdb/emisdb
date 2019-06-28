@@ -162,10 +162,18 @@ class AcademController extends Controller
                         );
  
     }
-        public function actionTest(){
-            $value=  AcademProductSearch::report();
-                       return     $this->render('result',
-                                ['val'=>$value]
+        public function actionTest($clear=0){
+        $searchModel = new AcademProductSearch();
+        if($clear==0)  
+            $value = $searchModel->report(Yii::$app->request->post());
+         else 
+           $value = $searchModel->report([]);
+        return     $this->render('result',
+                                ['val'=>$value,
+                                    'model'=>$searchModel,
+                                    'params'=>Yii::$app->request->post()
+                               
+                               ]
                         );
          
         }

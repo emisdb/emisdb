@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\models;
-
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\AcademProduct;
@@ -42,13 +42,13 @@ class AcademProductSearch extends AcademProduct
     {
             $this->load($params);
             $strwhere="";
-            if(strlen($this->name)>0) $strwhere="WHERE name like '".$this->name."'";
+            if(strlen($this->name)>0) $strwhere="WHERE name like \"%".$this->name."%\"";
 
 
         $totalCount = Yii::$app->db
             ->createCommand('SELECT COUNT(*) FROM academ_product '.$strwhere)
             ->queryScalar();
-        return $totalCount;
+        return [$totalCount,$this->name];
         
          $ress=$this->getSQL($this->name);   
         $dataProvider = new SqlDataProvider([
