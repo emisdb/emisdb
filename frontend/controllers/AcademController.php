@@ -122,7 +122,7 @@ class AcademController extends Controller
                  echo json_encode($res);
                }
 
-        public function actionReport()
+        public function actionTest()
     { 
             $model=AcademProduct::find()
                     ->alias('pa')
@@ -142,8 +142,7 @@ class AcademController extends Controller
     }
 
 
-        public function actionTest(){
- //           print_r(Yii::$app->request->post());exit();
+        public function actionReport(){
              $searchModel = new AcademProductSearch();
              $value = $searchModel->report(Yii::$app->request->post());
               $dataProvider = new SqlDataProvider([
