@@ -40,16 +40,32 @@ class AcademProductSearch extends AcademProduct
      */
     public function report($params)
     {
+        $strwhere="";
+        $name="";
+        if(isset($params)) {
+  
+       if(is_array($params)){
             $this->load($params);
-            $strwhere="";
-            if(strlen($this->name)>0) $strwhere=" WHERE `pa`.name like \"%".$this->name."%\"";
-
-
-        $totalCount = Yii::$app->db
+           if(strlen($this->name)>0){
+               $name=$this->name;
+         }
+               }
+             else{
+             if(strlen($params)>0)     $name=$params;
+        } }   
+         $session = Yii::$app->session;
+          if (!$session->isActive)                    $session->open();
+         if($name=="")                    $session->remove('report-name');    
+         else{
+                 $strwhere=" WHERE `pa`.name like \"%".$name."%\"";
+                $session->set('report-name', $name);
+         }
+         
+     $totalCount = Yii::$app->db
             ->createCommand('SELECT COUNT(*) FROM `academ_product` `pa` '.$strwhere)
             ->queryScalar();
         
-         $ress=$this->getSQL($this->name); 
+         $ress=$this->getSQL(); 
          $ress['sql'].=$strwhere;
          $ress['total']=$totalCount;
          return $ress;

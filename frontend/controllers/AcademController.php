@@ -143,6 +143,7 @@ class AcademController extends Controller
 
 
         public function actionTest(){
+ //           print_r(Yii::$app->request->post());exit();
              $searchModel = new AcademProductSearch();
              $value = $searchModel->report(Yii::$app->request->post());
               $dataProvider = new SqlDataProvider([
@@ -154,7 +155,8 @@ class AcademController extends Controller
                  ],
             ]);
                return     $this->render('report',
-                               ['dp'=>$dataProvider,'model'=>$searchModel, 'columns'=>$value['columns']]
+                               ['dp'=>$dataProvider,'model'=>$searchModel,
+                                   'columns'=>$value['columns']]
                         );
          
         }
@@ -190,19 +192,21 @@ class AcademController extends Controller
         }
         return $data;
     }
-               private function getCSV($page,$ver){
-          $totalCount = Yii::$app->db
-            ->createCommand('SELECT COUNT(*) FROM academ_product')
-            ->queryScalar();
-         $ress=$this->getSQL();   
-        $dataProvider = new SqlDataProvider([
-             'sql' => $ress['sql'],
-             'params' => $ress['params'],
-             'totalCount' => $totalCount,
-
+    private function getCSV($page,$ver){
+             $searchModel = new AcademProductSearch();
+             $session = Yii::$app->session;
+              if ($session->has('report-name'))
+                 $valu = $searchModel->report($session->get('report-name'));
+             else
+                $valu = $searchModel->report([]);
+              $dataProvider = new SqlDataProvider([
+             'sql' => $valu['sql'],
+             'params' => $valu['params'],
+             'totalCount' => $valu['total'],
              'pagination' => [
-                 'pageSize' => 500,  
-                 ],]);
+             'pageSize' => 500,
+                 ],
+            ]);
         if($ver==0)
                 $delim=",";
         else 
@@ -216,7 +220,7 @@ class AcademController extends Controller
 //        print_r($ress['columns']);                exit();
         $fh = fopen('php://temp', 'rw');
         fputs($fh, $encode);
-        $last_names = array_column($ress['columns'], 'header');
+        $last_names = array_column($valu['columns'], 'header');
         $headers=["Номер","Код","Товар"];
         foreach ($last_names as $value) {
             $headers[]=$value;            

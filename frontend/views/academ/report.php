@@ -37,7 +37,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php ActiveForm::end(); ?>
              </div>
     </div>
-
+    <?php          
+                $session = Yii::$app->session;
+                if ($session->has('report-name')) echo "H";
+                echo 'SS:'.$session->get('report-name');
+ 
+     ?>
     <div class="row">
         <div class="col-lg-12">
 
