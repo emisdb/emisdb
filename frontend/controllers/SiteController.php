@@ -10,6 +10,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\NewForm;
 use frontend\models\Languages;
+use frontend\models\MyProjects;
 use frontend\models\SiteData;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -220,4 +221,15 @@ class SiteController extends Controller
          }
         return $this->render('form', ['form'=>$form]);
     }
-}
+
+	public function actionProjects()
+		{
+			$this->layout='studio';
+			$projects= MyProjects::find();
+			$pg=new Pagination(['defaultPageSize'=>5,'totalCount'=>$projects->count()]);
+			$proj=$projects->offset($pg->offset)->limit($pg->limit)->all();
+			return $this->render('projects', ['projects'=>$proj,'pg'=>$pg]);
+	
+		}
+ }
+
