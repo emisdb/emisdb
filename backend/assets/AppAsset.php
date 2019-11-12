@@ -17,13 +17,22 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [
-        'css/site.css',
-    ];
-    public $js = [
-    ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-    ];
+//    public $css = [
+//        'css/site.css',
+//    ];
+//    public $js = [
+//    ];
+  public $sourcePath = '@bower/'; 
+    public $css = ['css/site.css',
+		'css/AdminLTE.css']; 
+    public $js = ['js/AdminLTE/app.js']; 
+    public $depends = [ 
+     'yii\web\YiiAsset', 
+     'yii\bootstrap\BootstrapAsset', 
+     'yii\bootstrap\BootstrapPluginAsset', 
+    ]; 
+//	public $depends = [
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap\BootstrapAsset',
+//    ];
 }

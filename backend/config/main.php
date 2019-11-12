@@ -11,8 +11,17 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
-    'components' => [
+  'modules' => [
+
+        'lk' => [
+
+            'class' => 'app\modules\lk\Lk',
+//			'layout'=>'main'
+
+        ],
+
+    ],
+	'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -29,6 +38,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+//		 'view' => [
+//         'theme' => [
+//             'pathMap' => [
+//                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+//             ],
+//         ],
+//    ],
+
     ],
     'params' => $params,
 ];
