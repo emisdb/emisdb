@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
   public $sourcePath = '@bower/'; 
     public $css = ['css/site.css',
 		'css/AdminLTE.css']; 
-    public $js = ['js/AdminLTE/app.js']; 
+    public $js = ['js/AdminLTE.js']; 
     public $depends = [ 
      'yii\web\YiiAsset', 
      'yii\bootstrap\BootstrapAsset', 

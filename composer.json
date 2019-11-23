@@ -22,7 +22,7 @@
         "kartik-v/yii2-export": "*",
         "kartik-v/yii2-mpdf": "*",
         "kartik-v/yii2-grid": "@dev",
-        "dmstr/yii2-adminlte-asset": "2.0"
+        "dmstr/yii2-adminlte-asset": "2.*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
