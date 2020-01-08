@@ -13,7 +13,7 @@ $this->title = 'Projects';
 <?php 
         foreach ($projects as $lang) {
             echo '<li>'.$lang->id.'. <b>'.$lang->name.'</b> : '.
-                    Html::a($lang->text, ['languages/view','id'=>$lang->id]).
+                    Html::a($lang->text, ['chapter','id'=>$lang->id]).
 					'</li>';
          }
 ?>

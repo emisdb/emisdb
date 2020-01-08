@@ -11,6 +11,7 @@ use frontend\models\ContactForm;
 use frontend\models\NewForm;
 use frontend\models\Languages;
 use frontend\models\MyProjects;
+use frontend\models\MyChapters;
 use frontend\models\SiteData;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -90,6 +91,7 @@ class SiteController extends Controller
               $cookies->add(new Cookie(['name'=>'sitedata','value'=>$form->data]));
             }
            $vali=Yii::$app->request->cookies->getValue('sitedata');
+		   
          return $this->render('cook',['form'=>$form,'res'=>$val,'resi'=>$cookies, 'resid'=>$vali]);
     }
     
@@ -222,6 +224,14 @@ class SiteController extends Controller
         return $this->render('form', ['form'=>$form]);
     }
 
+	public function actionChapter($id)
+		{
+			$this->layout='studio';
+			$project= MyProjects::findOne($id);
+			$chapters= MyChapters::find()->where("id_projects=$id")->orderBy('chapter_order')->all();
+			return $this->render('chapters', ['chapters'=>$chapters,'project'=>$project]);
+	
+	}
 	public function actionProjects()
 		{
 			$this->layout='studio';
