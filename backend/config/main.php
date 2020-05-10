@@ -11,13 +11,12 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-  'modules' => [
+	'modules' => [
 
         'lk' => [
 
             'class' => 'app\modules\lk\Lk',
 			'layout'=>'main'
-
         ],
 
     ],
