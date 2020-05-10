@@ -13,7 +13,7 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
-		public function beforeAction($action)
+	public function beforeAction($action)
 	{
        $this->layout = "admin-lte\main.php";
  	 return parent::beforeAction($action);
