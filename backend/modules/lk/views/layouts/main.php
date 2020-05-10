@@ -22,7 +22,7 @@ if (Yii::$app->controller->action->id === 'login') {
         app\assets\AppAsset::register($this);
     }
 	
-             yii2-adminlte-asset\web\AdminLteAsset::register($this);
+             dmstr\web\AdminLteAsset::register($this);
 	
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/bower/adminlte/dist');

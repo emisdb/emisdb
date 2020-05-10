@@ -16,7 +16,7 @@ return [
         'lk' => [
 
             'class' => 'app\modules\lk\Lk',
-//			'layout'=>'main'
+			'layout'=>'main'
 
         ],
 

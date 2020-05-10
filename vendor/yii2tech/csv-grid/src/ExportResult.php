@@ -84,6 +84,7 @@ class ExportResult extends BaseObject
         if ($this->_dirName === null) {
             $this->_dirName = Yii::getAlias($this->basePath) . DIRECTORY_SEPARATOR . uniqid(time(), true);
         }
+
         return $this->_dirName;
     }
 
@@ -118,6 +119,7 @@ class ExportResult extends BaseObject
                 }
             }
         }
+
         return $this->_resultFileName;
     }
 
@@ -194,8 +196,8 @@ class ExportResult extends BaseObject
     /**
      * Prepares response for sending a result file to the browser.
      * Note: this method works only while running web application.
-     * @param string $name the file name shown to the user. If null, it will be determined from [[tempName]].
-     * @param array $options additional options for sending the file. See [[\yii\web\Response::sendFile()]] for more details.
+     * @param string $name the file name shown to the user. If null, it will be determined from {@see tempName}.
+     * @param array $options additional options for sending the file. See {@see \yii\web\Response::sendFile()} for more details.
      * @return Response application response instance.
      */
     public function send($name = null, $options = [])
