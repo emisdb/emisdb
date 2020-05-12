@@ -22,11 +22,17 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
-	    public function actionApi()
+	    public function actionSpb()
     {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
 		$data= $dp->getData();
-		return $this->render('api', compact('data'));
+		return $this->render('spb', compact('data'));
+    }
+	    public function actionBook()
+    {
+		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_GOOGLE_BOOKS);
+		$data= $dp->getData();
+		return $this->render('google', compact('data'));
     }
 
 }

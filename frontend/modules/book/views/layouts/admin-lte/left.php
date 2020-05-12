@@ -5,14 +5,9 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-            </div>
-            <div class="pull-left info">
-                <p>Alexander Pierce</p>
-
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
+		  <?= yii\helpers\Html::a('<span class="logo-mini">'.$this->render('logo').'</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+<           </div>
+         </div>
 
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
