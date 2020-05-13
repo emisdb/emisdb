@@ -2,14 +2,7 @@
 
     <section class="sidebar">
 
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-		  <?= yii\helpers\Html::a('<span class="logo-mini">'.$this->render('logo').'</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
-<           </div>
-         </div>
-
-        <!-- search form -->
+         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>

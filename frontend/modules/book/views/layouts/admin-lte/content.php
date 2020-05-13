@@ -40,6 +40,13 @@ use dmstr\widgets\Alert;
         <div class="tab-pane" id="control-sidebar-home-tab">
             <h3 class="control-sidebar-heading">Recent Activity</h3>
             <ul class='control-sidebar-menu'>
+               <li>
+					<div class="user-panel">
+						<div class="pull-left image">
+					  <?= yii\helpers\Html::a('<span class="logo-mini">'.$this->render('logo_accordion').'</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+					   </div>
+					 </div>
+                </li>
                 <li>
                     <a href='javascript::;'>
                         <i class="menu-icon fa fa-birthday-cake bg-red"></i>

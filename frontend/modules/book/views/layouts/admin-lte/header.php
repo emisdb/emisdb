@@ -6,12 +6,10 @@ use yii\helpers\Html;
 ?>
 
 <header class="main-header">
+ <?= yii\helpers\Html::a('<span class="logo-mini" style="font-size:10pt;">emis.db</span><span class="logo-lg">'
+		 .$this->render('logo_slider').'</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
-    <?php 
-		echo Html::a('<span class="logo-mini">APP</span><span class="logo-lg">'
-	. Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']);
-	?>
- 
+
     <nav class="navbar navbar-static-top" role="navigation">
 
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -21,6 +19,11 @@ use yii\helpers\Html;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
+               <li class=" messages-menu">
+					<div class="user-panel">
+					  <?= $this->render('logo_accordion'); ?>
+					 </div>
+                </li>
 
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
@@ -28,6 +31,7 @@ use yii\helpers\Html;
                         <i class="fa fa-envelope-o"></i>
                         <span class="label label-success">4</span>
                     </a>
+
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
                         <li>
