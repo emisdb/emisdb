@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\book\models\TestAuthor */
+/* @var $model app\modules\book\models\TestCategory */
 
-$this->title = 'Create Test Author';
-$this->params['breadcrumbs'][] = ['label' => 'Test Authors', 'url' => ['index']];
+$this->title = 'Create Test Category';
+$this->params['breadcrumbs'][] = ['label' => 'Test Categories', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="test-author-create">
+<div class="test-category-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -6,15 +6,15 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Test Authors';
+$this->title = 'Test Books';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="test-author-index">
+<div class="test-book-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Test Author', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Test Book', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
 
@@ -25,6 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
+            'category',
+            'author',
+            'year',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
