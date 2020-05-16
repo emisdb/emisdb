@@ -19,13 +19,13 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     [
-                        'label' => 'Номенклатура',
+                        'label' => 'Книги',
                         'icon' => 'share',
                         'url' => '#',
                         'items' => [
-							['label' => 'Единицы', 'icon' => 'file-code-o','url' => ['/item']],
-							['label' => 'Группы','icon' => 'sitemap', 'url' => ['/product-group']],
-							['label' => 'Товары', 'icon' => 'file-code-o','url' => ['/product']],
+							['label' => 'Авторы', 'icon' => 'file-code-o','url' => ['/book/test-author']],
+							['label' => 'Жанры','icon' => 'sitemap', 'url' => ['/book/test-category']],
+							['label' => 'Книги', 'icon' => 'file-code-o','url' => ['/book/test-book']],
 						],
 					],
                     [
@@ -33,12 +33,24 @@
                         'icon' => 'info',
                         'url' => '#',
                         'items' => [
-							['label' => 'Главная', 'icon' => 'cog','url' => ['/app-site']],
-							['label' => 'Тесты', 'icon' => 'bolt','url' => ['app-site/test']],
-							['label' => 'СПб данные', 'icon' => 'institution','url' => ['app-site/api']],
+							['label' => 'Главная', 'icon' => 'cog','url' => ['/book']],
+							['label' => 'Тесты', 'icon' => 'bolt','url' => ['book/book']],
+							['label' => 'СПб данные', 'icon' => 'institution','url' => ['/book/default/spb']],
 						],
 					],
                      [
+                        'label' => 'Академия',
+                        'icon' => 'building',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Home', 'icon' => 'cogs', 'url' => ['/academ'],],
+                            ['label' => 'Базы', 'icon' => 'cogs', 'url' => ['/academ-bases'],],
+                            ['label' => 'Товары', 'icon' => 'file-code-o', 'url' => ['/academ-product'],],
+                            ['label' => 'Наименования', 'icon' => 'file-code-o', 'url' => ['/academ-product-name'],],
+                            ['label' => 'Количество', 'icon' => 'file-code-o', 'url' => ['/academ-number'],],
+                         ],
+                    ],
+                    [
                         'label' => 'Tools',
                         'icon' => 'bicycle',
                         'url' => '#',

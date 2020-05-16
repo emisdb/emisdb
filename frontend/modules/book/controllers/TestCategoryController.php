@@ -5,14 +5,13 @@ namespace app\modules\book\controllers;
 use Yii;
 use app\modules\book\models\TestCategory;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * TestCategoryController implements the CRUD actions for TestCategory model.
  */
-class TestCategoryController extends Controller
+class TestCategoryController extends AppController
 {
     /**
      * {@inheritdoc}
