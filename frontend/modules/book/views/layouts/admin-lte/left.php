@@ -25,7 +25,7 @@
                         'items' => [
 							['label' => 'Авторы', 'icon' => 'file-code-o','url' => ['/book/test-author']],
 							['label' => 'Жанры','icon' => 'sitemap', 'url' => ['/book/test-category']],
-							['label' => 'Книги', 'icon' => 'file-code-o','url' => ['/book/test-book']],
+							['label' => 'Книги+', 'icon' => 'file-code-o','url' => ['/book/test-book']],
 						],
 					],
                     [
