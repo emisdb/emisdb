@@ -5,13 +5,14 @@ namespace app\modules\book\controllers;
 use Yii;
 use app\modules\book\models\TestBook;
 use yii\data\ActiveDataProvider;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * TestBookController implements the CRUD actions for TestBook model.
  */
-class TestBookController extends AppController
+class TestBookController extends Controller
 {
     /**
      * {@inheritdoc}

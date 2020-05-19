@@ -1,0 +1,20 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+.wrapper{
+    padding: 1px;
+    background: #af6;
+
+}
+.inside{
+        margin:20px;
+        background: #8f9;
+        box-shadow: 10px 10px 2px 2px #9d7;
+        border-top-left-radius: 5em; 
+        border-bottom-right-radius: 5em;
+        padding: 2px 15px;
+        color: #393;
+}
