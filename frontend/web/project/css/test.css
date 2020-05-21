@@ -11,10 +11,17 @@ body, html {
 }
 .inside{
         margin:20px;
-        background: #8f9;
+        background: #7e8;
         box-shadow: 10px 10px 2px 2px #9d7;
         border-top-left-radius: 5em; 
         border-bottom-right-radius: 5em;
         padding: 2px 15px;
         color: #393;
+}
+.inside:hover{
+   background: #6d7;
+   box-shadow: 8px 8px 1px 1px #6a6; 
+    margin:22px;
+    font-weight: bolder;
+
 }
