@@ -26,26 +26,8 @@ CSS
 		<?= Html::a('Данные санкт-петербургского правительства','http://data.gov.spb.ru/developers/');?></h2>
 
      <div>
-		 <table border="1" class="result-data">
-			 <thead>
-				 <tr>
-					 <th>ID</th>
-					 <th>Наименование</th>
-				 </tr>
-			 </thead>
-			 <tbody>
-				<?php if(!(null===$data)) : ?>
-					<?php foreach ($data as $dset): ?>
-					 <tr>
-						 <td>
-				 		<?= Html::a($dset['id'],['spbdata','id'=>$dset['id']]);?></h2>
-						 </td>
-						 <td><?=$dset['name'];?></td>
-					 </tr>
-					<?php endforeach ?>
-				<?php endif ?>
-			 </tbody>
-		 </table>
-
+		 <pre>
+				<?php var_dump($data) ?>			 
+		 </pre>
      </div>
 </div>

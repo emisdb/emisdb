@@ -39,11 +39,14 @@ class ApiDataProvider {
 				
 		}
 	}
-    public function getData(){
-	 	$client = new Client();
+    public function getData($id=0,$postfix=""){
+		$url=$this->url;
+		$client = new Client();
+		if($id>0) $url .=$id."/";
+		if($postfix!="") $url .=$postfix."/";
 		$request = $client->createRequest()
 			->setMethod('GET')
-			->setUrl($this->url);
+			->setUrl($url);
 		if($this->hasAuthorization){
 			$request->addHeaders(['Authorization'=>'Token '.$this->token]);
 		}

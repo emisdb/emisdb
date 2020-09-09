@@ -22,6 +22,12 @@ class DefaultController extends AppController
 		$data= $dp->getData();
 		return $this->render('spb', compact('data'));
     }
+	    public function actionSpbdata($id)
+    {
+		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
+		$data= $dp->getData($id,'versions/latest');
+		return $this->render('spb_data', compact('data'));
+    }
 	    public function actionBook()
     {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_GOOGLE_BOOKS);
