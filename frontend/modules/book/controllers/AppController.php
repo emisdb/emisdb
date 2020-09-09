@@ -7,7 +7,7 @@ class AppController extends Controller
 {
 		public function beforeAction($action)
 	{
-       $this->layout = "admin-lte\main.php";
+       $this->layout = "admin-lte/main.php";
  	 return parent::beforeAction($action);
 	}
 
