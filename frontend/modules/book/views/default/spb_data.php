@@ -26,8 +26,26 @@ CSS
 		<?= Html::a('Данные санкт-петербургского правительства','http://data.gov.spb.ru/developers/');?></h2>
 
      <div>
+		 <table  border="1" class="result-data">
+			 <thead>
+				 <tr>
+					<?php
+					   foreach ($headers["structure"] as $key => $value) {
+						   echo "<td>".$value['name']."</td>";
+					   }
+					   ?>
+				 </tr>
+			 </thead>
+			 <tbody>
+				 <tr>
+					 
+				 </tr>
+			 </tbody>
+		 </table>
 		 <pre>
-				<?php var_dump($data) ?>			 
+				<?php var_dump($headers) ?>			
+				<?php var_dump($data) ?>			
 		 </pre>
+		 
      </div>
 </div>
