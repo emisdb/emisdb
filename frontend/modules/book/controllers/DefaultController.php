@@ -25,7 +25,8 @@ class DefaultController extends AppController {
 
 	public function actionSpbdata($id) {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
-		$headers = $dp->getData($id, 'versions/latest');
+		$heads = $dp->getData($id, 'versions/latest');
+		$headers = array_column($heads["structure"],'name','title');
 		$data = $dp->getData($id, 'versions/latest/data');
 		return $this->render('spb_data', ['data'=>$data, 'headers'=>$headers]);
 	}
