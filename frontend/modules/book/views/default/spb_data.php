@@ -30,21 +30,28 @@ CSS
 			 <thead>
 				 <tr>
 					<?php
-					   foreach ($headers["structure"] as $key => $value) {
-						   echo "<td>".$value['name']."</td>";
+					   foreach ($headers as $key => $value) {
+						   echo "<td>".$value."</td>";
 					   }
 					   ?>
 				 </tr>
 			 </thead>
 			 <tbody>
+				 <?php foreach($data as $val): ?>
 				 <tr>
+					<?php
+					   foreach ($headers as $key => $value) {
+						   echo "<td>".$val['row'][strtolower($key)]."</td>";
+					   }
+					   ?>
 					 
 				 </tr>
+				<?php endforeach; ?>
 			 </tbody>
 		 </table>
 		 <pre>
-				<?php var_dump($headers) ?>			
-				<?php var_dump($data) ?>			
+				<?php //var_dump($headers) ?>			
+				<?php //var_dump($data) ?>			
 		 </pre>
 		 
      </div>
