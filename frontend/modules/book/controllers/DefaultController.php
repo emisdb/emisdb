@@ -3,6 +3,7 @@
 namespace app\modules\book\controllers;
 
 use common\components\ApiDataProvider;
+use yii\data\Pagination;
 
 /**
  * Default controller for the `book` module
