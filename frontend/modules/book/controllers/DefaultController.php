@@ -29,7 +29,7 @@ class DefaultController extends AppController {
 		$heads = $dp->getData($id, 'versions/latest');
 		$headers = array_column($heads["structure"],'name','title');
 		$pagination = new Pagination(['totalCount' => 100, 'pageSize' => 20]);
-		$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page='.$pagination->getPage());
+		$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page=0');//.$pagination->getPage());
 		return $this->render('spb_data', [
 			'data'=>$data,
 			'headers'=>$headers,
