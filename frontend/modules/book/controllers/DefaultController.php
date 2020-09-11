@@ -28,7 +28,12 @@ class DefaultController extends AppController {
 		$heads = $dp->getData($id, 'versions/latest');
 		$headers = array_column($heads["structure"],'name','title');
 		$data = $dp->getData($id, 'versions/latest/data');
-		return $this->render('spb_data', ['data'=>$data, 'headers'=>$headers]);
+		$pagination = new Pagination(['totalCount' => 100, 'pageSize' => 20]);
+		return $this->render('spb_data', [
+			'data'=>$data,
+			'headers'=>$headers,
+			'pagination' => $pagination,
+		]);
 	}
 
 	public function actionBook() {

@@ -49,6 +49,15 @@ CSS
 				<?php endforeach; ?>
 			 </tbody>
 		 </table>
+         <div style="border: solid 1px;">
+			 <? echo LinkPager::widget([
+				 'pagination' => $pagination,
+				 'registerLinkTags' => true
+			 ]); ?>
+             <p>№ текущей страницы: <?= $pagination->getPage() + 1 ?></p>
+             <p>Количество страниц: <?= $pagination->getPageCount() ?></p>
+             <p>Количество постов: <?= $pagination->totalCount ?></p>
+         </div>
 		 <pre>
 				<?php // var_dump($headers) ?>			
 				<?php // var_dump($data) ?>			
