@@ -46,11 +46,11 @@ class ApiDataProvider {
 		return $url;
 
 	}
-		public function getData($id=0,$postfix=""){
+		public function getData($id=0,$postfix="",$last_slash=true){
 		$url=$this->url;
 		$client = new Client();
 		if($id>0) $url .=$id."/";
-		if($postfix!="") $url .=$postfix."/";
+		if($postfix!="") $url .=$postfix. $last_slash ? "/" : "";
 		$request = $client->createRequest()
 			->setMethod('GET')
 			->setUrl($url);
