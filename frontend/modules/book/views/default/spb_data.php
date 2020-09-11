@@ -58,6 +58,7 @@ CSS
              <p>№ текущей страницы: <?= $pagination->getPage() + 1 ?></p>
              <p>Количество страниц: <?= $pagination->getPageCount() ?></p>
              <p>Количество постов: <?= $pagination->totalCount ?></p>
+             <p>Количество offset: <?= $pagination->offset ?></p>
          </div>
 		 <pre>
 				<?php // var_dump($headers) ?>			
