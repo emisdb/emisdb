@@ -39,7 +39,14 @@ class ApiDataProvider {
 				
 		}
 	}
-    public function getData($id=0,$postfix=""){
+	public function getUrl($id=0,$postfix=""){
+		$url=$this->url;
+		if($id>0) $url .=$id."/";
+		if($postfix!="") $url .=$postfix."/";
+		return $url;
+
+	}
+		public function getData($id=0,$postfix=""){
 		$url=$this->url;
 		$client = new Client();
 		if($id>0) $url .=$id."/";
