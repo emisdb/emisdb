@@ -63,7 +63,7 @@ CSS
          </div>
 		 <pre>
 				<?php // var_dump($headers) ?>			
-				<?php  var_dump($data) ?>
+				<?php  var_dump($data); ?>
 		 </pre>
 		 
      </div>
