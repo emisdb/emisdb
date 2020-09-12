@@ -26,10 +26,10 @@ class DefaultController extends AppController {
 
 	public function actionSpbdata($id) {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
-		$heads = $dp->getData($id, 'versions/latest');
+		$heads = $dp->getData($id, 'versions/latest/');
 		$headers = array_column($heads["structure"],'name','title');
 		$pagination = new Pagination(['totalCount' => 100, 'pageSize' => 20]);
-		$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page=1', false);//.$pagination->getPage());
+		$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page=1');//.$pagination->getPage());
 		return $this->render('spb_data', [
 			'data'=>$data,
 			'headers'=>$headers,

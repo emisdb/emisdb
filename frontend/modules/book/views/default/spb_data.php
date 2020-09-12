@@ -38,7 +38,7 @@ CSS
 				 </tr>
 			 </thead>
 			 <tbody>
-				 <?php  foreach($data as $val): ?>
+				 <?php // foreach($data as $val): ?>
 				 <tr>
 					<?php
 /*					   foreach ($headers as $key => $value) {
