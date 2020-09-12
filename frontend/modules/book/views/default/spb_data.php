@@ -38,13 +38,13 @@ CSS
 				 </tr>
 			 </thead>
 			 <tbody>
-				 <?php // foreach($data as $val): ?>
+				 <?php  foreach($data as $val): ?>
 				 <tr>
 					<?php
-/*					   foreach ($headers as $key => $value) {
+					   foreach ($headers as $key => $value) {
 					       $current_dt=$val['row'][strtolower($key)];
-						   echo "<td>".strlen($current_dt) >100 ? mb_substr($current_dt,0,100) : $current_dt."</td>";
-					   }*/
+						   echo "<td>".(strlen($current_dt) >100 ? mb_substr($current_dt,0,100) : $current_dt)."</td>";
+					   }
 					   ?>
 					 
 				 </tr>
