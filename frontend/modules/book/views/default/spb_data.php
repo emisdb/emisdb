@@ -48,7 +48,7 @@ CSS
 					   ?>
 					 
 				 </tr>
-				<?php //endforeach; ?>
+				<?php endforeach; ?>
 			 </tbody>
 		 </table>
          <div style="border: solid 1px;">
