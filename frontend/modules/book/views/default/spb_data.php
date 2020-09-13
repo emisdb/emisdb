@@ -38,6 +38,7 @@ CSS
 				 </tr>
 			 </thead>
 			 <tbody>
+				 <?php if(!($data === null)): ?>
 				 <?php  foreach($data as $val): ?>
 				 <tr>
 					<?php
@@ -46,9 +47,9 @@ CSS
 						   echo "<td>".(strlen($current_dt) >100 ? mb_substr($current_dt,0,100) : $current_dt)."</td>";
 					   }
 					   ?>
-					 
 				 </tr>
 				<?php endforeach; ?>
+				<?php endif; ?>
 			 </tbody>
 		 </table>
          <div style="border: solid 1px;">
@@ -56,14 +57,11 @@ CSS
 				 'pagination' => $pagination,
 				 'registerLinkTags' => true
 			 ]); ?>
-             <p>№ текущей страницы: <?= $pagination->getPage() + 1 ?></p>
-             <p>Количество страниц: <?= $pagination->getPageCount() ?></p>
-             <p>Количество постов: <?= $pagination->totalCount ?></p>
-             <p>Количество offset: <?= $pagination->offset ?></p>
+             <p>№ текущей страницы: <?= $pagination->getPage() + 1  ?>(<?=($pagination->getPageCount()."/".$pagination->totalCount) ?>)</p>
          </div>
 		 <pre>
 				<?php // var_dump($headers) ?>			
-				<?php  var_dump($data); ?>
+				<?php  //var_dump($data); ?>
 		 </pre>
 		 
      </div>
