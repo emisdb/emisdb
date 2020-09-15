@@ -19,6 +19,17 @@ $this->registerCSS(<<<CSS
 div.site-index h2 a{
 		margin: 0px 10px;
 	}
+.hidediv {
+  display: none;
+}
+    
+.showdiv:hover + .hidediv {
+  display: block;
+  color: gray;
+}
+td{
+		vertical-align:top;
+		}
 CSS
 ); 
 ?>
@@ -43,8 +54,21 @@ CSS
 				 <tr>
 					<?php
 					   foreach ($headers as $key => $value) {
-					       $current_dt=$val['row'][strtolower($key)];
-						   echo "<td>".(strlen($current_dt) >100 ? mb_substr($current_dt,0,100) : $current_dt)."</td>";
+					       $current_dt=trim($val['row'][strtolower($key)]);
+						   $show_txt = "";
+						   if(mb_strlen($current_dt) >100){
+							   $show_txt =mb_substr($current_dt,0,100);
+							   $inti= mb_strrpos($show_txt," ");
+							   if($inti<100){
+								   $show_txt= mb_substr($show_txt,0, $inti);
+							   }							   
+							   $hide_txt= mb_substr($current_dt, $inti);
+						   }
+						   
+						   echo "<td>".(mb_strlen($show_txt) == 0 
+								   ? $current_dt 
+								   : "".$show_txt."<span class='showdiv'>..</span><div class='hidediv'>".$hide_txt."</div>")
+								   ."</td>";
 					   }
 					   ?>
 				 </tr>
@@ -61,7 +85,7 @@ CSS
          </div>
 		 <pre>
 				<?php // var_dump($headers) ?>			
-				<?php  //var_dump($data); ?>
+				<?php // var_dump($data); ?>
 		 </pre>
 		 
      </div>
