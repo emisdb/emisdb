@@ -31,11 +31,7 @@ class DefaultController extends AppController {
 		$headers = array_column($heads["structure"],'name','title');
 		$pagination = new Pagination(['totalCount' => 100, 'pageSize' => 20]);
 		$pNum = Yii::$app->request->get('page');
-		if($pNum === null){
-			$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page=1');
-			$pNum=1;
-		}
-
+		if($pNum === null)	$pNum=1;
 		$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page='.$pNum);			
 		if($data === null) {
 			$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);						
