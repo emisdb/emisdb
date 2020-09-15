@@ -22,14 +22,17 @@ div.site-index h2 a{
 .hidediv {
   display: none;
 }
-    
+.showdiv{
+	font-size: 1.4em;
+	cursor:pointer;
+}
 .showdiv:hover + .hidediv {
   display: block;
   color: gray;
 }
-td{
-		vertical-align:top;
-		}
+td {
+	vertical-align:top;
+}
 CSS
 ); 
 ?>

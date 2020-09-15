@@ -42,7 +42,10 @@ class DefaultController extends AppController {
 				$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);						
 			}
 			else {
-				$pagination = new Pagination(['totalCount' => ((int)$pNum+3)*20, 'pageSize' => 20]);						
+				if(count($data)<20)
+					$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);
+				else
+					$pagination = new Pagination(['totalCount' => ((int)$pNum+3)*20, 'pageSize' => 20]);						
 			}
 		}
 		return $this->render('spb_data', [
