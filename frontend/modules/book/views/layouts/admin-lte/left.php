@@ -38,18 +38,18 @@
 							['label' => 'СПб данные', 'icon' => 'institution','url' => ['/book/default/spb']],
 						],
 					],
-                     [
-                        'label' => 'Академия',
-                        'icon' => 'building',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => 'Home', 'icon' => 'cogs', 'url' => ['/academ'],],
-                            ['label' => 'Базы', 'icon' => 'cogs', 'url' => ['/academ-bases'],],
-                            ['label' => 'Товары', 'icon' => 'file-code-o', 'url' => ['/academ-product'],],
-                            ['label' => 'Наименования', 'icon' => 'file-code-o', 'url' => ['/academ-product-name'],],
-                            ['label' => 'Количество', 'icon' => 'file-code-o', 'url' => ['/academ-number'],],
-                         ],
-                    ],
+//                     [
+//                        'label' => 'Академия',
+//                        'icon' => 'building',
+//                        'url' => '#',
+//                        'items' => [
+//                            ['label' => 'Home', 'icon' => 'cogs', 'url' => ['/academ'],],
+//                            ['label' => 'Базы', 'icon' => 'cogs', 'url' => ['/academ-bases'],],
+//                            ['label' => 'Товары', 'icon' => 'file-code-o', 'url' => ['/academ-product'],],
+//                            ['label' => 'Наименования', 'icon' => 'file-code-o', 'url' => ['/academ-product-name'],],
+//                            ['label' => 'Количество', 'icon' => 'file-code-o', 'url' => ['/academ-number'],],
+//                         ],
+//                    ],
                     [
                         'label' => 'Tools',
                         'icon' => 'bicycle',
