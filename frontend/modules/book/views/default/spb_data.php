@@ -12,6 +12,9 @@ $this->registerCSS(<<<CSS
 .result-data td{
   padding: 3px;
 }
+div.scrolled{
+    overflow-x: scroll; 		
+}
 .result-data   td:first-of-type {
     background: #CFD6D3; /* Цвет фона */
 	text-align: right;
@@ -41,6 +44,7 @@ CSS
 		<?= Html::a('Данные санкт-петербургского правительства','http://data.gov.spb.ru/developers/');?></h2>
 
      <div>
+	    <div class="scrolled">
 		 <table  border="1" class="result-data">
 			 <thead>
 				 <tr>
@@ -79,6 +83,7 @@ CSS
 				<?php endif; ?>
 			 </tbody>
 		 </table>
+         </div>
          <div style="border: solid 1px;">
 			 <? echo LinkPager::widget([
 				 'pagination' => $pagination,

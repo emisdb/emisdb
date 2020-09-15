@@ -33,21 +33,20 @@ class DefaultController extends AppController {
 		$pNum = Yii::$app->request->get('page');
 		if($pNum === null){
 			$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page=1');
-			$pagination = new Pagination(['totalCount' => 80, 'pageSize' => 20]);		
+			$pNum=1;
 		}
-		else
-		{
-			$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page='.$pNum);			
-			if($data === null) {
-				$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);						
-			}
-			else {
-				if(count($data)<20)
-					$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);
-				else
-					$pagination = new Pagination(['totalCount' => ((int)$pNum+3)*20, 'pageSize' => 20]);						
-			}
+
+		$data = $dp->getData($id, 'versions/latest/data/?per_page=20&page='.$pNum);			
+		if($data === null) {
+			$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);						
 		}
+		else {
+			if(count($data)<20)
+				$pagination = new Pagination(['totalCount' => ((int)$pNum)*20, 'pageSize' => 20]);
+			else
+				$pagination = new Pagination(['totalCount' => ((int)$pNum+3)*20, 'pageSize' => 20]);						
+		}
+
 		return $this->render('spb_data', [
 			'data'=>$data,
 			'headers'=>$headers,
