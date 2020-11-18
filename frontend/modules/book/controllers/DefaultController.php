@@ -49,6 +49,22 @@ class DefaultController extends AppController {
 			'pagination' => $pagination,
 		]);
 	}
+	public function actionAjaxParse($id,$page) {
+		return json_encode(['ID'=>$id,'PG'=>$page]);
+		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
+		$data = $dp->getData($id, 'versions/latest/data/?per_page=100&page='.$page);
+		return  $data;
+
+	}
+		public function actionParsedata($id=null) {
+		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
+		$heads = $dp->getData($id, 'versions/latest/');
+		$headers = array_column($heads["structure"],'name','title');
+		return $this->render('spb_parse', [
+			'id'=>$id,
+			'headers'=>$headers,
+		]);
+	}
 
 	public function actionBook() {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_GOOGLE_BOOKS);
