@@ -6,6 +6,7 @@ use app\modules\book\models\Providers;
 use app\modules\book\models\Category;
 use common\components\ApiDataProvider;
 use yii\data\Pagination;
+use yii\base\ErrorException;
 use Yii;
 
 /**
@@ -51,33 +52,87 @@ class DefaultController extends AppController {
 			'pagination' => $pagination,
 		]);
 	}
-	public function actionAjaxParse($id,$page) {
-		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
-		$data = $dp->getData($id, 'versions/latest/data/?per_page=10&page='.$page);
-		$recs = 0;
-		foreach ($data as $val){
-			$provider = new Providers();
-			$provider->brand_name 		= $val['row']['name'];
-			$provider->brand_name_en 	= $val['row']['name_en'];
-			$provider->category_id 		= Category::CATEGORY_RESTAURANTS;
-			$provider->address 			= $val['row']['address_manual'];
-			$provider->short_description 		= $val['row']['oid'];
-			$provider->description 		= $val['row']['kitchen'];
-			$provider->email 			= $val['row']['email'];
-			$provider->phone 			= $val['row']['phone'];
-			$provider->web_url 			= $val['row']['www'];
-			$provider->object_type 		= "ресторан";
-			if($pos=$this->getPosition($val['row']['coord'])){
-				$provider->latitude	 = $pos[0];
-				$provider->longitude = $pos[1];
-			}
-			$provider->save();
-			$recs++;
-		}
+	public function actionAjaxParse($id) {
+			$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
+			$page = 1;
+			$recs = 0;
+			$errs =	array();
+			do {
+				$data = $dp->getData($id, 'versions/latest/data/?per_page=100&page='.$page);
+				$recs_in_loop = 0;
+				$page++;
+				try {
+						foreach ($data as $val){
+							$provider = new Providers();
+							$provider->brand_name 		= mb_substr(trim($val['row']['name']),0,50);
+							$provider->brand_name_en 	= mb_substr(trim($val['row']['name_en']),0,50);
+							$provider->address 			= $val['row']['address_manual'];
+							$provider->short_description 		= $val['row']['oid'];
+							$provider->email 			= mb_substr(trim($val['row']['email']),0,50);
+							$provider->phone 			= mb_substr(trim($val['row']['phone']),0,50);
+							$provider->web_url 			= mb_substr(trim($val['row']['www']),0,250);
+							if($pos=$this->getPosition($val['row']['coord'])){
+								$provider->latitude	 = $pos[0];
+								$provider->longitude = $pos[1];
+							}
+							switch ($id){
+								case 123:
+									$this->parseMuseums($provider,$val);
+									break;
+								case 124:
+									$this->parseTheater($provider,$val);
+									break;
+								case 125:
+									$this->parseHall($provider,$val);
+									break;
+								case 127:
+									$this->parseRests($provider,$val);
+									break;
+								case 128:
+									$this->parseSights($provider,$val);
+									break;
+							}
+							if($provider->save()) $recs++;
+							$recs_in_loop++;
+						}
+					} catch (ErrorException $e) {
+						$errs[] = $e->getMessage();
+					}
+				if($recs_in_loop<100) break;
+				if($page>50) break;
+				} while (true);
 //		$json = json_encode($data);
-		$json = json_encode([$id, $page, $recs]);
+		$json = json_encode([$id, $page, $recs, $page, $errs]);
 		return  $json;
 
+	}
+	protected function parseRests($provider,$val){
+		$provider->category_id 		= Category::CATEGORY_RESTAURANTS;
+		$provider->object_type 		= "ресторан";
+		$provider->description 		= $val['row']['kitchen'];
+	}
+	protected function parseMuseums($provider,$val){
+		$provider->category_id 		= Category::CATEGORY_MUSEUMS;
+		$provider->object_type 		= mb_substr(trim($val['row']['type']),0,32);
+		$provider->area		 		= mb_substr(trim($val['row']['district']),0,32);
+		$provider->description 		= $val['row']['description'];
+		$provider->description_en	= $val['row']['description_en'];
+	}
+	protected function parseTheater($provider,$val){
+		$provider->category_id 		= Category::CATEGORY_THEATRES;
+		$provider->object_type 		= mb_substr(trim($val['row']['type']),0,32);
+	}
+	protected function parseHall($provider,$val){
+		$provider->category_id 		= Category::CATEGORY_MUSEUMS;
+		$provider->object_type 		= mb_substr(trim($val['row']['type']),0,32);
+		$provider->description 		= $val['row']['description'];
+		$provider->description_en	= $val['row']['description_en'];
+	}
+	protected function parseSights($provider,$val){
+		$provider->category_id 		= Category::CATEGORY_SIGHTS;
+		$provider->object_type 		= mb_substr(trim($val['row']['obj_type']),0,32);
+		$provider->description 		= $val['row']['description'];
+		$provider->description_en	= $val['row']['description_en'];
 	}
 	protected function getPosition($txt){
 		$latlon = explode(",", $txt);

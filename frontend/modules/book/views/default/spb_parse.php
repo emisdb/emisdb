@@ -14,7 +14,7 @@ $this->title = "Спб данные";
 	<h2 class="headline text-info"><i class="fa fa-warning text-yellow"></i>
 		<?= Html::a('Парсинг данных санкт-петербургского правительства','http://data.gov.spb.ru/developers/');?></h2>
 		<?= Html::input('number','data_id', $id, $options=['class'=>'form-control','maxlength'=>10, 'style'=>'width:350px', 'id'=>'data_id']) ?>
-	<?= Html::a('Получить данные', ['ajax-parse','page'=>1], ['class' => 'btn btn-success', 'id'=>'getData']) ?>
+	<?= Html::a('Получить данные', ['ajax-parse'], ['class' => 'btn btn-success', 'id'=>'getData']) ?>
        <pre>
 				<?php  var_dump($headers); ?>
       <hr/>
