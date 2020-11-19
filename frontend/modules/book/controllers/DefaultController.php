@@ -67,10 +67,11 @@ class DefaultController extends AppController {
 			$provider->phone 			= $val['row']['phone'];
 			$provider->web_url 			= $val['row']['www'];
 			$provider->object_type 		= "ресторан";
-			if($pos=getPosition($val['row']['coord'])){
+			if($pos=$this->getPosition($val['row']['coord'])){
 				$provider->latitude	 = $pos[0];
 				$provider->longitude = $pos[1];
 			}
+			$provider->save();
 			$recs++;
 		}
 //		$json = json_encode($data);
