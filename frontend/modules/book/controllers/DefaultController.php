@@ -2,6 +2,8 @@
 
 namespace app\modules\book\controllers;
 
+use app\modules\book\models\Providers;
+use app\modules\book\models\Category;
 use common\components\ApiDataProvider;
 use yii\data\Pagination;
 use Yii;
@@ -50,16 +52,49 @@ class DefaultController extends AppController {
 		]);
 	}
 	public function actionAjaxParse($id,$page) {
-		return json_encode(['ID'=>$id,'PG'=>$page]);
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
-		$data = $dp->getData($id, 'versions/latest/data/?per_page=100&page='.$page);
-		return  $data;
+		$data = $dp->getData($id, 'versions/latest/data/?per_page=10&page='.$page);
+		$recs = 0;
+		foreach ($data as $val){
+			$provider = new Providers();
+			$provider->brand_name 		= $val['row']['name'];
+			$provider->brand_name_en 	= $val['row']['name_en'];
+			$provider->category_id 		= Category::CATEGORY_RESTAURANTS;
+			$provider->address 			= $val['row']['address_manual'];
+			$provider->short_description 		= $val['row']['oid'];
+			$provider->description 		= $val['row']['kitchen'];
+			$provider->email 			= $val['row']['email'];
+			$provider->phone 			= $val['row']['phone'];
+			$provider->web_url 			= $val['row']['www'];
+			$provider->object_type 		= "ресторан";
+			if($pos=getPosition($val['row']['coord'])){
+				$provider->latitude	 = $pos[0];
+				$provider->longitude = $pos[1];
+			}
+			$recs++;
+		}
+//		$json = json_encode($data);
+		$json = json_encode([$id, $page, $recs]);
+		return  $json;
 
 	}
-		public function actionParsedata($id=null) {
+	protected function getPosition($txt){
+		$latlon = explode(",", $txt);
+		if (count($latlon)==2){
+			$latlon[0] = trim($latlon[0]);
+			$latlon[1] = trim($latlon[1]);
+			return $latlon;
+		}
+		return false;
+	}
+
+	public function actionParsedata($id=null) {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
-		$heads = $dp->getData($id, 'versions/latest/');
-		$headers = array_column($heads["structure"],'name','title');
+		if(!is_null($id)) {
+			$heads = $dp->getData($id, 'versions/latest/');
+			$headers = array_column($heads["structure"], 'name', 'title');
+		}
+		else $headers=array();
 		return $this->render('spb_parse', [
 			'id'=>$id,
 			'headers'=>$headers,
