@@ -3,11 +3,15 @@
 namespace app\modules\book\controllers;
 
 use app\modules\book\models\Providers;
+use app\modules\book\models\Provider;
 use app\modules\book\models\Category;
 use common\components\ApiDataProvider;
+use common\components\CSVParser;
+use frontend\models\FileForm;
 use yii\data\Pagination;
 use yii\base\ErrorException;
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * Default controller for the `book` module
@@ -143,6 +147,21 @@ class DefaultController extends AppController {
 		}
 		return false;
 	}
+	protected function parseProvider($data){
+		$keys=[];
+		foreach($data as $i => $res) {
+			$provider = new Provider();
+			foreach($res as $key => $val) {
+				if (!empty($val)) {
+					$provider->setAttribute($key,$val);
+					$keys[] =[$i,$key];
+				}
+			}
+			$provider->save();
+		}
+		return $keys;
+
+	}
 
 	public function actionParsedata($id=null) {
 		$dp = new ApiDataProvider(ApiDataProvider::PROVIDER_SPB_GOV);
@@ -155,6 +174,28 @@ class DefaultController extends AppController {
 			'id'=>$id,
 			'headers'=>$headers,
 		]);
+	}
+	public function actionCsvparse()
+	{
+
+		$modelff=new FileForm();
+		$res=[];
+		$keys=[];
+		if($modelff->load(Yii::$app->request->post()) && $modelff->validate())
+		{
+//                        $modelff->attributes=$_POST['FileForm'];
+			$modelff->csv = UploadedFile::getInstance($modelff, 'csv');
+			$file=$modelff->upload_csv();
+			if ($file) {
+				$parser=new CSVParser($file,',');
+				$res=$parser->parse();
+				$keys=$this->parseProvider($res);
+
+			}
+		}
+		return     $this->render('csv',
+			['ff'=>$modelff,'result'=>$res,'keys'=>$keys]
+		);
 	}
 
 	public function actionBook() {

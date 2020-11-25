@@ -37,6 +37,7 @@
 							['label' => 'Тесты', 'icon' => 'bolt','url' => ['book/book']],
 							['label' => 'СПб данные', 'icon' => 'institution','url' => ['/book/default/spb']],
 							['label' => 'Парсинг', 'icon' => 'institution','url' => ['/book/default/parsedata']],
+							['label' => 'CSV парсинг', 'icon' => 'institution','url' => ['/book/default/csvparse']],
 						],
 					],
 //                     [
