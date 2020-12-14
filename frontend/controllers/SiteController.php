@@ -244,7 +244,7 @@ class SiteController extends Controller
 		}
 	public function actionWh()
 	{
-		$attributes = $this->request;
+		$attributes = Yii::$app->request;
 		$attribs = array(
 			'params' =>substr(json_encode($attributes),0, 255),
 			'ip' => '*.*.*.*'
