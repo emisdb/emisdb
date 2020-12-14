@@ -14,7 +14,7 @@ $f=  ActiveForm::begin();
         <?php echo Html::submitInput('ENTER',['style'=>'margin-top:30px;']); ?>
     </div>
     <div class='col-md-6' style='padding-top:30px;'>
-       <? echo "<b >".$resid."</b>"; ?>
+       <?="<b >".$resid."</b>"; ?>
     </div>
 </div>
 <?php

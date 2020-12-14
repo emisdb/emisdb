@@ -57,7 +57,8 @@
                         'icon' => 'bicycle',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Vue', 'icon' => 'cogs', 'url' => ['app-site/test'],],
+							['label' => 'Chat', 'icon' => 'copy', 'url' => ['/book/default/chat'],],
+							['label' => 'Vue', 'icon' => 'cogs', 'url' => ['app-site/test'],],
                             ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
                             ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
                          ],

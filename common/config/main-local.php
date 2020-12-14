@@ -3,7 +3,7 @@ return [
     'components' => [
 		'db' => [
 			'class' => 'yii\db\Connection',
-			'dsn' => 'mysql:host=localhost;dbname=motu_test',
+			'dsn' => 'mysql:host=localhost;dbname=emisdb',
 			'username' => 'emisdb',
 			'password' => 'password',
 			'charset' => 'utf8',

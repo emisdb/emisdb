@@ -2,6 +2,7 @@
 
 namespace app\modules\book\controllers;
 
+use app\modules\book\models\ChatData;
 use app\modules\book\models\Providers;
 use app\modules\book\models\Provider;
 use app\modules\book\models\Category;
@@ -203,5 +204,15 @@ class DefaultController extends AppController {
 		$data = $dp->getData();
 		return $this->render('google', compact('data'));
 	}
-
+	public function actionChat(){
+		$data = [];
+		$form= new ChatData();
+		return $this->render('chat', compact('data','form'));
+	}
+	public function actionChatting()
+	{
+//		return "test";
+		return json_encode($this->request->post());
+//		return $this->renderAjax("index");
+	}
 }

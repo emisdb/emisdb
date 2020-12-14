@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\LoginForm;
+use common\models\SquareWebhook;
 use frontend\models\FileForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -241,5 +242,17 @@ class SiteController extends Controller
 			return $this->render('projects', ['projects'=>$proj,'pg'=>$pg]);
 	
 		}
+	public function actionWh()
+	{
+		$attributes = $this->request;
+		$attribs = array(
+			'params' =>substr(json_encode($attributes),0, 255),
+			'ip' => '*.*.*.*'
+		);
+		$model = new SquareWebhook();
+		$model->attributes = $attribs;
+		$model->save();
+
+	}
  }
 
