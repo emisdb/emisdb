@@ -38,7 +38,9 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
+	public $enableCsrfValidation = false;
+
+	public function behaviors()
     {
         return [
             'access' => [
@@ -245,9 +247,10 @@ class SiteController extends Controller
 	public function actionWh()
 	{
 		$attributes = Yii::$app->request;
+//		var_dump($attributes);
 		$attribs = array(
-			'params' =>substr(json_encode($attributes),0, 255),
-			'ip' => '*.*.*.*'
+			'params' =>substr(json_encode($attributes),0, 2048),
+			'ip' => date('d.m H:i:s'),
 		);
 		$model = new SquareWebhook();
 		$model->attributes = $attribs;

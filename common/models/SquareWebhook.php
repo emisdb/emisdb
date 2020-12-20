@@ -21,7 +21,7 @@ class SquareWebhook extends \yii\db\ActiveRecord
 	public function rules()
 	{
 		return array(
-			array(['params'], 'string', 'max' => 255),
+			array(['params'], 'string', 'max' => 2048),
 			array(['ip'], 'string', 'max' => 15),
 		);
 	}
