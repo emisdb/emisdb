@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ticket count</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script type="text/javascript" >
+            window.onload = function() {
+ /*               result = countAll();
+                x = showResult(result[0]);
+                x += showResult(result[1]);
+ */
+                result = countSuperumbers(0,475);
+                x = showResult(result);
+                document.getElementById("demo").innerHTML = x;
+            };
+            function countNumbers(from,to){
+                arri=[];
+                for(i=from;i<=to;i++){
+                    a = parseInt(i/100);
+                    b = parseInt((i-a*100)/10);
+                    c = i%10;
+                    d = a+b+c;
+                    if(isNaN(arri[d]))  arri[d]=1;
+                    else               arri[d]++;
+
+                }
+                return arri;
+            }
+            function countSuperumbers(from,to){
+                arri=[];
+                for(i=from;i<=to;i++){
+                    a = parseInt(i/100);
+                    b = parseInt((i-a*100)/10);
+                    c = i%10;
+                    d = a+b+c;
+                    if(d>9) {
+                        e = parseInt(d/10) + (d % 10);
+                        if(e==10) e=1;
+                        if(isNaN(arri[e]))  arri[e]=1;
+                        else               arri[e]++;
+                    } else {
+                        if(isNaN(arri[d]))  arri[d]=1;
+                        else               arri[d]++;
+                    }
+
+                }
+                return arri;
+            }
+            function showResult(arr){
+                x = "<table>";
+                y= 0;
+                for(a=0;a<arr.length;a++) {
+                    if(isNaN(arr[a])) continue;
+                    x +="<tr><td>"+a+"</td><td>"+arr[a]+"</td></tr>\n" ;
+                    y +=arr[a];
+                }
+                x +="</table>";
+                x +="<h3>Count:" + y + "</h3>";
+                x += "<table>";
+                return x;
+            }
+            function countAll(){
+                arr=[];
+                arri=[];
+                for(a=0;a<10;a++){
+                    for(b=0;b<10;b++){
+                        for(c=0;c<10;c++){
+                            d = a+b+c;
+                            if(d>9) {
+                                e = parseInt(d/10) + (d % 10);
+                                if(e==10) e=1;
+                                if(isNaN(arri[e]))  arri[e]=1;
+                                else               arri[e]++;
+                            } else {
+                                if(isNaN(arri[d]))  arri[d]=1;
+                                else               arri[d]++;
+
+                            }
+                            if(isNaN(arr[d]))  arr[d]=1;
+                            else               arr[d]++;
+                        }
+                    }
+                }
+                return [arr,arri];
+            }
+        </script>
+    </head>
+    <body>
+        <a href="index.html">Back</a>
+        <div id="demo">TODO write content</div>
+     </body>
+</html>

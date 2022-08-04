@@ -4,8 +4,8 @@ return [
 		'db' => [
 			'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host=localhost;dbname=emisdb',
-			'username' => 'emisdb',
-			'password' => 'password',
+			'username' => 'admin',
+			'password' => '',
 			'charset' => 'utf8',
 		],
 		'mailer' => [
