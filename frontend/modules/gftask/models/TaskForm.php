@@ -46,12 +46,6 @@ class TaskForm extends Model
 		$result0 = 0;
 		if($this->range['first']['range']>0) {
 			$this->numberBySums['second']['thousands'] = $this->countNumbers(0, 999);
-/*
-			$mult = $this->range['first']['range'];
-			$this->numberBySums['second']['thousands'] = array_map(function ($value) use ($mult) {
-				return ($value * $mult);
-			}, $this->numberBySums['second']['thousands']);
-*/
 		}
 		/* count the number of sums for  last 3 digits from the highest thousand number to the highest number */
 		if($this->range['first']['range']>=0) {
