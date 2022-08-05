@@ -38,7 +38,7 @@ AppAsset::register($this);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'About', 'url' => ['/book/default']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => '5G Task', 'url' => ['/gftask/default']],
                 ['label' => 'Languges', 'url' => ['/site/languages']],
             ];
             if (Yii::$app->user->isGuest) {
