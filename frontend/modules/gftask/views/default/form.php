@@ -5,7 +5,11 @@ use yii\helpers\Html;
 
 ?>
 	<div class="container">
-<?php $f=  ActiveForm::begin(); ?>
+<?php $f=  ActiveForm::begin(['id' => 'form-tickets-number',
+							'enableClientValidation' => true,
+							'enableAjaxValidation' => false,
+							'action' => ['/gftask/default/ajax-number'],
+	]); ?>
 		<div class='row'>
 			<div class="col-md-4">
 				<?php echo $f->field($form, 'start'); ?>
@@ -21,12 +25,7 @@ use yii\helpers\Html;
 		</div>
 		<div class='row'>
 			<div class="col-md-4">
-				<?php
-				if(isset($number)&&$number>0 ) $color='#faf'; else $color='#faa';
-				if(isset($number)) {
-					echo '<div class="result">Number of tickets:' . $number . '</div>';
-				}
-				?>
+					<div class="result" id="result-field">Number of tickets:</div>
 			</div>
 		</div>
 		<?php ActiveForm::end(); ?>
@@ -40,3 +39,25 @@ use yii\helpers\Html;
 		margin-top: 25px;
 	}
 </style>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		$('#form-tickets-number').on('beforeSubmit', function(e) {
+		var form = $(this);
+		var formData = form.serialize();
+		$.ajax({
+			url: form.attr("action"),
+			type: form.attr("method"),
+			data: formData,
+			}).done(function(response) {
+			if (response.data.success == true) {
+				document.getElementById("result-field").innerHTML = "Number of tickets:" + response.data.model + ".";
+			}
+		}).fail(function() {
+				console.log("error");
+			});
+
+	}).on('submit', function(e){
+		e.preventDefault();
+	});
+	});
+</script>
