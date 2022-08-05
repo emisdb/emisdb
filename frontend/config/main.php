@@ -15,7 +15,10 @@ return [
         'book' => [
             'class' => 'app\modules\book\Book',
         ],
-    ],
+		'gftask' => [
+			'class' => 'app\modules\gftask\Gftask',
+		],
+	],
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
