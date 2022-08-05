@@ -9,16 +9,92 @@ and open the template in the editor.
         <title>Ticket count</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <script type="text/javascript" >
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .container {
+                background-color: lightgrey;
+                margin-top: 20px;
+                padding: 10px;
+            }
+            table td {
+                border: groove black 2px;
+            }
+        </style>
+        <script type="text/javascript" >
+
             window.onload = function() {
  /*               result = countAll();
                 x = showResult(result[0]);
                 x += showResult(result[1]);
  */
-                result = countSuperumbers(0,475);
+                document.getElementById('from').value = '100000';
+                document.getElementById('to').value = '500000';
+            };
+
+
+            function runClick(superNum = 0){
+                var data =[];
+                var from = parseInt(document.getElementById('from').value);
+                var to = parseInt(document.getElementById('to').value);
+                data['from'] = [from, parseInt(from/1000), from % 1000 ];
+                data['to'] = [to,  parseInt(to/1000), to % 1000 ];
+                data['res'] = [to-from,  data['to'][1]-data['from'][1], 1000-data["from"][2] ];
+                titles =['from','to', 'res']
+                x = "<table>";
+                       titles.forEach(function(tit){
+                           x +=   "<tr><td>" + tit + "</td><td>" + data[tit][0] + "</td><td>"
+                                   + data[tit][1] + "</td><td>"
+                                   + data[tit][2] + "</td></tr>";
+                       });
+                        x += "</table>";
+                document.getElementById("predemo").innerHTML = x;
+                if(superNum)   res = countSuperumbers(data['from'][1],data['to'][1]);
+                else res = countNumbers(data['from'][1],data['to'][1]);
+                  x = showResult(res);
+                document.getElementById("demo").innerHTML = x;
+
+                x = "";
+                resarr = "";
+                if(data['from'][2] > 0){
+                    if(data['res'][1]>0) tores = 999;
+                    else tores = data['to'][2];
+                    data['res'][1]--;
+                    if(superNum)   res1 = countSuperumbers(data['from'][2],tores);
+                    else res1 = countNumbers(data['from'][2],tores);
+ //                   x += showResult(res1);
+                    resarr = res1;
+                }
+                if(data['res'][1]>0){
+                    if(superNum)   res2 = countSuperumbers(0,999);
+                    else res2 = countNumbers(0,999);
+                    res2.forEach(function(val, ix){
+                       res2[ix] = val *  data['res'][1];
+                    });
+   //                 x += "<hr/>" + showResult(res2);
+                    if(Array.isArray(resarr)) resarr = sumArray(resarr, res2);
+                    else resarr = res2;
+
+                }
+                if(data['res'][1]>0){
+                    if(data['to'][2]>0) {
+                        if(superNum)   res3 = countSuperumbers(0,data['to'][2]);
+                        else res3 = countNumbers(0,data['to'][2]);
+                        //                   x += "<hr/>" + showResult(res3);
+                        if(Array.isArray(resarr)) resarr = sumArray(resarr, res3);
+                        else resarr = res3;
+                    } else resarr[0]++;
+                }
+                 x += "<hr/>" + showResult(resarr);
+                document.getElementById("postdemo").innerHTML = x;
+            }
+
+                function runCount(from,to){
+                    result = countSuperumbers(0,475);
                 x = showResult(result);
                 document.getElementById("demo").innerHTML = x;
-            };
+
+            }
             function countNumbers(from,to){
                 arri=[];
                 for(i=from;i<=to;i++){
@@ -89,10 +165,40 @@ and open the template in the editor.
                 }
                 return [arr,arri];
             }
+            function sumArray(a, b) {
+                var c = [];
+                for (var i = 0; i < Math.max(a.length, b.length); i++) {
+                    c.push((a[i] || 0) + (b[i] || 0));
+                }
+                return c;
+            }
         </script>
     </head>
     <body>
-        <a href="index.html">Back</a>
-        <div id="demo">TODO write content</div>
-     </body>
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <form action="g5.html" target="_blank" method="GET">
+            <label for="from">N - from:</label>
+            <input type="number" id="from" name="from" min="0" step ="1" max="999999">
+            <label for="to">N - to:</label>
+            <input type="number" id="to" name="to" min="0" step ="1" max="999999">
+            <br>
+            <br>
+                <input type="button" value="RUN" onclick="runClick()">
+                <input type="button" value="RUN SUPER" onclick="runClick(1)">
+        </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="predemo">precontent</div>
+            <div id="demo">content</div>
+            <div id="postdemo">content</div>
+        </div>
+    </div>
+
+    </body>
 </html>

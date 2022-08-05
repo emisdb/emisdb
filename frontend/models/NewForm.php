@@ -8,14 +8,19 @@ use yii\base\Model;
 class NewForm extends Model
 {
     public $name;
-    public $age;
+	public $start;
+	public $finish;
    public $email;
     public $active;
+	private $number = 0;
     
     public function rules() {
        return [
-           [['name'],'required'],
-           [['age'],'integer'],
+           [['name','start','finish'],'required'],
+		   [['start'],'integer','min'=>0, 'max' => 999999],
+		   [['finish'],'integer','min'=>0, 'max' => 999999],
+		   ['start','compare','compareAttribute' => 'finish', 'operator' => '<', 'type' => 'number'],
+		   ['finish','compare','compareAttribute' => 'start', 'operator' => '>', 'type' => 'number'],
            [['email'],'email'],
             [['active'],'boolean']
            ];
@@ -24,11 +29,17 @@ class NewForm extends Model
     {
         return [
             'name' => 'Shortname',
-            'age' => 'Age',
-            'email' => 'E-mail',
+            'start' => 'N - From',
+			'finish' => 'N - to',
+			'email' => 'E-mail',
             'active' => 'Act',
         ];
     }
+
+	public function getNumber() {
+
+		return $this->number = $this->finish - $this->start;
+}
 
 }
 

@@ -222,7 +222,7 @@ class SiteController extends Controller
     {
         $form=new NewForm();
          if ($form->load(Yii::$app->request->post()) && $form->validate() ) {
-            return $this->render('form', ['form'=>$form,'name'=>$form->name,'age'=>$form->age,'act'=>$form->active,'mail'=>$form->email]);           
+            return $this->render('form', ['form'=>$form,'number'=>$form->number]);
          }
         return $this->render('form', ['form'=>$form]);
     }
