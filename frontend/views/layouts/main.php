@@ -40,7 +40,8 @@ AppAsset::register($this);
                 ['label' => 'About', 'url' => ['/book/default']],
                 ['label' => 'G5 Task', 'url' => ['/gftask/default']],
                 ['label' => 'Languges', 'url' => ['/site/languages']],
-            ];
+				['label' => 'Panel', 'url' => ['/book/default']],
+			];
             if (Yii::$app->user->isGuest) {
                 $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
