@@ -37,7 +37,7 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/book/default']],
+                ['label' => 'About', 'url' => '/project'],
                 ['label' => 'G5 Task', 'url' => ['/gftask/default']],
                 ['label' => 'Languges', 'url' => ['/site/languages']],
 				['label' => 'Panel', 'url' => ['/book/default']],
