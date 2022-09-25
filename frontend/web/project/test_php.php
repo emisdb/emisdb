@@ -21,6 +21,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body  data-spy="scroll" data-target="#comNavbar">
 <?php
+echo "test";
+//    phpinfo();
+?>
 
 	$sum = array_sum(array_map(function($val){ return is_numeric($val) ? $val :0;}, [1,2,3, null, 'test', new DateTime()]));
 	var_dump($sum);
